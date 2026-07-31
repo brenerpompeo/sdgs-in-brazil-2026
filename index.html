@@ -7,7 +7,7 @@
     <title>SDGs in Brazil 2026 | Pacto Global da ONU - Rede Brasil</title>
     <meta name="description" content="SDGs in Brazil 2026 — 18 de Setembro de 2026 na Sede da ONU em Nova York. Evidências, substância e ação concreta das lideranças brasileiras para a Agenda 2030." />
     
-    <!-- Tailwind CSS Script CDN com suporte total instantaneo -->
+    <!-- Tailwind CSS Script CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -15,14 +15,11 @@
         theme: {
           extend: {
             colors: {
-              un: {
-                blue: '#0066FF',
-                dark: '#050B14',
-                navy: '#0A1628',
-                card: '#0F213D',
-                cyan: '#00A3E0',
-                emerald: '#00FF41',
-                gold: '#FFD700',
+              kv: {
+                teal: '#0D6886',
+                navy: '#1B2436',
+                purple: '#683B75',
+                light: '#0E7A9D',
               }
             },
             fontFamily: {
@@ -39,44 +36,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- CSS Customizado embutido para garantir Glassmorphism e Glow em qualquer servidor -->
     <style>
       body {
-        background-color: #050B14 !important;
-        color: #f8fafc !important;
+        background-color: #0D6886 !important;
+        color: #ffffff !important;
         font-family: 'Outfit', 'Inter', sans-serif !important;
       }
       .glass-panel {
-        background: rgba(15, 33, 61, 0.75) !important;
+        background: rgba(27, 36, 54, 0.85) !important;
         backdrop-filter: blur(16px) !important;
         -webkit-backdrop-filter: blur(16px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
       }
       .glass-panel-hover {
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
       }
       .glass-panel-hover:hover {
-        background: rgba(20, 42, 78, 0.9) !important;
-        border-color: rgba(0, 102, 255, 0.5) !important;
+        background: rgba(27, 36, 54, 0.95) !important;
+        border-color: rgba(255, 255, 255, 0.3) !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 10px 30px -10px rgba(0, 102, 255, 0.3) !important;
-      }
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #050B14;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #0F213D;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #0066FF;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4) !important;
       }
     </style>
   </head>
-  <body class="bg-[#050B14] text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden">
+  <body class="bg-[#0D6886] text-white font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
