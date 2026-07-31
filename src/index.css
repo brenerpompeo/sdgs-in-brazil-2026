@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Flama';
-  src: url('/assets/Fonts/Flama-Basic.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'FlamaCondensed';
-  src: url('/assets/Fonts/FlamaCondensed-Book 5.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 @layer base {
   body {
     @apply bg-[#050B14] text-slate-100 antialiased;
@@ -25,7 +9,7 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: 'FlamaCondensed', 'Flama', 'Inter', sans-serif;
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
     letter-spacing: -0.02em;
   }
 }
