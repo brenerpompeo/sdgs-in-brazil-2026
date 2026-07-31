@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Flama';
+  src: url('/assets/Fonts/Flama-Basic.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FlamaCondensed';
+  src: url('/assets/Fonts/FlamaCondensed-Book 5.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply bg-[#050B14] text-slate-100 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'FlamaCondensed', 'Flama', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Utilities */
+.glass-panel {
+  background: rgba(15, 33, 61, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(20, 42, 78, 0.85);
+  border-color: rgba(0, 102, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(0, 102, 255, 0.25);
+}
+
+.glow-text-blue {
+  text-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
+}
+
+.glow-text-green {
+  text-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050B14;
+}
+::-webkit-scrollbar-thumb {
+  background: #0F213D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0066FF;
+}
