@@ -21,22 +21,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRsvp }) => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-[#0B5D75]/95 backdrop-blur-md border-b border-white/10 py-3 shadow-xl' 
-          : 'bg-gradient-to-b from-[#0B5D75]/90 to-transparent py-5'
+          ? 'bg-[#0D6886]/95 backdrop-blur-md border-b border-white/10 py-3 shadow-xl' 
+          : 'bg-gradient-to-b from-[#0D6886]/90 to-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          <a href="#" className="flex items-center gap-4 group">
+          <a href="#" className="flex items-center gap-3 group">
             <img 
-              src="./assets/pacto-global-realizacao.png" 
-              alt="Pacto Global da ONU" 
-              className="h-9 w-auto object-contain brightness-0 invert opacity-95 group-hover:opacity-100 transition-opacity"
+              src="./assets/logo.png" 
+              alt="SDGs in Brazil Logo" 
+              className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
             />
             <div className="h-6 w-px bg-white/20 hidden sm:block" />
             <div className="hidden sm:flex flex-col text-left">
-              <span className="text-[11px] font-extrabold tracking-wider text-white uppercase font-sans">
+              <span className="text-[11px] font-black tracking-wider text-white uppercase font-sans">
                 SDGs IN BRAZIL 2026
               </span>
               <span className="text-[9px] font-medium tracking-widest text-slate-200 uppercase">
@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRsvp }) => {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#182232]/80 border border-white/15 text-xs text-slate-200 font-mono">
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B2436]/80 border border-white/15 text-xs text-slate-200 font-mono">
               <Calendar className="w-3.5 h-3.5 text-emerald-400" />
               <span>18 SET 2026</span>
               <span className="text-white/30">•</span>
@@ -74,7 +74,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRsvp }) => {
             
             <button
               onClick={onOpenRsvp}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 text-[#0B5D75] text-xs font-bold uppercase tracking-wider shadow-lg transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 text-[#0D6886] text-xs font-bold uppercase tracking-wider shadow-lg transition-all hover:scale-105"
             >
               <span>Credenciamento</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -83,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRsvp }) => {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-[#182232] border border-white/15 text-slate-200"
+            className="md:hidden p-2 rounded-lg bg-[#1B2436] border border-white/15 text-slate-200"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRsvp }) => {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#182232] border-b border-white/15 px-4 pt-4 pb-6 mt-3 space-y-4">
+        <div className="md:hidden bg-[#1B2436] border-b border-white/15 px-4 pt-4 pb-6 mt-3 space-y-4">
           <div className="flex flex-col space-y-3 text-sm font-semibold uppercase tracking-wider">
             <a href="#sobre" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-white py-1">
               Sobre o Evento
@@ -116,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRsvp }) => {
                 setMobileMenuOpen(false);
                 onOpenRsvp();
               }}
-              className="w-full py-3 rounded-xl bg-white text-[#0B5D75] font-bold text-xs uppercase tracking-wider text-center"
+              className="w-full py-3 rounded-xl bg-white text-[#0D6886] font-bold text-xs uppercase tracking-wider text-center"
             >
               Solicitar Credenciamento
             </button>
