@@ -21,10 +21,10 @@ const SpeakerCard = ({ speaker, index, className = '' }: { speaker: Speaker; ind
       <div>
         {/* Top Monospaced Tag */}
         <div className="flex justify-between items-center mb-6">
-          <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-white/60 uppercase">
+          <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase">
             0{index + 1} · {speaker.category}
           </span>
-          <span className="text-[9px] font-mono text-white/40 uppercase">
+          <span className="text-[9px] font-mono text-slate-400 uppercase">
             SEDE ONU NY
           </span>
         </div>
@@ -36,33 +36,35 @@ const SpeakerCard = ({ speaker, index, className = '' }: { speaker: Speaker; ind
               src={speaker.image} 
               alt={speaker.name} 
               className="w-16 h-16 rounded-full object-cover border border-white/20 shadow-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              decoding="async"
             />
           ) : (
-            <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white/10 border border-white/20 text-white font-extrabold text-base tracking-tight shadow-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-500 font-mono">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center bg-[#00A3E0]/20 border border-[#00A3E0]/40 text-[#00A3E0] font-extrabold text-base tracking-tight shadow-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-500 font-mono">
               {initials}
             </div>
           )}
 
           <div>
-            <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight group-hover:text-white transition-colors">
+            <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight group-hover:text-[#00A3E0] transition-colors">
               {speaker.name}
             </h3>
-            <div className="text-xs font-bold text-white/90 leading-snug mt-1 font-sans">
+            <div className="text-xs font-bold text-slate-200 leading-snug mt-1 font-sans">
               {speaker.role}
             </div>
-            <div className="text-xs font-mono text-white/60 leading-snug mt-0.5">
+            <div className="text-xs font-mono text-slate-400 leading-snug mt-0.5">
               {speaker.company}
             </div>
           </div>
         </div>
 
         {/* Expandable Bio Description */}
-        <p className="text-xs text-white/75 leading-relaxed font-light mt-3 line-clamp-3 group-hover:line-clamp-none transition-all">
+        <p className="text-xs text-slate-300 leading-relaxed font-light mt-3 line-clamp-3 group-hover:line-clamp-none transition-all">
           {speaker.bio}
         </p>
       </div>
 
-      <div className="pt-4 mt-6 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/50">
+      <div className="pt-4 mt-6 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
         <span>SDGs IN BRAZIL</span>
         <span>2026</span>
       </div>
@@ -105,26 +107,26 @@ export const Speakers: React.FC = () => {
   return (
     <section id="palestrantes" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
       {/* Soft Ambient Background Lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#5F3469]/10 blur-[200px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Editorial Header */}
         <div className="speakers-header text-center max-w-4xl mx-auto mb-16">
-          <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
+          <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
             ORADORES DO EVENTO · SEDE ONU NY
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
             Corpo de Palestrantes.<br />
-            <span className="text-white/80 font-light">Lideranças Globais & Nacionais.</span>
+            <span className="text-slate-300 font-light font-sans">Lideranças Globais & Nacionais.</span>
           </h2>
-          <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto leading-relaxed font-light">
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-light">
             CEOs, diplomatas e especialistas de grande relevância reunidos para apresentar evidências e métricas de transformação sustentável.
           </p>
         </div>
 
-        {/* Seamless 0px Gap Grid (Borderless Dividers) */}
-        <div className="seamless-speakers-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-l border-t border-white/10">
+        {/* Seamless Grid Container with Rounded-3xl Geometry */}
+        <div className="seamless-speakers-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-white/10 rounded-3xl overflow-hidden shadow-2xl bg-black">
           {SPEAKERS_DATA.map((s, idx) => (
             <SpeakerCard key={s.id} speaker={s} index={idx} className="speaker-card" />
           ))}

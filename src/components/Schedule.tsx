@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SCHEDULE_DATA, SessionItem } from '../data/scheduleData';
 
-// Map session IDs to Pacto Global Transversal Pillars
 const SESSION_PILLARS: Record<string, string> = {
   'abertura-institucional':      'Diplomacia & Governança',
   'keynote-danese':              'Meio Ambiente & Clima',
@@ -69,25 +68,25 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
   return (
     <section id="programacao" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#0D6886]/10 blur-[200px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Centered Editorial Header (Matching Image Reference) */}
+        {/* Centered Editorial Header */}
         <div className="schedule-header text-center max-w-4xl mx-auto mb-14">
-          <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
+          <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
             AGENDA OFICIAL · SEDE DA ONU NY
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
             Grade de Programação.<br />
-            <span className="text-white/80 font-light">18 de Setembro de 2026.</span>
+            <span className="text-slate-300 font-light font-sans">18 de Setembro de 2026.</span>
           </h2>
-          <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto leading-relaxed font-light">
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-light">
             Formato dinâmico alternando keynotes, painéis com Q&A da plateia, entrevistas e masterclasses com foco nos 4 Pilares do Pacto Global da ONU.
           </p>
         </div>
 
-        {/* Filter Tabs */}
+        {/* Filter Tabs - Rounded Pills */}
         <div className="flex gap-2 justify-center flex-wrap mb-12">
           {periods.map(p => (
             <motion.button
@@ -97,7 +96,7 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
               className={`min-h-[40px] px-6 py-2 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all duration-200 border flex items-center justify-center ${
                 period === p.key
                   ? 'bg-white text-black border-white shadow-xl'
-                  : 'bg-white/5 text-white/75 border-white/10 hover:border-white/30 hover:text-white'
+                  : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30 hover:text-white'
               }`}
             >
               {p.label}
@@ -105,8 +104,8 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
           ))}
         </div>
 
-        {/* Seamless Timeline Strip (Borderless Dividers) */}
-        <div className="schedule-timeline flex flex-col border-t border-b border-white/10">
+        {/* Timeline Container with Rounded 3XL Outer Border */}
+        <div className="schedule-timeline flex flex-col bg-white/[0.02] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
           {filtered.map((session, index) => {
             const isBreak = session.type === 'Almoço';
             const pillar = SESSION_PILLARS[session.id] || 'Pacto Global';
@@ -114,10 +113,10 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
             return (
               <motion.div
                 key={session.id}
-                whileHover={!isBreak ? { x: 8, backgroundColor: 'rgba(255, 255, 255, 0.03)' } : undefined}
+                whileHover={!isBreak ? { x: 6, backgroundColor: 'rgba(255, 255, 255, 0.03)' } : undefined}
                 transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                 onClick={() => !isBreak && onSelectSession(session)}
-                className={`schedule-row py-7 px-4 sm:px-6 border-b border-white/10 last:border-b-0 transition-all duration-300 ${
+                className={`schedule-row py-7 px-6 sm:px-8 border-b border-white/10 last:border-b-0 transition-all duration-300 ${
                   isBreak 
                     ? 'bg-white/[0.01] opacity-75 flex flex-col sm:flex-row items-center justify-between gap-4' 
                     : 'cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6 group'
@@ -129,7 +128,7 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
                       <span className="text-xl sm:text-2xl font-mono font-extrabold text-white">
                         {session.timeStart} – {session.timeEnd}
                       </span>
-                      <span className="text-[10px] font-mono font-bold tracking-widest text-white/60 uppercase px-3 py-1 bg-white/10 rounded-full">
+                      <span className="text-[10px] font-mono font-bold tracking-widest text-slate-300 uppercase px-3 py-1 bg-white/10 rounded-full border border-white/10">
                         {session.type}
                       </span>
                     </div>
@@ -142,14 +141,14 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
                     {/* Time & Session Type */}
                     <div className="flex md:flex-col justify-between items-start md:w-52 flex-shrink-0 gap-2">
                       <span className="text-lg sm:text-2xl font-mono font-extrabold text-white">
-                        {session.timeStart} <span className="text-xs text-white/40 font-light mx-0.5">–</span> {session.timeEnd}
+                        {session.timeStart} <span className="text-xs text-slate-400 font-light mx-0.5">–</span> {session.timeEnd}
                       </span>
                       
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[9px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-white/10 text-white/90 border border-white/15">
+                        <span className="text-[9px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-[#00A3E0]/20 text-[#00A3E0] border border-[#00A3E0]/40">
                           {session.type}
                         </span>
-                        <span className="text-[9px] font-mono font-medium tracking-wider text-white/60">
+                        <span className="text-[9px] font-mono font-medium tracking-wider text-slate-400">
                           {pillar}
                         </span>
                       </div>
@@ -157,10 +156,10 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
 
                     {/* Main Title & Description */}
                     <div className="flex-1 md:px-6">
-                      <h3 className="text-lg sm:text-2xl font-extrabold text-white leading-snug mb-1 group-hover:text-[#38bdf8] transition-colors">
+                      <h3 className="text-lg sm:text-2xl font-extrabold text-white leading-snug mb-1 group-hover:text-[#00A3E0] transition-colors">
                         {session.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-white/75 font-light line-clamp-2 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-300 font-light line-clamp-2 leading-relaxed">
                         {session.description}
                       </p>
                     </div>
@@ -173,11 +172,11 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
                             const nameClean = sp.split(' (')[0];
                             const initial = nameClean.charAt(0);
                             return (
-                              <div key={sIdx} className="flex items-center gap-2 text-xs text-white/90 font-mono">
-                                <div className="w-6 h-6 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[10px] font-extrabold text-white flex-shrink-0">
+                              <div key={sIdx} className="flex items-center gap-2 text-xs text-white font-mono">
+                                <div className="w-6 h-6 rounded-full bg-[#00A3E0]/20 border border-[#00A3E0]/40 flex items-center justify-center text-[10px] font-extrabold text-[#00A3E0] flex-shrink-0">
                                   {initial}
                                 </div>
-                                <span className="font-medium truncate text-white/90">
+                                <span className="font-medium truncate text-slate-200">
                                   {nameClean}
                                 </span>
                               </div>
@@ -185,7 +184,7 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
                           })}
                         </div>
                       )}
-                      <span className="text-[11px] font-mono text-white/60 group-hover:text-white font-bold tracking-wider uppercase flex items-center gap-1 mt-1 transition-colors">
+                      <span className="text-[11px] font-mono text-[#00A3E0] group-hover:text-white font-bold tracking-wider uppercase flex items-center gap-1 mt-1 transition-colors">
                         Ver Detalhes →
                       </span>
                     </div>
