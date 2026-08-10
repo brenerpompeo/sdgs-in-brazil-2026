@@ -3,8 +3,8 @@ export interface SessionItem {
   timeStart: string;
   timeEnd: string;
   title: string;
-  type: 'Abertura' | 'Keynote' | 'Painel' | 'Entrevista' | 'Almoço' | 'Encerramento' | 'Social';
-  period: 'manhã' | 'tarde' | 'noite';
+  type: 'Abertura' | 'Keynote' | 'Painel' | 'Entrevista' | 'Talk' | 'Almoço' | 'Encerramento';
+  period: 'manhã' | 'tarde';
   description: string;
   speakers: string[];
   speakerNamesRaw?: string[];
@@ -15,12 +15,12 @@ export interface SessionItem {
 export const SCHEDULE_DATA: SessionItem[] = [
   {
     id: 'abertura-institucional',
-    timeStart: '11:00',
-    timeEnd: '11:15',
+    timeStart: '10:50',
+    timeEnd: '11:05',
     title: 'Abertura Institucional',
     type: 'Abertura',
     period: 'manhã',
-    description: 'Boas-vindas oficiais e abertura dos trabalhos do SDGs in Brazil 2026 na sede das Nações Unidas, alinhando a visão da liderança empresarial brasileira à estratégia global do Pacto Global da ONU.',
+    description: 'Abertura oficial reunindo vozes complementares do Pacto Global da ONU - Rede Brasil e da sede global em Nova York, estabelecendo o comprometimento empresarial do setor privado brasileiro na Agenda 2030.',
     speakers: ['ana-paula-carracedo', 'sanda-ojiambo'],
     speakerNamesRaw: [
       'Ana Paula Carracedo (Presidente do Conselho, Pacto Global da ONU - Rede Brasil)',
@@ -31,31 +31,32 @@ export const SCHEDULE_DATA: SessionItem[] = [
   },
   {
     id: 'keynote-danese',
-    timeStart: '11:20',
-    timeEnd: '11:40',
-    title: 'KEYNOTE SPEAKER | O novo mapa: geopolítica, regulação e oportunidades para o Brasil',
+    timeStart: '11:10',
+    timeEnd: '11:30',
+    title: 'O novo mapa: geopolítica, regulação e oportunidades para o Brasil',
     type: 'Keynote',
     period: 'manhã',
-    description: 'Análise estratégica da conjuntura geopolítica global, o avanço de regulações transfronteiriças (CBAM, EUDR) e a posição de liderança do Brasil no fornecimento de soluções baseadas na natureza e transição energética.',
+    description: 'Análise do reordenamento global, exigências internacionais e novas regulações que redesenham o ambiente de negócios e abrem oportunidades estratégicas para o Brasil.',
     speakers: ['sergio-danese'],
-    speakerNamesRaw: ['Embaixador Sérgio Danese (Representante Permanente da Missão do Brasil na ONU)'],
+    speakerNamesRaw: ['Embaixador Sérgio Danese (Representante Permanente da Missão do Brasil na ONU - TBC)'],
     ods: [16, 17],
     highlight: true
   },
   {
     id: 'painel-esg-evidencia',
-    timeStart: '11:45',
-    timeEnd: '12:25',
-    title: 'PAINEL | A agenda ESG: o que o mercado exige como evidência agora',
+    timeStart: '11:35',
+    timeEnd: '12:15',
+    title: 'A agenda ESG: o que o mercado exige como evidência agora',
     type: 'Painel',
     period: 'manhã',
-    description: 'Debate de alto nível sobre a superação do "ESG Fatigue". Investidores globais e líderes de políticas ambientais discutem a transição das métricas declaratórias para a rastreabilidade em tempo real e comprovação empírica.',
-    speakers: ['punjanit-leagnavar', 'toni-ballabriga'],
+    description: 'Painel de diagnóstico sobre a superação do "ESG Fatigue". Investidores e líderes de sustentabilidade discutem o nível de prova e transparência exigido pelo mercado global.',
+    speakers: ['raquel-cardoso', 'punjanit-leagnavar', 'sergio-londono', 'toni-ballabriga', 'gabriela-almeida'],
     speakerNamesRaw: [
+      'Raquel Cardoso da Silva (Vice Presidente de Pessoas, Motiva - TBC)',
       "Punjanit Leagnavar (Global Environment Policy Director at L'Oréal - TBC)",
-      'Toni Ballabriga (Global Head Sustainability Intelligence & Advocacy at BBVA)',
-      'Representante Salesforce (TBC)',
-      'Moderação: Representante Aegea'
+      'Sergio Londoño Zurek (Vice President of Public Affairs & Sustainability, Coca-Cola - TBC)',
+      'Toni Ballabriga (Global Head Sustainability Intelligence & Advocacy, BBVA)',
+      'Moderação: Gabriela Almeida (Gerente Executiva de Direitos Humanos, Pacto Global - Rede Brasil)'
     ],
     ods: [8, 12, 13, 17],
     highlight: true
@@ -63,14 +64,14 @@ export const SCHEDULE_DATA: SessionItem[] = [
   {
     id: 'entrevista-crime-organizado',
     timeStart: '12:30',
-    timeEnd: '12:55',
-    title: 'ENTREVISTA | A influência do crime organizado nas cadeias de valor das empresas',
+    timeEnd: '12:45',
+    title: 'A influência do crime organizado nas cadeias de valor das empresas',
     type: 'Entrevista',
     period: 'manhã',
-    description: 'Estudo de caso e conversa aprofundada sobre as ameaças transnacionais do crime organizado à integridade do setor privado nas Américas (México, Colômbia e Brasil) e estratégias de compliance de cadeia de valor.',
+    description: 'Discussão sobre os impactos da infiltração do crime organizado em operações legais — experiências do México, Colômbia e Brasil com foco em integridade, anticorrupção e direitos humanos.',
     speakers: ['eugenio-ricas', 'sandra-coutinho'],
     speakerNamesRaw: [
-      'Eugênio Ricas (Director, Office of Internal Oversight, INTERPOL)',
+      'Eugênio Ricas (Director, Office of Internal Oversight, Interpol)',
       'Sandra Coutinho (Jornalista Internacional)'
     ],
     ods: [16, 17],
@@ -80,10 +81,10 @@ export const SCHEDULE_DATA: SessionItem[] = [
     id: 'almoco-networking',
     timeStart: '13:00',
     timeEnd: '15:00',
-    title: 'ALMOÇO DE NETWORKING',
+    title: 'Almoço de Networking',
     type: 'Almoço',
     period: 'tarde',
-    description: 'Intervalo para almoço de relacionamento e networking executivo entre os 300 convidados da alta liderança no complexo da ONU.',
+    description: 'Intervalo para almoço e relacionamento executivo entre as 300 lideranças convidadas na sede das Nações Unidas.',
     speakers: [],
     speakerNamesRaw: ['Lideranças do Setor Privado, Público e Organizações Globais'],
     ods: [17],
@@ -91,14 +92,30 @@ export const SCHEDULE_DATA: SessionItem[] = [
   },
   {
     id: 'keynote-falencia-hidrica',
-    timeStart: '15:15',
-    timeEnd: '15:35',
-    title: 'KEYNOTE SPEAKER | Falência hídrica: o próximo risco sistêmico global',
+    timeStart: '15:00',
+    timeEnd: '15:15',
+    title: 'Falência hídrica: o próximo risco sistêmico global',
     type: 'Keynote',
     period: 'tarde',
-    description: 'Apresentação impactante sobre a escassez de água potável como fator determinante para a estabilidade geopolítica, alimentar e de cadeias produtivas globais, e os caminhos de resiliência hídrica.',
+    description: 'Apresentação sobre a falência hídrica como realidade presente que impacta cadeias produtivas, custos operacionais e resiliência dos negócios.',
     speakers: ['kaveh-madani'],
     speakerNamesRaw: ['Kaveh Madani (Diretor do Instituto de Água, Meio Ambiente e Saúde da UNU-INWEH)'],
+    ods: [5, 6, 10, 17],
+    highlight: true
+  },
+  {
+    id: 'talk-falencia-hidrica',
+    timeStart: '15:15',
+    timeEnd: '15:35',
+    title: 'Falência hídrica: o próximo risco sistêmico global',
+    type: 'Talk',
+    period: 'tarde',
+    description: 'Painel focado em gestão, investimento e reporte hídrico para preparar o setor privado frente ao risco de escassez.',
+    speakers: ['kaveh-madani', 'radames-casseb'],
+    speakerNamesRaw: [
+      'Kaveh Madani (Diretor do Instituto de Água da UNU-INWEH)',
+      'Radamés Casseb (CEO AEGEA)'
+    ],
     ods: [5, 6, 10, 17],
     highlight: true
   },
@@ -106,12 +123,12 @@ export const SCHEDULE_DATA: SessionItem[] = [
     id: 'keynote-ia-etica',
     timeStart: '15:40',
     timeEnd: '16:00',
-    title: 'KEYNOTE SPEAKER | IA e Ética: como usar tecnologia com responsabilidade',
+    title: 'IA e Ética: como usar tecnologia com responsabilidade',
     type: 'Keynote',
     period: 'tarde',
-    description: 'Como garantir a governança ética na era dos modelos de inteligência artificial generativa e preditiva, prevenindo vieses algorítmicos e respeitando direitos fundamentais dos trabalhadores.',
+    description: 'Análise da fronteira entre IA e responsabilidade corporativa: viés algorítmico, governança de dados e direitos humanos digitais.',
     speakers: ['calvin-lawrence'],
-    speakerNamesRaw: ['Calvin Lawrence (CEO IntegrityFirst.AI / ex-IBM Fellow)'],
+    speakerNamesRaw: ['Calvin Lawrence (CEO IntegrityFirst.AI)'],
     ods: [8, 16, 18],
     highlight: true
   },
@@ -119,12 +136,12 @@ export const SCHEDULE_DATA: SessionItem[] = [
     id: 'keynote-direitos-humanos',
     timeStart: '16:05',
     timeEnd: '16:25',
-    title: 'KEYNOTE SPEAKER | Business, Human Rights and the Future of Responsible Leadership',
+    title: 'Business, Human Rights and the Future of Responsible Leadership',
     type: 'Keynote',
     period: 'tarde',
-    description: 'O papel da governança corporaiva e da liderança responsável no respeito e promoção dos Direitos Humanos em um cenário de transformação econômica e rápida mudança social.',
+    description: 'Palestra sobre liderança responsável e promoção dos Direitos Humanos no setor privado em um cenário de rápidas transformações.',
     speakers: ['erika-george'],
-    speakerNamesRaw: ['Erika George (Associate Dean for Equity, Justice and Engagement - Boston University School of Law)'],
+    speakerNamesRaw: ['Erika George (Associate Dean for Equity, Justice & Engagement - Boston University School of Law)'],
     ods: [8, 10, 16],
     highlight: false
   },
@@ -132,17 +149,16 @@ export const SCHEDULE_DATA: SessionItem[] = [
     id: 'painel-case',
     timeStart: '16:30',
     timeEnd: '17:10',
-    title: 'PAINEL C.A.S.E. | Acelerando Iniciativas Empresariais em prol do desenvolvimento sustentável',
+    title: 'Acelerando Iniciativas Empresariais em prol do desenvolvimento sustentável',
     type: 'Painel',
     period: 'tarde',
-    description: 'Grandes corporações brasileiras apresentam cases concretos de aceleração dos ODS, destacando métricas de investimento socioambiental, bioeconomia e parcerias multisetoriais.',
-    speakers: ['renata-piazzon'],
+    description: 'Grandes lideranças empresariais brasileiras compartilham iniciativas práticas e resultados concretos de investimento socioambiental.',
+    speakers: ['luciana-nicola', 'fabiana-costa', 'marcelo-furtado', 'ana-carolina-carregaro', 'renata-piazzon'],
     speakerNamesRaw: [
-      'Representante Itaú',
-      'Representante Bradesco',
-      'Representante Itaúsa',
-      'Representante Natura',
-      'Representante Nestlé',
+      'Luciana Nicola (Diretora de Sustentabilidade, Itaú)',
+      'Fabiana Costa (Líder de Sustentabilidade, Bradesco)',
+      'Marcelo Furtado (Head de Sustentabilidade, Itaúsa)',
+      'Ana Carolina Carregaro (Gerente de Sustentabilidade, Nestlé)',
       'Moderação: Renata Piazzon (Presidente do Instituto Arapyaú)'
     ],
     ods: [8, 9, 12, 13, 17],
@@ -152,10 +168,10 @@ export const SCHEDULE_DATA: SessionItem[] = [
     id: 'keynote-bayo-akomolafe',
     timeStart: '17:15',
     timeEnd: '17:45',
-    title: 'KEYNOTE SPEAKER | Beyond Certainty: Reimagining the Futures We Need',
+    title: 'Beyond Certainty: Reimagining the Futures We Need',
     type: 'Keynote',
     period: 'tarde',
-    description: 'Palestra de encerramento inspiracional. Uma provocação filosófica sobre a necessidade de desarmar velhos paradigmas e reimaginar formas de coexistência em um mundo pós-crise.',
+    description: 'Palestra com visão de futuro sobre a construção de um legado duradouro e a regeneração sistêmica de pessoas, natureza e instituições.',
     speakers: ['bayo-akomolafe'],
     speakerNamesRaw: ['Bayo Akomolafe (Hubert Humphrey Distinguished Professor of American Studies)'],
     ods: [10, 16, 17],
@@ -165,26 +181,13 @@ export const SCHEDULE_DATA: SessionItem[] = [
     id: 'encerramento-oficial',
     timeStart: '17:45',
     timeEnd: '17:55',
-    title: 'ENCERRAMENTO OFICIAL',
+    title: 'Encerramento Oficial',
     type: 'Encerramento',
     period: 'tarde',
-    description: 'Sintese das diretrizes pactuadas ao longo do dia e anúncio dos compromissos prioritários do setor privado brasileiro na sede das Nações Unidas.',
+    description: 'Palavra final do CEO do Pacto Global da ONU - Rede Brasil ancorando o evento na jornada e projetos contínuos da Rede no Brasil.',
     speakers: ['guilherme-xavier'],
-    speakerNamesRaw: ['Guilherme Xavier (CEO do Pacto Global da ONU - Rede Brasil)'],
+    speakerNamesRaw: ['Guilherme Xavier (CEO do Pacto Global – Rede Brasil)'],
     ods: [17],
     highlight: true
-  },
-  {
-    id: 'coquetel',
-    timeStart: '18:30',
-    timeEnd: '20:30',
-    title: 'COQUETEL DE ENCERRAMENTO',
-    type: 'Social',
-    period: 'noite',
-    description: 'Recepção e coquetel de encerramento em celebração ao protagonismo do setor privado brasileiro na Agenda 2030.',
-    speakers: [],
-    speakerNamesRaw: ['Todos os Participantes e Convidados Especiais'],
-    ods: [17],
-    highlight: false
   }
 ];

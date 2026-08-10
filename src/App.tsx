@@ -1,57 +1,46 @@
 import React, { useState } from 'react';
+import { SmoothScroll } from './components/SmoothScroll';
+import { CustomCursor } from './components/CustomCursor';
+import { Preloader } from './components/Preloader';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { MetricStats } from './components/MetricStats';
-import { GlobalForces } from './components/GlobalForces';
-import { FourPillars } from './components/FourPillars';
+import { About } from './components/About';
+import { Gallery2025 } from './components/Gallery2025';
 import { Schedule } from './components/Schedule';
 import { Speakers } from './components/Speakers';
-import { VenueLocation } from './components/VenueLocation';
-import { AboutPacto } from './components/AboutPacto';
+import { PastLeaders } from './components/PastLeaders';
+import { Sponsors } from './components/Sponsors';
+import { Venue } from './components/Venue';
+import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
 import { RsvpModal } from './components/RsvpModal';
 import { SessionModal } from './components/SessionModal';
 import { SessionItem } from './data/scheduleData';
 
 export function App() {
-  const [isRsvpOpen, setIsRsvpOpen] = useState(false);
-  const [selectedSession, setSelectedSession] = useState<SessionItem | null>(null);
+  const [rsvpOpen, setRsvpOpen] = useState(false);
+  const [activeSession, setActiveSession] = useState<SessionItem | null>(null);
+  const [loading, setLoading] = useState(true);
 
   return (
-    <div className="min-h-screen bg-[#050B14] text-slate-100 selection:bg-blue-600 selection:text-white font-sans antialiased relative">
-      
-      {/* Header Fixo */}
-      <Header onOpenRsvp={() => setIsRsvpOpen(true)} />
-
-      {/* Main Content Sections */}
-      <main>
-        <Hero onOpenRsvp={() => setIsRsvpOpen(true)} />
-        <MetricStats />
-        <GlobalForces />
-        <FourPillars />
-        <Schedule onSelectSession={(session) => setSelectedSession(session)} />
+    <SmoothScroll>
+      <CustomCursor />
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
+      <div className="bg-[#05070f] text-white min-h-screen">
+        <Header onOpenRsvp={() => setRsvpOpen(true)} />
+        <Hero onOpenRsvp={() => setRsvpOpen(true)} />
+        <About />
+        <Gallery2025 />
+        <Schedule onSelectSession={setActiveSession} />
         <Speakers />
-        <VenueLocation />
-        <AboutPacto />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* RSVP Modal */}
-      <RsvpModal 
-        isOpen={isRsvpOpen} 
-        onClose={() => setIsRsvpOpen(false)} 
-      />
-
-      {/* Session Details Modal */}
-      <SessionModal 
-        session={selectedSession} 
-        onClose={() => setSelectedSession(null)} 
-      />
-
-    </div>
+        <PastLeaders />
+        <Sponsors />
+        <Venue />
+        <CtaBanner onOpenRsvp={() => setRsvpOpen(true)} />
+        <Footer />
+        <RsvpModal isOpen={rsvpOpen} onClose={() => setRsvpOpen(false)} />
+        <SessionModal session={activeSession} onClose={() => setActiveSession(null)} />
+      </div>
+    </SmoothScroll>
   );
 }
-
-export default App;

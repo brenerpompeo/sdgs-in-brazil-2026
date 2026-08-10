@@ -1,120 +1,171 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, ArrowRight, ShieldCheck } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
-interface HeroProps {
+interface Props {
   onOpenRsvp: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenRsvp }) => {
-  const targetDate = new Date('2026-09-18T10:00:00-04:00').getTime();
+const BACKGROUNDS = [
+  './assets/sdgs_2025_2.jpg',
+  './assets/sdgs_2025_3.jpg',
+  './assets/sdgs_2025_19.jpg',
+  './assets/sdgs_2025_11.jpg',
+];
 
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
+const CountdownBox = ({ value, label }: { value: number; label: string }) => (
+  <motion.div 
+    whileHover={{ scale: 1.05, y: -2 }}
+    className="flex flex-col items-center px-4 sm:px-6 py-3.5 sm:py-4 bg-[#0d131f]/90 backdrop-blur-lg border border-white/15 rounded-xl min-w-[76px] sm:min-w-[104px] shadow-2xl shadow-black/50"
+  >
+    <span className="text-3xl sm:text-5xl font-extrabold font-mono tracking-tight text-white leading-none drop-shadow-sm">
+      {String(value).padStart(2, '0')}
+    </span>
+    <span className="text-[10px] sm:text-xs font-bold text-[#38bdf8] tracking-widest uppercase mt-2.5 font-mono">
+      {label}
+    </span>
+  </motion.div>
+);
 
+export const Hero: React.FC<Props> = ({ onOpenRsvp }) => {
+  const target = new Date('2026-09-18T10:00:00-04:00').getTime();
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [bgIndex, setBgIndex] = useState(0);
+
+  // Entrance animation
+  useGSAP(() => {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.fromTo('.hero-logo', { y: 35, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 })
+      .fromTo('.hero-date', { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8 }, '-=0.5')
+      .fromTo('.hero-countdown', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, '-=0.5')
+      .fromTo('.hero-ctas', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.4');
+  }, []);
+
+  // Preload background images
   useEffect(() => {
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+    BACKGROUNDS.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60)
+  // Background slideshow timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % BACKGROUNDS.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Countdown timer
+  useEffect(() => {
+    const tick = () => {
+      const diff = target - Date.now();
+      if (diff > 0) {
+        setCountdown({
+          days: Math.floor(diff / 86400000),
+          hours: Math.floor((diff % 86400000) / 3600000),
+          minutes: Math.floor((diff % 3600000) / 60000),
+          seconds: Math.floor((diff % 60000) / 1000),
         });
       }
     };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(interval);
-  }, [targetDate]);
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#05070f]">
+      {/* Background Slideshow Containers */}
+      {BACKGROUNDS.map((bg, idx) => (
+        <div
+          key={bg}
+          className="absolute inset-0 bg-cover bg-center pointer-events-none transition-opacity duration-[1200ms] ease-in-out"
+          style={{
+            backgroundImage: `url('${bg}')`,
+            opacity: bgIndex === idx ? 1 : 0,
+            zIndex: bgIndex === idx ? 1 : 0,
+          }}
+        />
+      ))}
+
+      {/* Multi-layered Dimmer Overlay for Perfect Legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#05070f]/85 via-[#05070f]/75 to-[#05070f] pointer-events-none z-[2]" />
+
+      {/* Grid Overlay Line Field */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center pointer-events-none mix-blend-screen opacity-[0.25] z-[3]"
+        style={{ backgroundImage: "url('./assets/line-field.png')" }}
+      />
+
+      {/* Hero Content */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 max-w-5xl mx-auto w-full">
         
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/80 border border-blue-500/40 text-blue-300 text-xs sm:text-sm font-medium backdrop-blur-md shadow-lg shadow-blue-950/50">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-            <span className="font-semibold text-emerald-400">SEDE DA ONU • NOVA YORK</span>
-            <span className="text-slate-500">|</span>
-            <span className="text-slate-200">18 DE SETEMBRO DE 2026</span>
-          </div>
-
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 text-xs font-medium">
-            <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-            <span>300 Vagas de Alta Liderança</span>
-          </div>
+        {/* Main Brand Logo */}
+        <div className="hero-logo mb-6 sm:mb-8">
+          <img
+            src="./assets/logo.png"
+            alt="SDGs in Brazil 2026 Logo"
+            className="h-[120px] sm:h-[180px] md:h-[220px] w-auto object-contain drop-shadow-[0_12px_45px_rgba(13,104,134,0.6)] mx-auto"
+          />
         </div>
 
-        <div className="text-center max-w-4xl mx-auto mb-10">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 uppercase leading-[1.05]">
-            SDGs in Brazil <span className="bg-gradient-to-r from-blue-400 via-emerald-400 to-yellow-400 bg-clip-text text-transparent">2026</span>
-          </h1>
+        {/* Date Image (data_horizontal) - Prominent & Enlarged */}
+        <div className="hero-date mb-10 sm:mb-12 max-w-[320px] sm:max-w-[540px] md:max-w-[620px] w-full mx-auto">
+          <img
+            src="./assets/data_horizontal.png"
+            alt="18 de Setembro de 2026 - Sede da ONU - NY"
+            className="w-full h-auto object-contain filter drop-shadow-[0_6px_20px_rgba(0,0,0,0.8)]"
+          />
+        </div>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-8">
-            Liderança Empresarial Brasileira na Ante-sala da <strong className="font-semibold text-white">Assembleia Geral da ONU</strong>.
-            Evidências, Substância e Ação Concreta para a Agenda 2030.
+        {/* Countdown */}
+        <div className="hero-countdown mb-10 sm:mb-12 w-full">
+          <p className="text-[11px] sm:text-xs font-bold text-white/80 tracking-[0.3em] uppercase mb-4 font-mono drop-shadow-sm">
+            Contagem regressiva para a abertura
           </p>
-        </div>
-
-        <div className="max-w-3xl mx-auto mb-12">
-          <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800/90 shadow-2xl relative overflow-hidden">
-            <div className="grid grid-cols-4 gap-3 sm:gap-6 text-center">
-              <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-                <span className="text-2xl sm:text-4xl md:text-5xl font-black font-mono text-white">
-                  {String(timeLeft.days).padStart(2, '0')}
-                </span>
-                <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-blue-400 mt-1">Dias</span>
-              </div>
-
-              <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-                <span className="text-2xl sm:text-4xl md:text-5xl font-black font-mono text-emerald-400">
-                  {String(timeLeft.hours).padStart(2, '0')}
-                </span>
-                <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-400 mt-1">Horas</span>
-              </div>
-
-              <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-                <span className="text-2xl sm:text-4xl md:text-5xl font-black font-mono text-yellow-400">
-                  {String(timeLeft.minutes).padStart(2, '0')}
-                </span>
-                <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-yellow-400 mt-1">Minutos</span>
-              </div>
-
-              <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-                <span className="text-2xl sm:text-4xl md:text-5xl font-black font-mono text-blue-400">
-                  {String(timeLeft.seconds).padStart(2, '0')}
-                </span>
-                <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-blue-400 mt-1">Segundos</span>
-              </div>
-            </div>
+          <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
+            <CountdownBox value={countdown.days} label="Dias" />
+            <CountdownBox value={countdown.hours} label="Horas" />
+            <CountdownBox value={countdown.minutes} label="Minutos" />
+            <CountdownBox value={countdown.seconds} label="Segundos" />
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-16">
-          <button
+        {/* High-Contrast CTAs */}
+        <div className="hero-ctas flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-lg mx-auto">
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
             onClick={onOpenRsvp}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-emerald-500 text-white font-bold text-base shadow-xl flex items-center justify-center gap-2 group"
+            className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white text-[#05070f] font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-2xl hover:bg-gray-100 flex items-center justify-center transition-colors font-mono"
           >
-            <span>Garantir Credenciamento</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-
-          <a
+            TENHO INTERESSE EM PARTICIPAR
+          </motion.button>
+          <motion.a
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             href="#programacao"
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-base text-center"
+            className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-[#0d131f]/90 backdrop-blur-md text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl border border-white/20 hover:border-white/40 hover:bg-[#121a2a] text-center flex items-center justify-center transition-colors shadow-lg font-mono"
           >
             Ver Programação
-          </a>
+          </motion.a>
         </div>
+      </div>
 
+      {/* Corporate Sponsors Bar */}
+      <div className="relative z-10 w-full border-t border-white/15 bg-[#05070f]/95 backdrop-blur-md py-6 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto flex items-center justify-center">
+          <div className="w-full max-w-[580px]">
+            <img 
+              src="./assets/marcas.png" 
+              alt="Marcas: Pacto Global, AYA Earth Partners, Aegea, Missão do Brasil na ONU" 
+              className="w-full h-auto object-contain filter drop-shadow-sm"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

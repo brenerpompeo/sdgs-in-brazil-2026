@@ -18,8 +18,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: 'Pacto Global da ONU - Rede Brasil',
     category: 'Liderança Institucional',
     confirmed: true,
-    odsFocus: [17],
-    bio: 'Presidente do Conselho de Administração do Pacto Global da ONU - Rede Brasil. Líder reconhecida em governança corporativa e sustentabilidade no setor privado brasileiro.'
+    bio: 'Presidente do Conselho de Administração do Pacto Global da ONU - Rede Brasil. Líder em governança corporativa e sustentabilidade no setor privado.'
   },
   {
     id: 'sanda-ojiambo',
@@ -28,18 +27,25 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: 'UN Global Compact (Sede ONU NY)',
     category: 'Liderança Institucional',
     confirmed: false,
-    odsFocus: [17],
     bio: 'CEO e Diretora Executiva do Pacto Global das Nações Unidas. Lidera a maior iniciativa de sustentabilidade corporativa do mundo a partir da sede da ONU em Nova York.'
   },
   {
     id: 'sergio-danese',
     name: 'Embaixador Sérgio Danese',
-    role: 'Representante Permanente do Brasil',
+    role: 'Representante Permanente',
     company: 'Missão do Brasil junto às Nações Unidas',
     category: 'Keynote',
     confirmed: true,
-    odsFocus: [16, 17],
-    bio: 'Diplomata de carreira e Representante Permanente do Brasil junto à Organização das Nações Unidas em Nova York. Especialista em diplomacia multilateral e relações internacionais.'
+    bio: 'Representante Permanente do Brasil junto à Organização das Nações Unidas em Nova York. Especialista em diplomacia multilateral e relações internacionais.'
+  },
+  {
+    id: 'raquel-cardoso',
+    name: 'Raquel Cardoso da Silva',
+    role: 'Vice-Presidente de Pessoas',
+    company: 'Motiva',
+    category: 'Painelista',
+    confirmed: false,
+    bio: 'Vice-Presidente de Pessoas da Motiva. Atua na integração de estratégias de gestão de pessoas, diversidade e transformação cultural nas corporações.'
   },
   {
     id: 'punjanit-leagnavar',
@@ -48,8 +54,16 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: "L'Oréal",
     category: 'Painelista',
     confirmed: false,
-    odsFocus: [12, 13, 17],
-    bio: 'Diretora Global de Políticas Ambientais na L\'Oréal. Atua na formulação de estratégias internacionais de descarbonização, biodiversidade e rastreabilidade na cadeia de suprimentos.'
+    bio: 'Diretora Global de Políticas Ambientais na L\'Oréal. Atua na formulação de estratégias internacionais de descarbonização, biodiversidade e rastreabilidade.'
+  },
+  {
+    id: 'sergio-londono',
+    name: 'Sergio Londoño Zurek',
+    role: 'Vice President of Public Affairs & Sustainability',
+    company: 'Coca-Cola',
+    category: 'Painelista',
+    confirmed: false,
+    bio: 'Vice-Presidente de Relações Públicas, Comunicação e Sustentabilidade da Coca-Cola. Lidera programas globais de impacto socioambiental e reputação corporativa.'
   },
   {
     id: 'toni-ballabriga',
@@ -58,18 +72,25 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: 'BBVA',
     category: 'Painelista',
     confirmed: true,
-    odsFocus: [8, 13, 17],
-    bio: 'Líder global de inteligência em sustentabilidade e advocacy do BBVA. Referência europeia em finanças sustentáveis, taxonomia verde e critérios de investimento ESG.'
+    bio: 'Líder global de inteligência em sustentabilidade do BBVA. Referência europeia em finanças sustentáveis, taxonomia verde e critérios ESG.'
+  },
+  {
+    id: 'gabriela-almeida',
+    name: 'Gabriela Almeida',
+    role: 'Gerente Executiva de Direitos Humanos',
+    company: 'Pacto Global da ONU - Rede Brasil',
+    category: 'Moderador',
+    confirmed: true,
+    bio: 'Gerente Executiva de Direitos Humanos e Empresas do Pacto Global da ONU - Rede Brasil. Especialista em due diligence e integridade nas cadeias globais.'
   },
   {
     id: 'eugenio-ricas',
     name: 'Eugênio Ricas',
     role: 'Director, Office of Internal Oversight',
-    company: 'INTERPOL',
+    company: 'Interpol',
     category: 'Keynote',
     confirmed: true,
-    odsFocus: [16, 17],
-    bio: 'Diretor do Escritório de Supervisão Interna da INTERPOL e Delegado da Polícia Federal. Especialista na investigação de redes de crime organizado e governança de integridade corporativa.'
+    bio: 'Diretor do Escritório de Supervisão Interna da Interpol. Especialista na investigação de redes de crime organizado e governança de integridade corporativa.'
   },
   {
     id: 'sandra-coutinho',
@@ -78,8 +99,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: 'GloboNews / Nova York',
     category: 'Moderador',
     confirmed: true,
-    odsFocus: [16],
-    bio: 'Jornalista e correspondente internacional baseada em Nova York. Acompanha os principais fóruns multilaterais da ONU e a política econômica global há mais de duas décadas.'
+    bio: 'Jornalista e correspondente internacional em Nova York. Acompanha os principais fóruns multilaterais da ONU e a política econômica global.'
   },
   {
     id: 'kaveh-madani',
@@ -88,18 +108,25 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: 'UNU-INWEH (Universidade das Nações Unidas)',
     category: 'Keynote',
     confirmed: true,
-    odsFocus: [5, 6, 10, 17],
-    bio: 'Cientista mundialmente renomado em gestão de recursos hídricos. Diretor do Instituto de Água da Universidade das Nações Unidas e ex-Vice-Ministro do Meio Ambiente do Irã.'
+    bio: 'Cientista mundialmente renomado em gestão de recursos hídricos. Diretor do Instituto de Água da Universidade das Nações Unidas.'
+  },
+  {
+    id: 'radames-casseb',
+    name: 'Radamés Casseb',
+    role: 'CEO',
+    company: 'AEGEA',
+    category: 'Painelista',
+    confirmed: true,
+    bio: 'CEO da Aegea Saneamento. Lidera a maior empresa privada de saneamento do Brasil no avanço do ODS 6 e investimentos de infraestrutura hídrica.'
   },
   {
     id: 'calvin-lawrence',
     name: 'Calvin Lawrence',
-    role: 'CEO & Especialista em IA Ética',
-    company: 'IntegrityFirst.AI / ex-IBM Fellow',
+    role: 'CEO',
+    company: 'IntegrityFirst.AI',
     category: 'Keynote',
     confirmed: true,
-    odsFocus: [8, 16, 18],
-    bio: 'Autor e pioneiro no desenvolvimento de inteligência artificial responsável. Ex-IBM Fellow dedicado à mitigação de viés algorítmico e governança ética da tecnologia.'
+    bio: 'Autor e pioneiro no desenvolvimento de inteligência artificial responsável. Dedicado à mitigação de viés algorítmico e governança ética da tecnologia.'
   },
   {
     id: 'erika-george',
@@ -108,8 +135,43 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: 'Boston University School of Law',
     category: 'Keynote',
     confirmed: true,
-    odsFocus: [8, 10, 16],
-    bio: 'Professora de Direito da Universidade de Boston e autoridade em Empresas e Direitos Humanos. Assessora governos e empresas na aplicação dos Princípios Orientadores da ONU.'
+    bio: 'Professora de Direito da Universidade de Boston e autoridade em Empresas e Direitos Humanos. Assessora governos e empresas na aplicação dos Princípios da ONU.'
+  },
+  {
+    id: 'luciana-nicola',
+    name: 'Luciana Nicola',
+    role: 'Diretora de Relações Institucionais e Sustentabilidade',
+    company: 'Itaú Unibanco',
+    category: 'Painelista',
+    confirmed: true,
+    bio: 'Liderança em sustentabilidade corporativa e investimentos ESG no Itaú Unibanco, impulsionando a finança sustentável no Brasil.'
+  },
+  {
+    id: 'fabiana-costa',
+    name: 'Fabiana Costa',
+    role: 'Líder de Sustentabilidade',
+    company: 'Bradesco',
+    category: 'Painelista',
+    confirmed: true,
+    bio: 'Executiva de sustentabilidade do Bradesco, atuando na estruturação de produtos financeiros de transição ecológica e reporte de impacto.'
+  },
+  {
+    id: 'marcelo-furtado',
+    name: 'Marcelo Furtado',
+    role: 'Head de Sustentabilidade',
+    company: 'Itaúsa',
+    category: 'Painelista',
+    confirmed: true,
+    bio: 'Líder ambientalista e executivo da Itaúsa. Co-fundador da Concertação pela Amazônia e especialista em filantropia e transição climática.'
+  },
+  {
+    id: 'ana-carolina-carregaro',
+    name: 'Ana Carolina Carregaro',
+    role: 'Gerente de Sustentabilidade',
+    company: 'Nestlé',
+    category: 'Painelista',
+    confirmed: true,
+    bio: 'Responsável pelas iniciativas de agricultura regenerativa e economia circular da Nestlé Brasil.'
   },
   {
     id: 'renata-piazzon',
@@ -118,8 +180,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: 'Instituto Arapyaú',
     category: 'Moderador',
     confirmed: true,
-    odsFocus: [13, 15, 17],
-    bio: 'Presidente do Instituto Arapyaú e cofacilitadora da Uma Concertação pela Amazônia. Lidera iniciativas de bioeconomia, desenvolvimento territorial sustentável e filantropia de impacto.'
+    bio: 'Presidente do Instituto Arapyaú e cofacilitadora da Uma Concertação pela Amazônia. Lidera iniciativas de bioeconomia e desenvolvimento territorial.'
   },
   {
     id: 'bayo-akomolafe',
@@ -128,8 +189,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: 'Hubert Humphrey Institute / The Emergence Network',
     category: 'Keynote',
     confirmed: true,
-    odsFocus: [10, 16, 17],
-    bio: 'Filósofo, escritor e professor internacionalmente aclamado. Investiga ontologias pós-humanistas, transição de sistemas globais e novos imaginários para o desenvolvimento sustentável.'
+    bio: 'Filósofo, escritor e professor internacionalmente aclamado. Investiga ontologias pós-humanistas, transição de sistemas e novos imaginários para 2030.'
   },
   {
     id: 'guilherme-xavier',
@@ -138,7 +198,6 @@ export const SPEAKERS_DATA: Speaker[] = [
     company: 'Pacto Global da ONU - Rede Brasil',
     category: 'Liderança Institucional',
     confirmed: true,
-    odsFocus: [17],
-    bio: 'CEO do Pacto Global da ONU - Rede Brasil. Responsável por liderar a maior rede local das Américas no engajamento do setor privado rumo às metas da Agenda 2030.'
+    bio: 'CEO do Pacto Global da ONU - Rede Brasil. Responsável por liderar a maior rede local das Américas no engajamento do setor privado.'
   }
 ];

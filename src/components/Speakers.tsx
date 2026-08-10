@@ -1,0 +1,136 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { SPEAKERS_DATA, Speaker } from '../data/speakersData';
+
+const SpeakerCard = ({ speaker, index, className = '' }: { speaker: Speaker; index: number; className?: string }) => {
+  const initials = speaker.name
+    .split(' ')
+    .filter(n => !['Embaixador', 'de', 'do', 'da'].includes(n))
+    .slice(0, 2)
+    .map(w => w[0])
+    .join('');
+
+  return (
+    <motion.div 
+      whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.03)' }}
+      transition={{ duration: 0.3 }}
+      className={`seamless-speaker-card flex flex-col justify-between p-7 sm:p-8 bg-black border-r border-b border-white/10 group cursor-pointer ${className}`}
+    >
+      <div>
+        {/* Top Monospaced Tag */}
+        <div className="flex justify-between items-center mb-6">
+          <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-white/60 uppercase">
+            0{index + 1} · {speaker.category}
+          </span>
+          <span className="text-[9px] font-mono text-white/40 uppercase">
+            SEDE ONU NY
+          </span>
+        </div>
+
+        {/* Head row with photo image or initials fallback */}
+        <div className="flex items-center gap-4 mb-5">
+          {speaker.image ? (
+            <img 
+              src={speaker.image} 
+              alt={speaker.name} 
+              className="w-16 h-16 rounded-full object-cover border border-white/20 shadow-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white/10 border border-white/20 text-white font-extrabold text-base tracking-tight shadow-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-500 font-mono">
+              {initials}
+            </div>
+          )}
+
+          <div>
+            <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight group-hover:text-white transition-colors">
+              {speaker.name}
+            </h3>
+            <div className="text-xs font-bold text-white/90 leading-snug mt-1 font-sans">
+              {speaker.role}
+            </div>
+            <div className="text-xs font-mono text-white/60 leading-snug mt-0.5">
+              {speaker.company}
+            </div>
+          </div>
+        </div>
+
+        {/* Expandable Bio Description */}
+        <p className="text-xs text-white/75 leading-relaxed font-light mt-3 line-clamp-3 group-hover:line-clamp-none transition-all">
+          {speaker.bio}
+        </p>
+      </div>
+
+      <div className="pt-4 mt-6 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/50">
+        <span>SDGs IN BRAZIL</span>
+        <span>2026</span>
+      </div>
+    </motion.div>
+  );
+};
+
+export const Speakers: React.FC = () => {
+  useGSAP(() => {
+    gsap.fromTo('.speakers-header', 
+      { y: 30, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: '.speakers-header',
+          start: 'top 85%',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+      }
+    );
+
+    gsap.fromTo('.seamless-speaker-card', 
+      { y: 30, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: '.seamless-speakers-grid',
+          start: 'top 85%',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.06,
+        ease: 'power3.out',
+      }
+    );
+  }, []);
+
+  return (
+    <section id="palestrantes" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
+      {/* Soft Ambient Background Lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#5F3469]/10 blur-[200px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Centered Editorial Header */}
+        <div className="speakers-header text-center max-w-4xl mx-auto mb-16">
+          <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
+            ORADORES DO EVENTO · SEDE ONU NY
+          </span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Corpo de Palestrantes.<br />
+            <span className="text-white/80 font-light">Lideranças Globais & Nacionais.</span>
+          </h2>
+          <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto leading-relaxed font-light">
+            CEOs, diplomatas e especialistas de grande relevância reunidos para apresentar evidências e métricas de transformação sustentável.
+          </p>
+        </div>
+
+        {/* Seamless 0px Gap Grid (Borderless Dividers) */}
+        <div className="seamless-speakers-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-l border-t border-white/10">
+          {SPEAKERS_DATA.map((s, idx) => (
+            <SpeakerCard key={s.id} speaker={s} index={idx} className="speaker-card" />
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
