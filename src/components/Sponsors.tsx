@@ -70,6 +70,8 @@ export const Sponsors: React.FC = () => {
               src="./assets/marcas.png" 
               alt="Pacto Global, AYA, Aegea e Missão do Brasil na ONU"
               className="w-full h-auto object-contain filter drop-shadow-md"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <p className="text-xs sm:text-sm text-white/70 max-w-lg mx-auto font-light leading-relaxed">
@@ -145,47 +147,23 @@ export const Sponsors: React.FC = () => {
 
         </div>
 
-        {/* Network Stats & Event Operations Contact */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-black border border-white/10 rounded-3xl p-8">
-          <div className="md:col-span-6 grid grid-cols-2 gap-4">
-            <div className="p-4 bg-white/[0.02] rounded-xl border border-white/10 text-center">
-              <span className="text-2xl font-extrabold text-white font-mono block">2.000+</span>
-              <span className="text-[10px] text-white/60 font-mono uppercase">Participantes Rede Brasil</span>
-            </div>
-            <div className="p-4 bg-white/[0.02] rounded-xl border border-white/10 text-center">
-              <span className="text-2xl font-extrabold text-white font-mono block">393</span>
-              <span className="text-[10px] text-white/60 font-mono uppercase">Org. Ambição 2030</span>
-            </div>
-            <div className="p-4 bg-white/[0.02] rounded-xl border border-white/10 text-center">
-              <span className="text-2xl font-extrabold text-white font-mono block">2Mi+</span>
-              <span className="text-[10px] text-white/60 font-mono uppercase">Trabalhadores Impactados</span>
-            </div>
-            <div className="p-4 bg-white/[0.02] rounded-xl border border-white/10 text-center">
-              <span className="text-2xl font-extrabold text-white font-mono block">2ª Maior</span>
-              <span className="text-[10px] text-white/60 font-mono uppercase">Rede Local do Mundo</span>
-            </div>
+        {/* Network Stats Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-black border border-white/10 rounded-3xl p-8 text-center">
+          <div className="p-4 bg-white/[0.02] rounded-2xl border border-white/10">
+            <span className="text-3xl font-extrabold text-white font-mono block mb-1">2.000+</span>
+            <span className="text-[10px] text-white/60 font-mono uppercase tracking-wider">Participantes Rede Brasil</span>
           </div>
-
-          <div className="md:col-span-6 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-8">
-            <span className="text-[10px] font-mono font-bold tracking-widest text-white/60 uppercase block mb-3">
-              CONTATOS DE EVENTO E PRODUÇÃO
-            </span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
-              <div>
-                <p className="font-bold text-white">Ana Urquiza</p>
-                <p className="text-white/60 text-[11px]">Gerente de Eventos</p>
-                <a href="mailto:ana.urquiza@pactoglobal.org.br" className="text-white/80 hover:text-white underline text-[11px] block mt-1">
-                  ana.urquiza@pactoglobal.org.br
-                </a>
-              </div>
-              <div>
-                <p className="font-bold text-white">Luiza Maruche</p>
-                <p className="text-white/60 text-[11px]">Produção (Yellow Eventos)</p>
-                <a href="mailto:producao@pactoglobal.org.br" className="text-white/80 hover:text-white underline text-[11px] block mt-1">
-                  producao@pactoglobal.org.br
-                </a>
-              </div>
-            </div>
+          <div className="p-4 bg-white/[0.02] rounded-2xl border border-white/10">
+            <span className="text-3xl font-extrabold text-white font-mono block mb-1">393</span>
+            <span className="text-[10px] text-white/60 font-mono uppercase tracking-wider">Org. Ambição 2030</span>
+          </div>
+          <div className="p-4 bg-white/[0.02] rounded-2xl border border-white/10">
+            <span className="text-3xl font-extrabold text-white font-mono block mb-1">2Mi+</span>
+            <span className="text-[10px] text-white/60 font-mono uppercase tracking-wider">Trabalhadores Impactados</span>
+          </div>
+          <div className="p-4 bg-white/[0.02] rounded-2xl border border-white/10">
+            <span className="text-3xl font-extrabold text-white font-mono block mb-1">2ª Maior</span>
+            <span className="text-[10px] text-white/60 font-mono uppercase tracking-wider">Rede Local do Mundo</span>
           </div>
         </div>
 
