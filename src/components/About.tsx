@@ -34,7 +34,7 @@ const FORCES = [
     title: 'O ESG fatigue é real — e presente',
     desc: 'Cresce a cobrança por evidências e métricas transparentes. Quem tem substância para demonstrar ocupa a liderança.',
     tag: 'Substância & Métricas',
-    bg: './assets/sdgs_2025_12.jpg',
+    bg: './assets/sdgs_2025_18.jpg',
   },
   {
     num: 'FORÇA 03',
@@ -88,30 +88,27 @@ export const About: React.FC = () => {
   }, []);
 
   return (
-    <section id="sobre" className="relative py-24 sm:py-32 bg-[#05070f] overflow-hidden">
+    <section id="sobre" className="relative py-24 sm:py-32 bg-black text-white overflow-hidden border-t border-white/10">
       {/* Soft Ambient Radial Lights (No harsh borders) */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#0D6886]/10 to-[#5F3469]/10 blur-[180px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#0D6886]/10 to-[#5F3469]/10 blur-[200px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[11px] font-bold text-[#38bdf8] tracking-[0.3em] uppercase block mb-3 font-mono">
-            SDGs in Brazil 2026 · Sede ONU NY
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
+            SDGS IN BRAZIL 2026 · SEDE ONU NY
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Rumo a 2030: O Tempo da Prova
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Rumo a 2030: O Tempo da Prova.<br />
+            <span className="text-white/80 font-light">"Comprometemos. Agimos. Agora, provamos."</span>
           </h2>
-          <p className="text-xs sm:text-sm text-white/70 font-mono tracking-widest mt-3 uppercase">
-            "Comprometemos. Agimos. Agora, provamos."
-          </p>
-          <div className="h-0.5 w-16 bg-gradient-to-r from-[#0D6886] via-[#38bdf8] to-[#5F3469] mx-auto mt-6 rounded-full" />
         </div>
 
         {/* Highlight Stats Bar - Glassmorphism Borderless Design */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          <div className="p-8 bg-white/[0.02] backdrop-blur-2xl rounded-3xl text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-white/[0.04]">
-            <span className="text-4xl sm:text-5xl font-extrabold font-mono text-[#38bdf8] block mb-2 tracking-tight">
+          <div className="p-8 bg-white/[0.02] backdrop-blur-2xl rounded-3xl text-center border border-white/10 shadow-2xl transition-all duration-300 hover:bg-white/[0.04]">
+            <span className="text-4xl sm:text-6xl font-extrabold font-mono text-white block mb-2 tracking-tight">
               35%
             </span>
             <span className="text-xs text-white/75 font-light leading-relaxed">
@@ -119,8 +116,8 @@ export const About: React.FC = () => {
             </span>
           </div>
 
-          <div className="p-8 bg-white/[0.02] backdrop-blur-2xl rounded-3xl text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-white/[0.04]">
-            <span className="text-4xl sm:text-5xl font-extrabold font-mono text-[#FFD700] block mb-2 tracking-tight">
+          <div className="p-8 bg-white/[0.02] backdrop-blur-2xl rounded-3xl text-center border border-white/10 shadow-2xl transition-all duration-300 hover:bg-white/[0.04]">
+            <span className="text-4xl sm:text-6xl font-extrabold font-mono text-white block mb-2 tracking-tight">
               18%
             </span>
             <span className="text-xs text-white/75 font-light leading-relaxed">
@@ -128,8 +125,8 @@ export const About: React.FC = () => {
             </span>
           </div>
 
-          <div className="p-8 bg-white/[0.02] backdrop-blur-2xl rounded-3xl text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-white/[0.04]">
-            <span className="text-4xl sm:text-5xl font-extrabold font-mono text-white block mb-2 tracking-tight">
+          <div className="p-8 bg-white/[0.02] backdrop-blur-2xl rounded-3xl text-center border border-white/10 shadow-2xl transition-all duration-300 hover:bg-white/[0.04]">
+            <span className="text-4xl sm:text-6xl font-extrabold font-mono text-white block mb-2 tracking-tight">
               4 Anos
             </span>
             <span className="text-xs text-white/75 font-light leading-relaxed">
@@ -142,12 +139,9 @@ export const About: React.FC = () => {
         <div className="about-intro grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-24">
           
           {/* Left Block: Narrative with Infinite Glassmorphism (No harsh borders) */}
-          <div className="lg:col-span-6 p-8 sm:p-12 bg-white/[0.02] backdrop-blur-2xl rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.7)] flex flex-col justify-between relative overflow-hidden group">
-            {/* Infinite Subtle Ambient Glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#0D6886]/10 blur-[100px] pointer-events-none" />
-
+          <div className="lg:col-span-6 p-8 sm:p-12 bg-white/[0.02] backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl flex flex-col justify-between relative overflow-hidden group">
             <div className="relative z-10">
-              <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#38bdf8] uppercase block mb-4">
+              <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-white/60 uppercase block mb-4">
                 DIAGNÓSTICO E CONTEXTO GLOBAL
               </span>
               <p className="text-base sm:text-lg text-white/90 leading-relaxed font-normal mb-6">
@@ -164,12 +158,12 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Block: Square Glassmorphism Card with Real 2025 Event Photo Slideshow (No António Guterres static portrait) */}
+          {/* Right Block: Square Glassmorphism Card with Real 2025 Event Photo Slideshow */}
           <div className="lg:col-span-6">
             <motion.div 
-              whileHover={{ y: -4, scale: 1.005 }}
+              whileHover={{ scale: 1.005 }}
               transition={{ type: 'spring', stiffness: 350, damping: 25 }}
-              className="aspect-square relative rounded-3xl overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.8)] bg-black/40 group flex flex-col justify-between"
+              className="aspect-square relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black group flex flex-col justify-between"
             >
               {/* Event Photos Background Carousel with Seamless Crossfade */}
               {EVENT_PHOTOS.map((photo, idx) => (
@@ -185,16 +179,16 @@ export const About: React.FC = () => {
               ))}
               
               {/* Infinite Dark Fade Overlay - Seamless blend to page background */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#05070f] via-[#05070f]/50 to-black/20 z-[2]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-[2]" />
 
               {/* Content Overlay - Glassmorphism Details */}
               <div className="relative z-10 p-8 sm:p-10 flex flex-col justify-between h-full">
                 {/* Top Badge */}
                 <div className="flex justify-between items-center">
-                  <span className="text-[10px] font-mono font-bold tracking-widest uppercase px-3 py-1.5 bg-black/60 backdrop-blur-xl text-[#38bdf8] rounded-full shadow-lg border border-white/10">
+                  <span className="text-[10px] font-mono font-bold tracking-widest uppercase px-3 py-1.5 bg-black/70 backdrop-blur-xl text-white rounded-full shadow-lg border border-white/10">
                     {EVENT_PHOTOS[photoIndex].tag}
                   </span>
-                  <span className="text-xs font-mono text-white/70 font-bold bg-black/40 backdrop-blur-md px-3 py-1 rounded-full">
+                  <span className="text-xs font-mono text-white/70 font-bold bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
                     REGISTRO OFICIAL
                   </span>
                 </div>
@@ -207,7 +201,7 @@ export const About: React.FC = () => {
                   <div className="pt-4 border-t border-white/20 flex items-center justify-between">
                     <div>
                       <h4 className="text-sm font-extrabold text-white">SDGs in Brazil · Nova York</h4>
-                      <p className="text-xs font-mono text-[#38bdf8] font-bold mt-0.5">
+                      <p className="text-xs font-mono text-white/60 font-bold mt-0.5">
                         Sede das Nações Unidas
                       </p>
                     </div>
@@ -217,7 +211,7 @@ export const About: React.FC = () => {
                       {EVENT_PHOTOS.map((_, i) => (
                         <div 
                           key={i} 
-                          className={`w-2 h-2 rounded-full transition-all duration-300 ${photoIndex === i ? 'bg-[#38bdf8] w-5' : 'bg-white/30'}`} 
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${photoIndex === i ? 'bg-white w-5' : 'bg-white/30'}`} 
                         />
                       ))}
                     </div>
@@ -231,9 +225,9 @@ export const About: React.FC = () => {
 
         {/* Três Forças - Borderless Square Glassmorphism Layout */}
         <div>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-[11px] font-bold text-[#38bdf8] tracking-[0.3em] uppercase block mb-3 font-mono">
-              O Cenário de 2026
+          <div className="text-center max-w-4xl mx-auto mb-14">
+            <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
+              O CENÁRIO DE 2026
             </span>
             <h3 className="text-2xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
               Três Forças Simultâneas que Definem a Liderança Global
@@ -250,7 +244,7 @@ export const About: React.FC = () => {
                 key={i}
                 whileHover={{ y: -6, scale: 1.01 }}
                 transition={{ type: 'spring', stiffness: 350, damping: 25 }}
-                className="force-card aspect-square relative rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7)] group flex flex-col justify-between p-8 bg-black/40"
+                className="force-card aspect-square relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group flex flex-col justify-between p-8 bg-black"
               >
                 {/* Background Image */}
                 <div 
@@ -259,16 +253,16 @@ export const About: React.FC = () => {
                 />
                 
                 {/* Infinite Dark Fade Overlay - Seamlessly blends with background */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05070f] via-[#05070f]/85 to-[#05070f]/50 z-[1]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/40 z-[1]" />
 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col justify-between h-full">
                   <div>
                     <div className="flex justify-between items-center mb-6">
-                      <span className="text-[10px] font-mono font-bold tracking-widest text-white uppercase px-3 py-1 bg-white/10 rounded-full backdrop-blur-xl">
+                      <span className="text-[10px] font-mono font-bold tracking-widest text-white uppercase px-3 py-1 bg-black/60 rounded-full border border-white/15 backdrop-blur-xl">
                         {force.num}
                       </span>
-                      <span className="text-xs font-mono font-bold text-[#38bdf8]">
+                      <span className="text-xs font-mono font-bold text-white/80">
                         {force.tag}
                       </span>
                     </div>

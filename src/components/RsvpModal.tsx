@@ -34,7 +34,7 @@ export const RsvpModal: React.FC<Props> = ({ isOpen, onClose }) => {
     <AnimatePresence>
       <div 
         onClick={onClose} 
-        className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 sm:p-6"
+        className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4 sm:p-6"
       >
         <motion.div 
           initial={{ opacity: 0, scale: 0.92, y: 20 }}
@@ -42,24 +42,24 @@ export const RsvpModal: React.FC<Props> = ({ isOpen, onClose }) => {
           exit={{ opacity: 0, scale: 0.92, y: 20 }}
           transition={{ type: 'spring', stiffness: 350, damping: 25 }}
           onClick={e => e.stopPropagation()} 
-          className="bg-[#0d131f] border border-white/15 rounded-2xl p-6 sm:p-10 w-full max-w-lg shadow-2xl relative"
+          className="bg-black border border-white/20 rounded-3xl p-6 sm:p-10 w-full max-w-lg shadow-2xl relative text-white"
         >
           {submitted ? (
             <div className="text-center py-8">
-              <div className="w-16 h-16 rounded-full bg-[#0D6886]/20 border border-[#0D6886] flex items-center justify-center text-[#38bdf8] mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white mx-auto mb-4">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-extrabold text-white mb-3">Pré-inscrição Enviada!</h2>
-              <p className="text-sm text-white/70 leading-relaxed mb-8 font-light">
+              <h2 className="text-2xl font-extrabold text-white mb-3 tracking-tight">Pré-inscrição Enviada!</h2>
+              <p className="text-sm text-white/75 leading-relaxed mb-8 font-light">
                 Recebemos sua solicitação. Nossa equipe entrará em contato com as próximas etapas do credenciamento em breve.
               </p>
               <motion.button 
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={onClose} 
-                className="min-h-[44px] px-8 py-3 bg-white text-[#05070f] font-extrabold text-xs tracking-wider uppercase rounded-xl shadow-md font-mono"
+                className="min-h-[44px] px-8 py-3 bg-white text-black font-extrabold text-xs tracking-wider uppercase rounded-xl shadow-md font-mono"
               >
                 Fechar
               </motion.button>
@@ -68,7 +68,7 @@ export const RsvpModal: React.FC<Props> = ({ isOpen, onClose }) => {
             <>
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-white leading-tight tracking-tight">
                     Tenho Interesse
                   </h2>
                   <p className="text-xs text-white/60 mt-1 font-mono">
@@ -78,7 +78,7 @@ export const RsvpModal: React.FC<Props> = ({ isOpen, onClose }) => {
                 <motion.button 
                   whileTap={{ scale: 0.9 }}
                   onClick={onClose} 
-                  className="min-w-[44px] min-h-[44px] bg-white/10 hover:bg-white/20 rounded-full text-white text-lg flex items-center justify-center transition-colors"
+                  className="min-w-[44px] min-h-[44px] bg-white/10 hover:bg-white/20 rounded-full text-white text-lg flex items-center justify-center transition-colors font-mono"
                   aria-label="Fechar"
                 >
                   ✕
@@ -94,7 +94,7 @@ export const RsvpModal: React.FC<Props> = ({ isOpen, onClose }) => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   type="submit" 
-                  className="mt-2 min-h-[48px] py-3.5 bg-[#0D6886] hover:bg-[#0A546D] text-white font-extrabold text-xs tracking-wider uppercase rounded-xl shadow-lg shadow-[#0D6886]/30 transition-colors flex items-center justify-center font-mono"
+                  className="mt-2 min-h-[48px] py-3.5 bg-white text-black hover:bg-gray-100 font-extrabold text-xs tracking-wider uppercase rounded-xl shadow-lg transition-colors flex items-center justify-center font-mono"
                 >
                   Enviar Solicitação →
                 </motion.button>

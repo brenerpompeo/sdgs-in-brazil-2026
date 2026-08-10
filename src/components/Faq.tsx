@@ -48,7 +48,7 @@ export const Faq: React.FC = () => {
       }
     );
 
-    gsap.fromTo('.faq-item', 
+    gsap.fromTo('.seamless-faq-item', 
       { y: 25, opacity: 0 },
       {
         scrollTrigger: {
@@ -65,39 +65,43 @@ export const Faq: React.FC = () => {
   }, []);
 
   return (
-    <section id="faq" className="py-24 sm:py-28 bg-[#05070f] border-t border-white/10 relative overflow-hidden">
+    <section id="faq" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="faq-header text-center mb-14">
-          <span className="text-[11px] font-bold text-[#5F3469] tracking-[0.3em] uppercase block mb-3 font-mono">
-            Dúvidas Frequentes
+        {/* Centered Editorial Header */}
+        <div className="faq-header text-center mb-16">
+          <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
+            DÚVIDAS FREQUENTES · PROTOCOLO ONU
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight leading-tight">
-            Perguntas Frequentes
+            Perguntas Frequentes.<br />
+            <span className="text-white/80 font-light">Credenciamento & Logística.</span>
           </h2>
           <p className="text-sm sm:text-base text-white/75 max-w-lg mx-auto leading-relaxed font-light px-2">
-            Informações práticas sobre credenciamento, protocolo de segurança na ONU e logística de viagem.
+            Informações práticas sobre o protocolo de segurança na ONU em Nova York e credenciamento oficial.
           </p>
         </div>
 
-        {/* Accordion List */}
-        <div className="faq-list flex flex-col gap-3">
+        {/* Seamless Accordion List (Borderless Dividers) */}
+        <div className="faq-list flex flex-col border-t border-b border-white/10">
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
 
             return (
               <div 
                 key={idx}
-                className="faq-item rounded-2xl bg-[#0d131f] border border-white/15 hover:border-white/30 overflow-hidden transition-colors"
+                className="seamless-faq-item border-b border-white/10 last:border-b-0 overflow-hidden transition-colors"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full min-h-[56px] px-6 py-4 flex items-center justify-between text-left gap-4 font-bold text-sm sm:text-base text-white hover:text-[#38bdf8] transition-colors"
+                  className="w-full py-6 px-4 sm:px-6 flex items-center justify-between text-left gap-4 font-extrabold text-base sm:text-lg text-white hover:text-white transition-colors group"
                   aria-expanded={isOpen}
                 >
-                  <span className="leading-snug">{faq.q}</span>
-                  <span className={`text-lg font-mono transition-transform duration-200 flex-shrink-0 ${isOpen ? 'rotate-45 text-[#38bdf8]' : 'text-white/40'}`}>
+                  <div className="flex items-center gap-4">
+                    <span className="text-xs font-mono text-white/40">0{idx + 1}</span>
+                    <span className="leading-snug">{faq.q}</span>
+                  </div>
+                  <span className={`text-xl font-mono transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-45 text-white' : 'text-white/40'}`}>
                     +
                   </span>
                 </button>
@@ -108,10 +112,10 @@ export const Faq: React.FC = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: 'easeInOut' }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 text-xs sm:text-sm text-white/80 font-light leading-relaxed border-t border-white/5 pt-4">
+                      <div className="px-4 sm:px-6 pb-6 text-xs sm:text-sm text-white/75 font-light leading-relaxed pl-10 sm:pl-12">
                         {faq.a}
                       </div>
                     </motion.div>

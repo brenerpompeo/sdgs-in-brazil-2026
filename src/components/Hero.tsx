@@ -17,12 +17,12 @@ const BACKGROUNDS = [
 const CountdownBox = ({ value, label }: { value: number; label: string }) => (
   <motion.div 
     whileHover={{ scale: 1.05, y: -2 }}
-    className="flex flex-col items-center px-4 sm:px-6 py-3.5 sm:py-4 bg-[#0d131f]/90 backdrop-blur-lg border border-white/15 rounded-xl min-w-[76px] sm:min-w-[104px] shadow-2xl shadow-black/50"
+    className="flex flex-col items-center px-4 sm:px-6 py-3.5 sm:py-4 bg-white/[0.04] backdrop-blur-xl border border-white/15 rounded-2xl min-w-[76px] sm:min-w-[104px] shadow-2xl"
   >
-    <span className="text-3xl sm:text-5xl font-extrabold font-mono tracking-tight text-white leading-none drop-shadow-sm">
+    <span className="text-3xl sm:text-5xl font-extrabold font-mono tracking-tight text-white leading-none">
       {String(value).padStart(2, '0')}
     </span>
-    <span className="text-[10px] sm:text-xs font-bold text-[#38bdf8] tracking-widest uppercase mt-2.5 font-mono">
+    <span className="text-[10px] sm:text-xs font-bold text-white/60 tracking-widest uppercase mt-2.5 font-mono">
       {label}
     </span>
   </motion.div>
@@ -77,7 +77,7 @@ export const Hero: React.FC<Props> = ({ onOpenRsvp }) => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#05070f]">
+    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-black text-white">
       {/* Background Slideshow Containers */}
       {BACKGROUNDS.map((bg, idx) => (
         <div
@@ -92,13 +92,7 @@ export const Hero: React.FC<Props> = ({ onOpenRsvp }) => {
       ))}
 
       {/* Multi-layered Dimmer Overlay for Perfect Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#05070f]/85 via-[#05070f]/75 to-[#05070f] pointer-events-none z-[2]" />
-
-      {/* Grid Overlay Line Field */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center pointer-events-none mix-blend-screen opacity-[0.25] z-[3]"
-        style={{ backgroundImage: "url('./assets/line-field.png')" }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-black pointer-events-none z-[2]" />
 
       {/* Hero Content */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 max-w-5xl mx-auto w-full">
@@ -108,7 +102,8 @@ export const Hero: React.FC<Props> = ({ onOpenRsvp }) => {
           <img
             src="./assets/logo.png"
             alt="SDGs in Brazil 2026 Logo"
-            className="h-[120px] sm:h-[180px] md:h-[220px] w-auto object-contain drop-shadow-[0_12px_45px_rgba(13,104,134,0.6)] mx-auto"
+            className="h-[120px] sm:h-[180px] md:h-[220px] w-auto object-contain drop-shadow-2xl mx-auto"
+            loading="eager"
           />
         </div>
 
@@ -117,14 +112,15 @@ export const Hero: React.FC<Props> = ({ onOpenRsvp }) => {
           <img
             src="./assets/data_horizontal.png"
             alt="18 de Setembro de 2026 - Sede da ONU - NY"
-            className="w-full h-auto object-contain filter drop-shadow-[0_6px_20px_rgba(0,0,0,0.8)]"
+            className="w-full h-auto object-contain filter drop-shadow-xl"
+            loading="eager"
           />
         </div>
 
         {/* Countdown */}
         <div className="hero-countdown mb-10 sm:mb-12 w-full">
-          <p className="text-[11px] sm:text-xs font-bold text-white/80 tracking-[0.3em] uppercase mb-4 font-mono drop-shadow-sm">
-            Contagem regressiva para a abertura
+          <p className="text-[11px] sm:text-xs font-bold text-white/60 tracking-[0.3em] uppercase mb-4 font-mono">
+            CONTAGEM REGRESSIVA PARA A ABERTURA
           </p>
           <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
             <CountdownBox value={countdown.days} label="Dias" />
@@ -135,12 +131,12 @@ export const Hero: React.FC<Props> = ({ onOpenRsvp }) => {
         </div>
 
         {/* High-Contrast CTAs */}
-        <div className="hero-ctas flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-lg mx-auto">
+        <div className="hero-ctas flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-lg mx-auto font-mono">
           <motion.button
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
             onClick={onOpenRsvp}
-            className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white text-[#05070f] font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-2xl hover:bg-gray-100 flex items-center justify-center transition-colors font-mono"
+            className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-2xl hover:bg-gray-100 flex items-center justify-center transition-colors"
           >
             TENHO INTERESSE EM PARTICIPAR
           </motion.button>
@@ -148,7 +144,7 @@ export const Hero: React.FC<Props> = ({ onOpenRsvp }) => {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             href="#programacao"
-            className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-[#0d131f]/90 backdrop-blur-md text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl border border-white/20 hover:border-white/40 hover:bg-[#121a2a] text-center flex items-center justify-center transition-colors shadow-lg font-mono"
+            className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white/10 text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl border border-white/20 hover:border-white/40 hover:bg-white/15 text-center flex items-center justify-center transition-colors shadow-lg"
           >
             Ver Programação
           </motion.a>
@@ -156,13 +152,14 @@ export const Hero: React.FC<Props> = ({ onOpenRsvp }) => {
       </div>
 
       {/* Corporate Sponsors Bar */}
-      <div className="relative z-10 w-full border-t border-white/15 bg-[#05070f]/95 backdrop-blur-md py-6 px-4 sm:px-6">
+      <div className="relative z-10 w-full border-t border-white/15 bg-black py-6 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto flex items-center justify-center">
           <div className="w-full max-w-[580px]">
             <img 
               src="./assets/marcas.png" 
               alt="Marcas: Pacto Global, AYA Earth Partners, Aegea, Missão do Brasil na ONU" 
               className="w-full h-auto object-contain filter drop-shadow-sm"
+              loading="eager"
             />
           </div>
         </div>
