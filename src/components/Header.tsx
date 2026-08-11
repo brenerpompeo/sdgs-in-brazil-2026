@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface Props {
-  onOpenRsvp: () => void;
-}
-
-export const Header: React.FC<Props> = ({ onOpenRsvp }) => {
+export const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -74,14 +70,16 @@ export const Header: React.FC<Props> = ({ onOpenRsvp }) => {
 
         {/* Desktop CTA Button */}
         <div className="hidden md:flex">
-          <motion.button 
+          <motion.a 
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
-            onClick={onOpenRsvp} 
+            href="https://sdgs2026.cadastro9.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
             className="min-h-[44px] px-6 py-2.5 bg-white text-black hover:bg-gray-100 font-extrabold text-xs tracking-wider uppercase rounded-xl shadow-md transition-colors duration-200 flex items-center justify-center font-mono"
           >
             Tenho Interesse
-          </motion.button>
+          </motion.a>
         </div>
 
         {/* Mobile menu button */}
@@ -124,13 +122,16 @@ export const Header: React.FC<Props> = ({ onOpenRsvp }) => {
                   {item}
                 </a>
               ))}
-              <motion.button 
+              <motion.a 
                 whileTap={{ scale: 0.97 }}
-                onClick={() => { setOpen(false); onOpenRsvp(); }} 
-                className="mt-4 w-full min-h-[48px] py-3.5 bg-white text-black hover:bg-gray-100 font-extrabold text-xs tracking-wider uppercase rounded-xl transition-colors duration-150 flex items-center justify-center font-mono"
+                href="https://sdgs2026.cadastro9.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)} 
+                className="mt-4 w-full min-h-[48px] py-3.5 bg-white text-black hover:bg-gray-100 font-extrabold text-xs tracking-wider uppercase rounded-xl transition-colors duration-150 flex items-center justify-center font-mono text-center"
               >
                 Tenho Interesse
-              </motion.button>
+              </motion.a>
             </div>
           </motion.div>
         )}

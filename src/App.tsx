@@ -13,12 +13,10 @@ import { Sponsors } from './components/Sponsors';
 import { Venue } from './components/Venue';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
-import { RsvpModal } from './components/RsvpModal';
 import { SessionModal } from './components/SessionModal';
 import { SessionItem } from './data/scheduleData';
 
 export function App() {
-  const [rsvpOpen, setRsvpOpen] = useState(false);
   const [activeSession, setActiveSession] = useState<SessionItem | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -26,9 +24,9 @@ export function App() {
     <SmoothScroll>
       <CustomCursor />
       {loading && <Preloader onComplete={() => setLoading(false)} />}
-      <div className="bg-[#05070f] text-white min-h-screen">
-        <Header onOpenRsvp={() => setRsvpOpen(true)} />
-        <Hero onOpenRsvp={() => setRsvpOpen(true)} />
+      <div className="bg-black text-white min-h-screen">
+        <Header />
+        <Hero />
         <About />
         <Gallery2025 />
         <Schedule onSelectSession={setActiveSession} />
@@ -36,9 +34,8 @@ export function App() {
         <PastLeaders />
         <Sponsors />
         <Venue />
-        <CtaBanner onOpenRsvp={() => setRsvpOpen(true)} />
+        <CtaBanner />
         <Footer />
-        <RsvpModal isOpen={rsvpOpen} onClose={() => setRsvpOpen(false)} />
         <SessionModal session={activeSession} onClose={() => setActiveSession(null)} />
       </div>
     </SmoothScroll>
