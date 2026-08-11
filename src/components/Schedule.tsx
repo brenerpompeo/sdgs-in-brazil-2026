@@ -82,7 +82,7 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
             <span className="text-slate-300 font-light font-sans">18 de Setembro de 2026.</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-light">
-            Formato dinâmico alternando keynotes, painéis com Q&A da plateia, entrevistas e masterclasses com foco nos 4 Pilares do Pacto Global da ONU.
+            Formato dinâmico alternando keynotes, painéis com Q&A da plateia, entrevistas e masterclasses com foco nos 4 Pilares do Pacto Global da ONU - Rede Brasil.
           </p>
         </div>
 
@@ -108,7 +108,7 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
         <div className="schedule-timeline flex flex-col bg-white/[0.02] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
           {filtered.map((session, index) => {
             const isBreak = session.type === 'Almoço';
-            const pillar = SESSION_PILLARS[session.id] || 'Pacto Global';
+            const pillar = SESSION_PILLARS[session.id] || 'Pacto Global da ONU - Rede Brasil';
 
             return (
               <motion.div

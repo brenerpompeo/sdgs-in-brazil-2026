@@ -1,110 +1,88 @@
-import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Props {
   onComplete: () => void;
 }
 
 export const Preloader: React.FC<Props> = ({ onComplete }) => {
+  const [progress, setProgress] = useState(0);
+  const [done, setDone] = useState(false);
+
   useEffect(() => {
-    const tl = gsap.timeline({
-      onComplete: () => {
-        onComplete();
-      },
-    });
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            setDone(true);
+            setTimeout(onComplete, 600);
+          }, 300);
+          return 100;
+        }
+        return prev + Math.floor(Math.random() * 15) + 5;
+      });
+    }, 80);
 
-    // 1. Initial logo & KV entrance
-    tl.fromTo('.splash-logo', 
-      { scale: 0.85, opacity: 0, y: 15 },
-      { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
-    )
-    .fromTo('.splash-date', 
-      { opacity: 0, y: 10 },
-      { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4'
-    )
-    .fromTo('.splash-progress', 
-      { scaleX: 0 },
-      { scaleX: 1, duration: 1.0, ease: 'power2.inOut' }, '-=0.2'
-    )
-    
-    // 2. Fade out content & curtain split exit
-    .to('.splash-content', {
-      opacity: 0,
-      scale: 0.95,
-      duration: 0.5,
-      ease: 'power2.inOut',
-      delay: 0.3,
-    })
-    .to('.splash-curtain-top', {
-      yPercent: -100,
-      duration: 0.8,
-      ease: 'power4.inOut',
-    }, '-=0.1')
-    .to('.splash-curtain-bottom', {
-      yPercent: 100,
-      duration: 0.8,
-      ease: 'power4.inOut',
-    }, '<');
-
-    return () => {
-      tl.kill();
-    };
+    return () => clearInterval(interval);
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-[10000] pointer-events-none flex flex-col overflow-hidden">
-      {/* Top Curtain */}
-      <div className="splash-curtain-top flex-1 bg-[#05070f] relative flex items-end justify-center pb-2">
-        {/* Line field background grid overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-[0.2] mix-blend-screen pointer-events-none"
-          style={{ backgroundImage: "url('./assets/line-field.png')" }}
-        />
-        {/* Top ambient glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#0D6886]/15 blur-[120px] rounded-full pointer-events-none" />
-      </div>
+    <AnimatePresence>
+      {!done && (
+        <motion.div 
+          exit={{ opacity: 0, scale: 1.02 }}
+          transition={{ duration: 0.6, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[500] bg-black text-white flex flex-col justify-between p-8 sm:p-12 font-mono selection:bg-white selection:text-black"
+        >
+          {/* Top Info */}
+          <div className="flex justify-between items-start text-[10px] text-slate-400 uppercase tracking-widest">
+            <div>
+              <span className="text-white font-bold block mb-1">SDGs IN BRAZIL 2026</span>
+              <span>SEDE DAS NAÇÕES UNIDAS · NY</span>
+            </div>
+            <div className="text-right">
+              <span className="text-white font-bold block mb-1">AGNU-81</span>
+              <span>18 DE SETEMBRO DE 2026</span>
+            </div>
+          </div>
 
-      {/* Center Fixed Content Container */}
-      <div className="splash-content absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center">
-        {/* Brand Subtitle */}
-        <span className="text-[10px] font-mono font-bold tracking-[0.35em] uppercase text-[#0D6886] mb-6">
-          Pacto Global da ONU · Rede Brasil
-        </span>
+          {/* Center Brand */}
+          <div className="flex flex-col items-center justify-center my-auto">
+            <motion.img 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              src="./assets/logo.png" 
+              alt="SDGs in Brazil" 
+              className="h-16 sm:h-24 w-auto object-contain mb-8 filter drop-shadow-2xl"
+            />
+            
+            {/* Progress counter */}
+            <div className="text-5xl sm:text-7xl font-extrabold text-white tracking-tighter mb-4">
+              {Math.min(progress, 100)}%
+            </div>
 
-        {/* Main Official Logo */}
-        <div className="splash-logo mb-6 max-w-[280px] sm:max-w-[360px] w-full">
-          <img
-            src="./assets/logo.png"
-            alt="SDGs in Brazil 2026 Logo"
-            className="w-full h-auto object-contain drop-shadow-[0_12px_40px_rgba(13,104,134,0.5)]"
-          />
-        </div>
+            <div className="w-48 sm:w-64 h-1 bg-white/10 rounded-full overflow-hidden mb-4">
+              <motion.div 
+                className="h-full bg-[#00A3E0]" 
+                style={{ width: `${Math.min(progress, 100)}%` }} 
+                transition={{ ease: 'easeOut' }}
+              />
+            </div>
 
-        {/* Official Date Badge (data_horizontal) */}
-        <div className="splash-date max-w-[240px] sm:max-w-[320px] w-full mb-8">
-          <img
-            src="./assets/data_horizontal.png"
-            alt="18 de Setembro de 2026 · Sede da ONU NY"
-            className="w-full h-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
-          />
-        </div>
+            <p className="text-[10px] text-slate-400 tracking-[0.25em] uppercase">
+              Pacto Global da ONU - Rede Brasil
+            </p>
+          </div>
 
-        {/* Progress Bar Container */}
-        <div className="w-48 sm:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden relative">
-          <div className="splash-progress w-full h-full bg-gradient-to-r from-[#0D6886] via-white to-[#5F3469] origin-left" />
-        </div>
-      </div>
-
-      {/* Bottom Curtain */}
-      <div className="splash-curtain-bottom flex-1 bg-[#05070f] relative flex items-start justify-center pt-2">
-        {/* Line field background grid overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-[0.2] mix-blend-screen pointer-events-none"
-          style={{ backgroundImage: "url('./assets/line-field.png')" }}
-        />
-        {/* Bottom ambient glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#5F3469]/15 blur-[120px] rounded-full pointer-events-none" />
-      </div>
-    </div>
+          {/* Bottom Lockup */}
+          <div className="flex justify-between items-end text-[9px] text-slate-500 uppercase tracking-widest border-t border-white/10 pt-4">
+            <span>RUMO A 2030</span>
+            <span>EVIDÊNCIAS & IMPACTO REAL</span>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };

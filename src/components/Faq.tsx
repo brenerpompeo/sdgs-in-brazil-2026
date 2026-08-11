@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 const FAQS = [
   {
     q: 'Quem pode participar do SDGs in Brazil 2026 na Sede da ONU?',
-    a: 'O evento é exclusivo para CEOs, presidentes, conselheiros, vice-presidentes, diretores C-Suite de empresas signatárias do Pacto Global da ONU, além de diplomatas, autoridades governamentais e convidados especiais da alta liderança internacional.',
+    a: 'O evento é exclusivo para CEOs, presidentes, conselheiros, vice-presidentes, diretores C-Suite de empresas signatárias do Pacto Global da ONU - Rede Brasil, além de diplomatas, autoridades governamentais e convidados especiais da alta liderança internacional.',
   },
   {
     q: 'Como funciona o processo de credenciamento e acesso à Sede da ONU?',
@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: 'O evento terá transmissão online ao vivo?',
-    a: 'A transmissão online ao vivo será disponibilizada via UN Web TV e canais oficiais do Pacto Global da ONU para participantes cadastrados remotamente.',
+    a: 'A transmissão online ao vivo será disponibilizada via UN Web TV e canais oficiais do Pacto Global da ONU - Rede Brasil para participantes cadastrados remotamente.',
   },
   {
     q: 'Como funciona a participação da imprensa?',

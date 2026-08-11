@@ -27,7 +27,7 @@ export function generateICS(event: CalendarEvent): string {
   return [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Pacto Global ONU Rede Brasil//SDGs in Brazil 2026//PT-BR',
+    'PRODID:-//Pacto Global da ONU - Rede Brasil//SDGs in Brazil 2026//PT-BR',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',

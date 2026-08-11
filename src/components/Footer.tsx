@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
           </span>
           <img 
             src="./assets/marcas.png" 
-            alt="Marcas: Pacto Global, AYA, Aegea, Missão ONU" 
+            alt="Marcas: Pacto Global da ONU - Rede Brasil, AYA, Aegea, Missão ONU" 
             className="w-full h-auto object-contain mx-auto"
             loading="lazy"
             decoding="async"
@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
 
         {/* Rights & Metadata */}
         <div className="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-white/50 font-mono">
-          <p>© 2026 SDGs in Brazil · Pacto Global da ONU (Rede Brasil). Todos os direitos reservados.</p>
+          <p>© 2026 SDGs in Brazil · Pacto Global da ONU - Rede Brasil. Todos os direitos reservados.</p>
           <div className="flex gap-4 uppercase tracking-widest text-[9px] text-white/40">
             <span>18 ODS</span>
             <span>·</span>

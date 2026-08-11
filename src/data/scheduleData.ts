@@ -56,7 +56,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
       "Punjanit Leagnavar (Global Environment Policy Director at L'Oréal - TBC)",
       'Sergio Londoño Zurek (Vice President of Public Affairs & Sustainability, Coca-Cola - TBC)',
       'Toni Ballabriga (Global Head Sustainability Intelligence & Advocacy, BBVA)',
-      'Moderação: Gabriela Almeida (Gerente Executiva de Direitos Humanos, Pacto Global - Rede Brasil)'
+      'Moderação: Gabriela Almeida (Gerente Executiva de Direitos Humanos, Pacto Global da ONU - Rede Brasil)'
     ],
     ods: [8, 12, 13, 17],
     highlight: true
@@ -186,7 +186,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     period: 'tarde',
     description: 'Palavra final do CEO do Pacto Global da ONU - Rede Brasil ancorando o evento na jornada e projetos contínuos da Rede no Brasil.',
     speakers: ['guilherme-xavier'],
-    speakerNamesRaw: ['Guilherme Xavier (CEO do Pacto Global – Rede Brasil)'],
+    speakerNamesRaw: ['Guilherme Xavier (CEO do Pacto Global da ONU - Rede Brasil)'],
     ods: [17],
     highlight: true
   }
