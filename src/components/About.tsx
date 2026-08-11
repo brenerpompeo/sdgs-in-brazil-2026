@@ -175,7 +175,7 @@ export const About: React.FC = () => {
                 DIAGNÓSTICO E CONTEXTO GLOBAL
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-6 tracking-tight leading-snug">
-                Para Mostrar seu Protagonismo na Agenda e a Sustentabilidade
+                A Urgência de Resultados Verificáveis na Sede da ONU
               </h3>
               <p className="text-base text-white font-bold leading-relaxed mb-6">
                 Na sexta-feira que antecede a Assembleia Geral da ONU (AGNU-81), a liderança empresarial brasileira ocupa a sede das Nações Unidas em Nova York para demonstrar que a sustentabilidade é o único caminho para a perenidade dos negócios.
