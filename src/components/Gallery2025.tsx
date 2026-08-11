@@ -60,8 +60,8 @@ export const Gallery2025: React.FC = () => {
   const checkScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 20);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 20);
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
     }
   };
 
@@ -74,10 +74,13 @@ export const Gallery2025: React.FC = () => {
     return () => el?.removeEventListener('scroll', checkScroll);
   }, [photos]);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const handleScroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const amount = direction === 'left' ? -460 : 460;
-      scrollRef.current.scrollBy({ left: amount, behavior: 'smooth' });
+      const scrollAmount = scrollRef.current.clientWidth * 0.75;
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
     }
   };
 
@@ -100,48 +103,54 @@ export const Gallery2025: React.FC = () => {
   return (
     <section id="galeria" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
       {/* Ambient background lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Editorial Header */}
+      <div className="gallery-header text-center max-w-4xl mx-auto px-4 sm:px-6 mb-16">
+        <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
+          ACERVO HISTÓRICO · SEDE DA ONU NY
+        </span>
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          Registros da Nossa Última Edição.<br />
+          <span className="text-slate-300 font-light font-sans text-xl sm:text-3xl block mt-2">
+            Explore os momentos marcantes do SDGs in Brazil na Sede das Nações Unidas.
+          </span>
+        </h2>
+        <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-light">
+          Seleção oficial em alta definição dos debates, discursos e reuniões multilaterais ({photos.length} registros).
+        </p>
+      </div>
+
+      {/* Seamless Carousel Container (0px Gap Square Aesthetic) */}
+      <div className="seamless-gallery-container relative w-full border-t border-b border-white/10 bg-black">
         
-        {/* Editorial Header & Carousel Navigation Controls */}
-        <div className="gallery-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
-              ACERVO OFICIAL · SEDE DA ONU NY
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Galeria do Evento.
-            </h2>
-            <p className="text-sm sm:text-base text-slate-300 max-w-lg mt-2 font-light leading-relaxed">
-              Deslize horizontalmente para explorar os registros do SDGs in Brazil em Nova York ({photos.length} fotos).
-            </p>
-          </div>
-
-          {/* Navigation Controls (< > Buttons) */}
+        {/* Scroll Controls Floating Bar */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4 border-b border-white/10 font-mono text-[11px] text-slate-400">
+          <span className="uppercase tracking-widest">
+            {photos.length} FOTOS OFICIAIS · DESLIZE HORIZONTALMENTE
+          </span>
           <div className="flex items-center gap-3">
             <motion.button
               whileTap={{ scale: 0.9 }}
-              onClick={() => scroll('left')}
+              onClick={() => handleScroll('left')}
               disabled={!canScrollLeft}
-              className={`w-12 h-12 rounded-full border border-white/20 bg-black flex items-center justify-center text-white text-lg font-mono transition-all duration-300 ${
-                canScrollLeft 
-                  ? 'hover:bg-white hover:text-black hover:border-white cursor-pointer shadow-lg' 
-                  : 'opacity-30 cursor-not-allowed'
+              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                canScrollLeft
+                  ? 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-xl border border-white/10 cursor-pointer shadow-lg'
+                  : 'bg-white/5 text-white/20 border border-white/5 cursor-not-allowed'
               }`}
               aria-label="Anterior"
             >
               ←
             </motion.button>
-
             <motion.button
               whileTap={{ scale: 0.9 }}
-              onClick={() => scroll('right')}
+              onClick={() => handleScroll('right')}
               disabled={!canScrollRight}
-              className={`w-12 h-12 rounded-full border border-white/20 bg-black flex items-center justify-center text-white text-lg font-mono transition-all duration-300 ${
-                canScrollRight 
-                  ? 'hover:bg-white hover:text-black hover:border-white cursor-pointer shadow-lg' 
-                  : 'opacity-30 cursor-not-allowed'
+              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                canScrollRight
+                  ? 'bg-white text-black hover:bg-slate-200 shadow-xl cursor-pointer'
+                  : 'bg-white/5 text-white/20 border border-white/5 cursor-not-allowed'
               }`}
               aria-label="Próximo"
             >
@@ -150,47 +159,55 @@ export const Gallery2025: React.FC = () => {
           </div>
         </div>
 
-        {/* Endless Horizontal Scroll Carousel Track */}
+        {/* 0px Gap Seamless Horizontal Strip (Square Card Grid) */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-4 px-1 -mx-1 cursor-grab active:cursor-grabbing"
+          onScroll={checkScroll}
+          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none w-full cursor-grab active:cursor-grabbing"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {photos.map((photo) => (
             <div
               key={photo.id}
               onClick={() => setActivePhoto(photo)}
-              className="w-[300px] sm:w-[420px] aspect-[4/3] relative bg-black border border-white/10 hover:border-white/30 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 snap-start group cursor-pointer transition-colors duration-300"
+              className="seamless-photo-card snap-start flex-shrink-0 w-full sm:w-[50%] md:w-[33.333%] lg:w-[25%] h-[440px] sm:h-[500px] relative overflow-hidden group cursor-pointer border-r border-white/10 last:border-r-0 bg-black rounded-none transition-colors duration-300"
             >
-              {/* Photo Image with smooth scale */}
+              {/* Full-Bleed Image with Smooth Scale */}
               <img
                 src={photo.src}
-                alt={`Registro SDGs in Brazil #${photo.id}`}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out scale-100 group-hover:scale-105"
+                alt={`Registro Oficial #${photo.id}`}
+                className="w-full h-full object-cover transition-transform duration-700 ease-out scale-100 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
 
-              {/* Seamless Dark Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
+              {/* Seamless Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300 z-[1]" />
 
-              {/* Content Overlay */}
-              <div className="relative z-10 p-6 flex flex-col justify-between h-full pointer-events-none">
-                <div className="flex justify-between items-center">
-                  <span className="text-[10px] font-mono font-bold tracking-widest uppercase px-3 py-1 bg-black/70 backdrop-blur-xl text-[#00A3E0] rounded-full border border-white/10">
+              {/* Bottom Content Area */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-10 flex flex-col justify-end">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase">
                     SEDE DA ONU NY
                   </span>
-                  <span className="text-[10px] font-mono text-slate-300 font-bold bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+                  <span className="text-[10px] font-mono font-bold text-slate-300">
                     #{String(photo.id).padStart(2, '0')}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-white font-bold group-hover:text-[#00A3E0] transition-colors">
-                    SDGs in Brazil 2025
-                  </span>
-                  <span className="text-[11px] font-mono text-slate-300 group-hover:text-white transition-colors">
-                    Ampliar ↗
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight group-hover:text-[#00A3E0] transition-colors duration-300">
+                  SDGs in Brazil 2025
+                </h3>
+
+                <p className="text-xs font-mono text-slate-300 mt-1 uppercase tracking-wider">
+                  Registro Oficial de Painel
+                </p>
+
+                {/* Expand on hover hint */}
+                <div className="max-h-0 opacity-0 group-hover:max-h-12 group-hover:opacity-100 transition-all duration-300 ease-out overflow-hidden mt-3 pt-2 border-t border-white/20">
+                  <span className="text-[11px] font-mono text-white flex items-center justify-between font-bold">
+                    <span>Clique para Ampliar em HD</span>
+                    <span>↗</span>
                   </span>
                 </div>
               </div>
@@ -198,67 +215,61 @@ export const Gallery2025: React.FC = () => {
           ))}
         </div>
 
-        {/* Footer indicator bar */}
-        <div className="mt-8 flex items-center justify-between text-[11px] font-mono text-slate-400 border-t border-white/10 pt-4">
-          <span>{photos.length} REGISTROS OFICIAIS CARREGADOS DINAMICAMENTE</span>
-          <span className="hidden sm:inline">DESLIZE OU USE AS SETAS PARA NAVEGAR</span>
-        </div>
-
-        {/* Fullscreen Lightbox Modal */}
-        <AnimatePresence>
-          {activePhoto && (
-            <div
-              onClick={() => setActivePhoto(null)}
-              className="fixed inset-0 z-[300] flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 sm:p-8"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.92, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.92, y: 20 }}
-                transition={{ type: 'spring', stiffness: 350, damping: 25 }}
-                onClick={e => e.stopPropagation()}
-                className="max-w-5xl w-full bg-black border border-white/20 rounded-3xl overflow-hidden shadow-2xl relative text-white"
-              >
-                <div className="relative aspect-video sm:aspect-[16/10] bg-black flex items-center justify-center overflow-hidden">
-                  <img
-                    src={activePhoto.src}
-                    alt={`Registro Oficial #${activePhoto.id}`}
-                    className="w-full h-full object-contain"
-                  />
-                  <button
-                    onClick={() => setActivePhoto(null)}
-                    className="absolute top-4 right-4 min-w-[44px] min-h-[44px] bg-black/70 hover:bg-black text-white text-lg rounded-full flex items-center justify-center border border-white/20 transition-colors font-mono"
-                    aria-label="Fechar"
-                  >
-                    ✕
-                  </button>
-                </div>
-
-                <div className="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-black border-t border-white/10 font-mono">
-                  <div>
-                    <span className="text-[10px] font-bold text-[#00A3E0] tracking-widest uppercase block mb-1">
-                      SEDE DAS NAÇÕES UNIDAS · NOVA YORK
-                    </span>
-                    <h3 className="text-base sm:text-lg font-extrabold text-white">
-                      Registro Oficial SDGs in Brazil #{activePhoto.id}
-                    </h3>
-                  </div>
-
-                  <a
-                    href={activePhoto.src}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="min-h-[44px] px-6 py-2.5 bg-white text-black font-extrabold text-xs tracking-wider uppercase rounded-xl hover:bg-slate-200 transition-colors flex items-center justify-center"
-                  >
-                    Abrir Imagem Completa ↗
-                  </a>
-                </div>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
-
       </div>
+
+      {/* Fullscreen Lightbox Modal */}
+      <AnimatePresence>
+        {activePhoto && (
+          <div
+            onClick={() => setActivePhoto(null)}
+            className="fixed inset-0 z-[300] flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 sm:p-8"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
+              transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+              onClick={e => e.stopPropagation()}
+              className="max-w-5xl w-full bg-black border border-white/20 rounded-3xl overflow-hidden shadow-2xl relative text-white"
+            >
+              <div className="relative aspect-video sm:aspect-[16/10] bg-black flex items-center justify-center overflow-hidden">
+                <img
+                  src={activePhoto.src}
+                  alt={`Registro Oficial #${activePhoto.id}`}
+                  className="w-full h-full object-contain"
+                />
+                <button
+                  onClick={() => setActivePhoto(null)}
+                  className="absolute top-4 right-4 min-w-[44px] min-h-[44px] bg-black/70 hover:bg-black text-white text-lg rounded-full flex items-center justify-center border border-white/20 transition-colors font-mono"
+                  aria-label="Fechar"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-black border-t border-white/10 font-mono">
+                <div>
+                  <span className="text-[10px] font-bold text-[#00A3E0] tracking-widest uppercase block mb-1">
+                    SEDE DAS NAÇÕES UNIDAS · NOVA YORK
+                  </span>
+                  <h3 className="text-base sm:text-lg font-extrabold text-white">
+                    Registro Oficial SDGs in Brazil #{activePhoto.id}
+                  </h3>
+                </div>
+
+                <a
+                  href={activePhoto.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-h-[44px] px-6 py-2.5 bg-white text-black font-extrabold text-xs tracking-wider uppercase rounded-xl hover:bg-slate-200 transition-colors flex items-center justify-center"
+                >
+                  Abrir Imagem Completa ↗
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
