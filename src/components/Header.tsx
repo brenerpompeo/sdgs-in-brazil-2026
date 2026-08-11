@@ -15,8 +15,8 @@ export const Header: React.FC<Props> = ({ onOpenRsvp }) => {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  const nav = ['Sobre', 'Galeria 2025', 'Programação', 'Palestrantes', 'Localização'];
-  const anchors = ['#sobre', '#galeria', '#programacao', '#palestrantes', '#local'];
+  const nav = ['Sobre', 'Programação', 'Palestrantes', 'Localização'];
+  const anchors = ['#sobre', '#programacao', '#palestrantes', '#local'];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
     e.preventDefault();

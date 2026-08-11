@@ -39,7 +39,6 @@ export const Footer: React.FC = () => {
           <motion.a whileHover={{ color: '#ffffff' }} href="#sobre" className="hover:text-white transition-colors">Sobre</motion.a>
           <motion.a whileHover={{ color: '#ffffff' }} href="#programacao" className="hover:text-white transition-colors">Programação</motion.a>
           <motion.a whileHover={{ color: '#ffffff' }} href="#palestrantes" className="hover:text-white transition-colors">Palestrantes</motion.a>
-          <motion.a whileHover={{ color: '#ffffff' }} href="#galeria" className="hover:text-white transition-colors">Galeria 2025</motion.a>
           <motion.a whileHover={{ color: '#ffffff' }} href="#patrocinio" className="hover:text-white transition-colors">Patrocínio</motion.a>
           <motion.a whileHover={{ color: '#ffffff' }} href="#local" className="hover:text-white transition-colors">Localização</motion.a>
         </div>
