@@ -31,7 +31,6 @@ const SESSION_PILLARS: Record<string, string> = {
   'session-13': 'Encerramento Institucional',
 };
 
-// Clean helper to map names to speaker photo keys
 const getSpeakerPhotoKey = (name: string): string => {
   const n = name.toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -50,7 +49,7 @@ const getSpeakerPhotoKey = (name: string): string => {
 };
 
 export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
-  const [period, setPeriod] = useState<'all' | 'morning' | 'afternoon'>('all');
+  const [period, setPeriod] = useState<'all' | 'manha' | 'tarde'>('all');
   const [speakerPhotoMap, setSpeakerPhotoMap] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -64,6 +63,14 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
     });
     setSpeakerPhotoMap(map);
   }, []);
+
+  const periods = [
+    { key: 'all', label: 'Programação Completa' },
+    { key: 'manha', label: 'Manhã (09h - 13h)' },
+    { key: 'tarde', label: 'Tarde (13h - 18h)' },
+  ] as const;
+
+  const filtered = period === 'all' ? SCHEDULE_DATA : SCHEDULE_DATA.filter(s => s.period === period);
 
   useGSAP(() => {
     gsap.fromTo('.schedule-header', 
@@ -80,8 +87,8 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
       }
     );
 
-    gsap.fromTo('.schedule-timeline', 
-      { y: 30, opacity: 0 },
+    gsap.fromTo('.schedule-row', 
+      { y: 25, opacity: 0 },
       {
         scrollTrigger: {
           trigger: '.schedule-timeline',
@@ -89,64 +96,45 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
         },
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.6,
+        stagger: 0.06,
         ease: 'power3.out',
       }
     );
-  }, []);
-
-  const filtered = SCHEDULE_DATA.filter(item => {
-    if (period === 'morning') {
-      const hour = parseInt(item.timeStart.split('h')[0], 10);
-      return hour < 13;
-    }
-    if (period === 'afternoon') {
-      const hour = parseInt(item.timeStart.split('h')[0], 10);
-      return hour >= 13;
-    }
-    return true;
-  });
-
-  const periods: { key: 'all' | 'morning' | 'afternoon'; label: string }[] = [
-    { key: 'all', label: 'Programação Completa' },
-    { key: 'morning', label: 'Manhã (09h00 – 13h00)' },
-    { key: 'afternoon', label: 'Tarde (13h40 – 18h00)' },
-  ];
+  }, [period]);
 
   return (
-    <section id="programacao" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden">
-      {/* Soft Ambient Radial Blur Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#00A3E0]/10 blur-[220px] pointer-events-none" />
+    <section id="programacao" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Editorial Centered Header */}
-        <div className="schedule-header text-center max-w-4xl mx-auto mb-16">
+        {/* Centered Editorial Header */}
+        <div className="schedule-header text-center max-w-4xl mx-auto mb-14">
           <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
-            18 DE SETEMBRO DE 2026 · SEDE DA ONU NY
+            AGENDA OFICIAL · SEDE DA ONU NY
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Programação Oficial.<br />
-            <span className="text-slate-300 font-light font-sans text-xl sm:text-3xl block mt-2">
-              Três movimentos da liderança empresarial na era da prova.
-            </span>
+            Grade de Programação.<br />
+            <span className="text-slate-300 font-light font-sans">18 de Setembro de 2026.</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-light">
-            Cronograma completo das plenárias, keynotes de impacto, masterclasses e painéis com perguntas da plateia.
+            Formato dinâmico alternando keynotes, painéis com Q&A da plateia, entrevistas e masterclasses com foco nos 4 Pilares do Pacto Global da ONU - Rede Brasil.
           </p>
         </div>
 
-        {/* Period Navigation Tabs */}
+        {/* Filter Tabs - Rounded Pills */}
         <div className="flex gap-2 justify-center flex-wrap mb-12">
           {periods.map(p => (
             <motion.button
               key={p.key}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setPeriod(p.key)}
+              onClick={() => setPeriod(p.key as any)}
               className={`min-h-[40px] px-6 py-2 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all duration-200 border flex items-center justify-center cursor-pointer ${
                 period === p.key
                   ? 'bg-white text-black border-white shadow-xl'
-                  : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md'
+                  : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30 hover:text-white'
               }`}
             >
               {p.label}
@@ -154,7 +142,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
           ))}
         </div>
 
-        {/* Timeline Container */}
+        {/* Timeline Container with Rounded 3XL Outer Border */}
         <div className="schedule-timeline flex flex-col bg-white/[0.02] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
           {filtered.map((session, index) => {
             const isBreak = session.type === 'Almoço';
@@ -182,7 +170,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
                         {session.type}
                       </span>
                     </div>
-                    <div className="text-sm sm:text-base font-bold text-white tracking-wide text-center sm:text-right font-mono">
+                    <div className="text-sm sm:text-base font-bold text-white tracking-wide text-center sm:text-right">
                       {session.title}
                     </div>
                   </>
@@ -214,10 +202,10 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
                       </p>
                     </div>
 
-                    {/* Speaker Avatars with Real Photos / Fallback Avatars */}
+                    {/* Speaker Avatar Badges & Full Names */}
                     <div className="flex items-center justify-between md:flex-col md:items-end flex-shrink-0 pt-4 md:pt-0 border-t md:border-t-0 border-white/10 gap-3">
                       {session.speakerNamesRaw && session.speakerNamesRaw.length > 0 && (
-                        <div className="flex flex-col gap-2 md:items-end max-w-[280px] sm:max-w-[340px]">
+                        <div className="flex flex-col gap-1.5 md:items-end max-w-[280px] sm:max-w-[320px]">
                           {session.speakerNamesRaw.map((sp, sIdx) => {
                             const nameClean = sp.split(' (')[0];
                             const key = getSpeakerPhotoKey(nameClean);
@@ -225,15 +213,15 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
                             const initial = nameClean.charAt(0);
 
                             return (
-                              <div key={sIdx} className="flex items-center gap-2.5 text-xs text-white font-mono">
+                              <div key={sIdx} className="flex items-center gap-2 text-xs text-white font-mono">
                                 {photoSrc ? (
                                   <img
                                     src={photoSrc}
                                     alt={nameClean}
-                                    className="w-7 h-7 rounded-full object-cover border border-[#00A3E0]/60 flex-shrink-0 shadow-md"
+                                    className="w-6 h-6 rounded-full object-cover border border-[#00A3E0]/60 flex-shrink-0 shadow-md"
                                   />
                                 ) : (
-                                  <div className="w-7 h-7 rounded-full bg-[#00A3E0]/20 border border-[#00A3E0]/40 flex items-center justify-center text-[11px] font-extrabold text-[#00A3E0] flex-shrink-0">
+                                  <div className="w-6 h-6 rounded-full bg-[#00A3E0]/20 border border-[#00A3E0]/40 flex items-center justify-center text-[10px] font-extrabold text-[#00A3E0] flex-shrink-0 font-mono">
                                     {initial}
                                   </div>
                                 )}
