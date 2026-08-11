@@ -27,21 +27,30 @@ const FORCES = [
     title: 'O mundo se reorganizou',
     desc: 'Geopolítica instável, fragmentação de cadeias de valor e novos critérios socioambientais redefinem quem acessa mercados e capital global.',
     tag: 'Geopolítica & Mercados',
-    bg: './assets/sdgs_2025/sdgs_2025_2.jpg',
+    accentColor: '#00A3E0',
+    glowGradient: 'from-[#00A3E0]/30 via-[#0047FF]/15 to-transparent',
+    borderColor: 'group-hover:border-[#00A3E0]/50',
+    hoverGlow: 'group-hover:bg-[#00A3E0]/[0.04]',
   },
   {
     num: 'FORÇA 02',
     title: 'O ESG fatigue é real — e presente',
     desc: 'O mercado vive um momento de ceticismo crescente em relação à agenda ESG — não porque o tema perdeu relevância, mas para mostrar seu protagonismo na agenda de sustentabilidade.',
     tag: 'Substância & Métricas',
-    bg: './assets/sdgs_2025/sdgs_2025_5.jpg',
+    accentColor: '#FFD700',
+    glowGradient: 'from-[#FFD700]/30 via-[#FF8C00]/15 to-transparent',
+    borderColor: 'group-hover:border-[#FFD700]/50',
+    hoverGlow: 'group-hover:bg-[#FFD700]/[0.04]',
   },
   {
     num: 'FORÇA 03',
     title: 'A prova é o novo padrão',
     desc: 'Rastreabilidade em tempo real e novas regulações globais tornaram a transparência verificável uma exigência mínima.',
     tag: 'Compliance & Transparência',
-    bg: './assets/sdgs_2025/sdgs_2025_8.jpg',
+    accentColor: '#00FF41',
+    glowGradient: 'from-[#00FF41]/30 via-[#00A3E0]/15 to-transparent',
+    borderColor: 'group-hover:border-[#00FF41]/50',
+    hoverGlow: 'group-hover:bg-[#00FF41]/[0.04]',
   },
 ];
 
@@ -260,50 +269,64 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          {/* Unified 3-Column Module with Clean CSS Hover Transitions */}
+          {/* Unified Glassmorphic 3-Column Module */}
           <div className="forces-seamless-grid grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
             {FORCES.map((force, i) => (
               <div
                 key={i}
-                className="force-seamless-card flex flex-col justify-between p-8 sm:p-10 border-b md:border-b-0 md:border-r border-white/10 last:border-r-0 group cursor-pointer relative min-h-[440px] overflow-hidden bg-black transition-colors duration-300"
+                className={`force-seamless-card flex flex-col justify-between p-8 sm:p-10 border-b md:border-b-0 md:border-r border-white/10 last:border-r-0 group cursor-pointer relative min-h-[440px] overflow-hidden bg-black/60 backdrop-blur-2xl transition-all duration-500 ${force.borderColor} ${force.hoverGlow}`}
               >
-                {/* Background Photo - Real UN Assembly / Stage Speech Photos with Smooth Scale */}
+                {/* Ambient Color Glow 1 (Top-Left) */}
                 <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out scale-100 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${force.bg}')` }}
+                  className={`absolute -top-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br ${force.glowGradient} blur-3xl opacity-50 group-hover:opacity-90 group-hover:scale-125 transition-all duration-700 pointer-events-none`} 
                 />
-                
-                {/* Infinite Dark Fade Overlay with Smooth Opacity Transition */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/40 group-hover:opacity-90 transition-opacity duration-500 z-[1]" />
+
+                {/* Ambient Color Glow 2 (Bottom-Right) */}
+                <div 
+                  className={`absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-gradient-to-tl ${force.glowGradient} blur-3xl opacity-30 group-hover:opacity-75 group-hover:scale-125 transition-all duration-700 pointer-events-none`} 
+                />
+
+                {/* Subtle Glass Surface Overlay */}
+                <div className="absolute inset-0 bg-white/[0.015] group-hover:bg-white/[0.03] transition-colors duration-500 z-[1] pointer-events-none" />
 
                 {/* Content Overlay */}
                 <div className="relative z-10 flex flex-col justify-between h-full">
                   <div>
                     {/* Header Row */}
                     <div className="flex justify-between items-center mb-6">
-                      <span className="text-[10px] font-mono font-bold tracking-widest text-white uppercase px-3 py-1 bg-black/70 rounded-full border border-white/15 backdrop-blur-xl">
+                      <span className="text-[10px] font-mono font-bold tracking-widest text-white uppercase px-3.5 py-1.5 bg-white/10 rounded-full border border-white/15 backdrop-blur-md">
                         {force.num}
                       </span>
-                      <span className="text-xs font-mono font-bold text-[#00A3E0] group-hover:translate-x-1 transition-transform duration-300">
+                      <span 
+                        className="text-xs font-mono font-bold tracking-wider uppercase transition-transform duration-300 group-hover:translate-x-1"
+                        style={{ color: force.accentColor }}
+                      >
                         {force.tag}
                       </span>
                     </div>
 
                     {/* Card Title */}
-                    <h4 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 leading-snug tracking-tight group-hover:text-[#00A3E0] transition-colors duration-300">
+                    <h4 
+                      className="text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-snug tracking-tight transition-colors duration-300"
+                    >
                       {force.title}
                     </h4>
 
                     {/* Card Description */}
-                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
                       {force.desc}
                     </p>
                   </div>
 
                   {/* Card Bottom Meta */}
-                  <div className="pt-4 border-t border-white/15 flex items-center justify-between text-[10px] font-mono text-slate-400 group-hover:text-slate-200 transition-colors duration-300">
+                  <div className="pt-6 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400 group-hover:text-slate-200 transition-colors duration-300">
                     <span>SDGs IN BRAZIL</span>
-                    <span className="group-hover:text-[#00A3E0] transition-colors">EVIDÊNCIAS 2026 →</span>
+                    <span 
+                      className="font-bold tracking-wider transition-colors duration-300"
+                      style={{ color: force.accentColor }}
+                    >
+                      EVIDÊNCIAS 2026 →
+                    </span>
                   </div>
                 </div>
               </div>
