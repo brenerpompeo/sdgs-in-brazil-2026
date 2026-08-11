@@ -70,7 +70,7 @@ export const Faq: React.FC = () => {
         
         {/* Centered Editorial Header */}
         <div className="faq-header text-center mb-16">
-          <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
+          <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
             DÚVIDAS FREQUENTES · PROTOCOLO ONU
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight leading-tight">

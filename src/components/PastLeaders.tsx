@@ -63,7 +63,7 @@ export const PastLeaders: React.FC = () => {
 
       {/* Centered Editorial Header (Matching Image Reference) */}
       <div className="past-leaders-header text-center max-w-4xl mx-auto px-4 sm:px-6 mb-16">
-        <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
+        <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
           LEGADO & TRAJETÓRIA NA ONU
         </span>
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
