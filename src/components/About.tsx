@@ -7,7 +7,7 @@ const EVENT_PHOTOS = [
   {
     src: './assets/sdgs_2025/sdgs_2025_2.jpg',
     tag: 'SEDE DA ONU · NOVA YORK',
-    title: 'Edição Anterior no Hall Principal das Nações Unidas',
+    title: 'Edição Anterior na ECOSOC Chamber das Nações Unidas',
   },
   {
     src: './assets/sdgs_2025/sdgs_2025_5.jpg',
