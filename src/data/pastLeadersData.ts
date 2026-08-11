@@ -219,5 +219,16 @@ export const PAST_LEADERS: PastLeader[] = [
     quote: 'A inovação sustentável precisa ser comunicada de forma autêntica e transparente para toda a sociedade.',
     ods: [12, 17],
     category: 'Cultura & Sociedade',
+  },
+  {
+    id: 'rachel-maia',
+    name: 'Rachel Maia',
+    role: 'Presidente do Conselho de Administração',
+    company: 'Pacto Global da ONU - Rede Brasil',
+    photo: './assets/sdgs_2025/sdgs_2025_50.jpg',
+    edition: 'EDIÇÃO 2024',
+    quote: 'A verdadeira liderança ESG exige diversidade, equidade de gênero e representatividade nos conselhos.',
+    ods: [5, 10, 8],
+    category: 'Conselho & Impacto',
   }
 ];
