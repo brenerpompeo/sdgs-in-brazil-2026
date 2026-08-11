@@ -1,38 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SCHEDULE_DATA, SessionItem } from '../data/scheduleData';
 
-const SESSION_PILLARS: Record<string, string> = {
-  'abertura-institucional':      'Diplomacia & Governança',
-  'keynote-danese':              'Meio Ambiente & Clima',
-  'painel-esg-evidencia':        'Anticorrupção & Compliance',
-  'entrevista-crime-organizado':  'Direitos Humanos & Segurança',
-  'almoco-networking':           'Networking C-Suite',
-  'keynote-falencia-hidrica':    'Meio Ambiente & Água',
-  'talk-falencia-hidrica':       'Meio Ambiente & Gestão',
-  'keynote-ia-etica':            'Direitos Humanos & Tecnologia',
-  'keynote-direitos-humanos':    'Direitos Humanos & Sociedade',
-  'painel-case':                 'Trabalho Digno & Impacto',
-  'keynote-bayo-akomolafe':      'Governança Global',
-  'encerramento-oficial':        'Compromissos 2030',
-};
+// Dynamic Auto-Discovery of speaker photos in /public/assets/speakers/
+const globSpeakerPhotos = (import.meta as any).glob('/public/assets/speakers/*.{jpg,jpeg,png,webp,JPG,JPEG}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
 
-interface Props {
-  onSelectSession: (s: SessionItem) => void;
+interface ScheduleProps {
+  onSelectSession: (session: SessionItem) => void;
 }
 
-export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
-  const [period, setPeriod] = useState<'manhã' | 'tarde' | 'all'>('all');
+const SESSION_PILLARS: Record<string, string> = {
+  'session-1': 'Movimento 1 · Governança',
+  'session-2': 'Movimento 1 · Geopolítica',
+  'session-3': 'Movimento 2 · Métricas ESG',
+  'session-4': 'Movimento 2 · Anticorrupção & Integridade',
+  'session-5': 'Almoço Executivo',
+  'session-6': 'Movimento 2 · Gestão Hídrica',
+  'session-7': 'Movimento 2 · IA & Ética Algorítmica',
+  'session-8': 'Movimento 2 · Direitos Humanos',
+  'session-9': 'Movimento 3 · Propósito & Valor',
+  'session-10': 'Movimento 3 · Bioeconomia',
+  'session-11': 'Movimento 3 · Transparência',
+  'session-12': 'Movimento 3 · Visão de Futuro',
+  'session-13': 'Encerramento Institucional',
+};
 
-  const periods = [
-    { key: 'all', label: 'Todos os Horários' },
-    { key: 'manhã', label: 'Manhã (10h - 13h)' },
-    { key: 'tarde', label: 'Tarde (13h - 18h)' },
-  ] as const;
+// Clean helper to map names to speaker photo keys
+const getSpeakerPhotoKey = (name: string): string => {
+  const n = name.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s]/g, '')
+    .trim();
+  if (n.includes('sanda') || n.includes('ojiambo')) return 'sanda_ojiambo';
+  if (n.includes('guilherme') || n.includes('xavier')) return 'guilherme_xavier';
+  if (n.includes('gabriela') || n.includes('almeida')) return 'gabriela_almeida';
+  if (n.includes('ana paula') || n.includes('carracedo')) return 'ana_paula_carracedo';
+  if (n.includes('sergio') && n.includes('danese')) return 'sergio_danese';
+  if (n.includes('eugenio') || n.includes('ricas')) return 'eugenio_ricas';
+  if (n.includes('radames') || n.includes('casseb')) return 'radames_casseb';
+  if (n.includes('calvin') || n.includes('lawrence')) return 'calvin_lawrence';
+  if (n.includes('renata') || n.includes('piazzon')) return 'renata_piazzon';
+  return n.replace(/\s+/g, '_');
+};
 
-  const filtered = period === 'all' ? SCHEDULE_DATA : SCHEDULE_DATA.filter(s => s.period === period);
+export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
+  const [period, setPeriod] = useState<'all' | 'morning' | 'afternoon'>('all');
+  const [speakerPhotoMap, setSpeakerPhotoMap] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const map: Record<string, string> = {};
+    Object.keys(globSpeakerPhotos).forEach((path) => {
+      const url = (globSpeakerPhotos[path] as string) || path.replace('/public', '.');
+      const filename = path.split('/').pop()?.toLowerCase().split('.')[0] || '';
+      if (filename && filename !== 'readme') {
+        map[filename] = url.startsWith('/') ? `.${url}` : url;
+      }
+    });
+    setSpeakerPhotoMap(map);
+  }, []);
 
   useGSAP(() => {
     gsap.fromTo('.schedule-header', 
@@ -49,8 +80,8 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
       }
     );
 
-    gsap.fromTo('.schedule-row', 
-      { y: 25, opacity: 0 },
+    gsap.fromTo('.schedule-timeline', 
+      { y: 30, opacity: 0 },
       {
         scrollTrigger: {
           trigger: '.schedule-timeline',
@@ -58,45 +89,64 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
         },
         y: 0,
         opacity: 1,
-        duration: 0.6,
-        stagger: 0.06,
+        duration: 0.8,
         ease: 'power3.out',
       }
     );
-  }, [period]);
+  }, []);
+
+  const filtered = SCHEDULE_DATA.filter(item => {
+    if (period === 'morning') {
+      const hour = parseInt(item.timeStart.split('h')[0], 10);
+      return hour < 13;
+    }
+    if (period === 'afternoon') {
+      const hour = parseInt(item.timeStart.split('h')[0], 10);
+      return hour >= 13;
+    }
+    return true;
+  });
+
+  const periods: { key: 'all' | 'morning' | 'afternoon'; label: string }[] = [
+    { key: 'all', label: 'Programação Completa' },
+    { key: 'morning', label: 'Manhã (09h00 – 13h00)' },
+    { key: 'afternoon', label: 'Tarde (13h40 – 18h00)' },
+  ];
 
   return (
-    <section id="programacao" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
+    <section id="programacao" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden">
+      {/* Soft Ambient Radial Blur Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#00A3E0]/10 blur-[220px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Centered Editorial Header */}
-        <div className="schedule-header text-center max-w-4xl mx-auto mb-14">
+        {/* Editorial Centered Header */}
+        <div className="schedule-header text-center max-w-4xl mx-auto mb-16">
           <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
-            AGENDA OFICIAL · SEDE DA ONU NY
+            18 DE SETEMBRO DE 2026 · SEDE DA ONU NY
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Grade de Programação.<br />
-            <span className="text-slate-300 font-light font-sans">18 de Setembro de 2026.</span>
+            Programação Oficial.<br />
+            <span className="text-slate-300 font-light font-sans text-xl sm:text-3xl block mt-2">
+              Três movimentos da liderança empresarial na era da prova.
+            </span>
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-light">
-            Formato dinâmico alternando keynotes, painéis com Q&A da plateia, entrevistas e masterclasses com foco nos 4 Pilares do Pacto Global da ONU - Rede Brasil.
+            Cronograma completo das plenárias, keynotes de impacto, masterclasses e painéis com perguntas da plateia.
           </p>
         </div>
 
-        {/* Filter Tabs - Rounded Pills */}
+        {/* Period Navigation Tabs */}
         <div className="flex gap-2 justify-center flex-wrap mb-12">
           {periods.map(p => (
             <motion.button
               key={p.key}
               whileTap={{ scale: 0.95 }}
               onClick={() => setPeriod(p.key)}
-              className={`min-h-[40px] px-6 py-2 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all duration-200 border flex items-center justify-center ${
+              className={`min-h-[40px] px-6 py-2 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all duration-200 border flex items-center justify-center cursor-pointer ${
                 period === p.key
                   ? 'bg-white text-black border-white shadow-xl'
-                  : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30 hover:text-white'
+                  : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md'
               }`}
             >
               {p.label}
@@ -104,7 +154,7 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
           ))}
         </div>
 
-        {/* Timeline Container with Rounded 3XL Outer Border */}
+        {/* Timeline Container */}
         <div className="schedule-timeline flex flex-col bg-white/[0.02] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
           {filtered.map((session, index) => {
             const isBreak = session.type === 'Almoço';
@@ -132,7 +182,7 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
                         {session.type}
                       </span>
                     </div>
-                    <div className="text-sm sm:text-base font-bold text-white tracking-wide text-center sm:text-right">
+                    <div className="text-sm sm:text-base font-bold text-white tracking-wide text-center sm:text-right font-mono">
                       {session.title}
                     </div>
                   </>
@@ -164,18 +214,29 @@ export const Schedule: React.FC<Props> = ({ onSelectSession }) => {
                       </p>
                     </div>
 
-                    {/* Speaker Avatar Badges & Full Names */}
+                    {/* Speaker Avatars with Real Photos / Fallback Avatars */}
                     <div className="flex items-center justify-between md:flex-col md:items-end flex-shrink-0 pt-4 md:pt-0 border-t md:border-t-0 border-white/10 gap-3">
                       {session.speakerNamesRaw && session.speakerNamesRaw.length > 0 && (
-                        <div className="flex flex-col gap-1.5 md:items-end max-w-[280px] sm:max-w-[320px]">
+                        <div className="flex flex-col gap-2 md:items-end max-w-[280px] sm:max-w-[340px]">
                           {session.speakerNamesRaw.map((sp, sIdx) => {
                             const nameClean = sp.split(' (')[0];
+                            const key = getSpeakerPhotoKey(nameClean);
+                            const photoSrc = speakerPhotoMap[key];
                             const initial = nameClean.charAt(0);
+
                             return (
-                              <div key={sIdx} className="flex items-center gap-2 text-xs text-white font-mono">
-                                <div className="w-6 h-6 rounded-full bg-[#00A3E0]/20 border border-[#00A3E0]/40 flex items-center justify-center text-[10px] font-extrabold text-[#00A3E0] flex-shrink-0">
-                                  {initial}
-                                </div>
+                              <div key={sIdx} className="flex items-center gap-2.5 text-xs text-white font-mono">
+                                {photoSrc ? (
+                                  <img
+                                    src={photoSrc}
+                                    alt={nameClean}
+                                    className="w-7 h-7 rounded-full object-cover border border-[#00A3E0]/60 flex-shrink-0 shadow-md"
+                                  />
+                                ) : (
+                                  <div className="w-7 h-7 rounded-full bg-[#00A3E0]/20 border border-[#00A3E0]/40 flex items-center justify-center text-[11px] font-extrabold text-[#00A3E0] flex-shrink-0">
+                                    {initial}
+                                  </div>
+                                )}
                                 <span className="font-medium truncate text-slate-200">
                                   {nameClean}
                                 </span>
