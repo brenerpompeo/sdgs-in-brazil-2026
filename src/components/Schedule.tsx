@@ -45,6 +45,8 @@ const getSpeakerPhotoKey = (name: string): string => {
   if (n.includes('radames') || n.includes('casseb')) return 'radames_casseb';
   if (n.includes('calvin') || n.includes('lawrence')) return 'calvin_lawrence';
   if (n.includes('renata') || n.includes('piazzon')) return 'renata_piazzon';
+  if (n.includes('kaveh') || n.includes('madani')) return 'kaveh_madani';
+  if (n.includes('luciana') || n.includes('nicola')) return 'luciana_nicola';
   return n.replace(/\s+/g, '_');
 };
 
