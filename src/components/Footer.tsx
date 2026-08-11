@@ -65,7 +65,14 @@ export const Footer: React.FC = () => {
 
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-white/50 font-mono pt-6 border-t border-white/5">
             <p>© 2026 SDGs in Brazil · Pacto Global da ONU - Rede Brasil. Todos os direitos reservados.</p>
-            <div className="flex gap-4 uppercase tracking-widest text-[9px] text-white/40">
+            <div className="flex flex-wrap justify-center items-center gap-4 uppercase tracking-widest text-[9px] text-white/40">
+              <button 
+                onClick={() => (window as any).sendAdoptCommand?.('open')} 
+                className="hover:underline text-[#00A3E0] hover:text-white cursor-pointer font-bold uppercase tracking-widest text-[9px] transition-colors"
+              >
+                Preferências de Cookies
+              </button>
+              <span>·</span>
               <span>18 ODS</span>
               <span>·</span>
               <span>AGENDA 2030</span>
