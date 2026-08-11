@@ -103,15 +103,6 @@ export const Hero: React.FC = () => {
           />
         </div>
 
-        {/* Date Image (data_horizontal) - Prominent & Enlarged */}
-        <div className="hero-date mb-10 sm:mb-12 max-w-[320px] sm:max-w-[540px] md:max-w-[620px] w-full mx-auto">
-          <img
-            src="./assets/data_horizontal.png"
-            alt="18 de Setembro de 2026 - Sede da ONU - NY"
-            className="w-full h-auto object-contain filter drop-shadow-xl"
-            loading="eager"
-          />
-        </div>
 
         {/* Countdown */}
         <div className="hero-countdown mb-10 sm:mb-12 w-full">
@@ -146,6 +137,20 @@ export const Hero: React.FC = () => {
           >
             Ver Programação
           </motion.a>
+        </div>
+      </div>
+
+      {/* Location / Date Bar — above sponsors */}
+      <div className="relative z-10 w-full border-t border-white/10 bg-black/60 backdrop-blur-sm py-4 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto flex items-center justify-center">
+          <div className="w-full max-w-[480px] sm:max-w-[560px]">
+            <img
+              src="./assets/data_horizontal.png"
+              alt="18 de Setembro de 2026 - Sede da ONU - NY"
+              className="w-full h-auto object-contain filter drop-shadow-xl"
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
 
