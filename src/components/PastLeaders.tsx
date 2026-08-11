@@ -67,7 +67,7 @@ export const PastLeaders: React.FC = () => {
           LEGADO & TRAJETÓRIA NA ONU
         </span>
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-          Liderança & Legado.<br />
+          Personalidades que estiveram no SDGs.<br />
           <span className="text-white/80 font-light">Protagonismo em Nova York.</span>
         </h2>
         <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto leading-relaxed font-light">
