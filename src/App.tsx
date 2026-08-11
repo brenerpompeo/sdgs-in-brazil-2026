@@ -32,8 +32,8 @@ export function App() {
         <Schedule onSelectSession={setActiveSession} />
         <Speakers />
         <PastLeaders />
-        <Sponsors />
         <Venue />
+        <Sponsors />
         <CtaBanner />
         <Footer />
         <SessionModal session={activeSession} onClose={() => setActiveSession(null)} />
