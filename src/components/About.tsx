@@ -32,7 +32,7 @@ const FORCES = [
   {
     num: 'FORÇA 02',
     title: 'O ESG fatigue é real — e presente',
-    desc: 'Cresce a cobrança por evidências e métricas transparentes. Quem tem substância para demonstrar ocupa a liderança.',
+    desc: 'O mercado vive um momento de ceticismo crescente em relação à agenda ESG — não porque o tema perdeu relevância, mas para mostrar seu protagonismo na agenda e a sustentabilidade.',
     tag: 'Substância & Métricas',
     bg: './assets/sdgs_2025/sdgs_2025_5.jpg',
   },
