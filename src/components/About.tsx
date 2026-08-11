@@ -177,11 +177,11 @@ export const About: React.FC = () => {
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-6 tracking-tight leading-snug">
                 A Urgência de Resultados Verificáveis na Sede da ONU
               </h3>
-              <p className="text-base text-white font-bold leading-relaxed mb-6">
-                Na sexta-feira que antecede a Assembleia Geral da ONU (AGNU-81), a liderança empresarial brasileira ocupa a sede das Nações Unidas em Nova York para demonstrar que a sustentabilidade é o único caminho para a perenidade dos negócios.
+              <p className="text-base text-white/95 leading-relaxed font-normal mb-6">
+                Dez anos após a adoção da Agenda 2030, o mundo fez avanços reais, mas o Relatório ODS 2025 da ONU é contundente: nenhum dos 17 Objetivos está no ritmo necessário. Com um déficit de financiamento de <strong className="text-[#00A3E0]">US$ 4 trilhões por ano</strong> nos países em desenvolvimento, estes quatro anos finais exigem comprovação empírica.
               </p>
-              <p className="text-sm text-slate-400 leading-relaxed font-light opacity-70">
-                Dez anos após a adoção da Agenda 2030, o mundo fez avanços reais, mas o Relatório ODS 2025 da ONU é contundente: nenhum dos 17 Objetivos está no ritmo necessário. Com um déficit de financiamento de <strong className="text-slate-300">US$ 4 trilhões por ano</strong> nos países em desenvolvimento, estes quatro anos finais exigem comprovação empírica.
+              <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                Na sexta-feira que antecede a Assembleia Geral da ONU (AGNU-81), a liderança empresarial brasileira ocupa a sede das Nações Unidas em Nova York para demonstrar que a sustentabilidade é o único caminho para a perenidade dos negócios.
               </p>
             </div>
 
