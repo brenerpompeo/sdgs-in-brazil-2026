@@ -118,25 +118,31 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* High-Contrast CTAs */}
-        <div className="hero-ctas flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-lg mx-auto font-mono">
-          <motion.a
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-            href="https://sdgs2026.cadastro9.com.br"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-2xl hover:bg-gray-100 flex items-center justify-center transition-colors text-center"
-          >
-            TENHO INTERESSE EM PARTICIPAR
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            href="#programacao"
-            className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white/10 text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl border border-white/20 hover:border-white/40 hover:bg-white/15 text-center flex items-center justify-center transition-colors shadow-lg"
-          >
-            Ver Programação
-          </motion.a>
+        <div className="hero-ctas flex flex-col items-center gap-3 w-full max-w-lg mx-auto font-mono">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+            <motion.a
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              href="https://sdgs2026.cadastro9.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-2xl hover:bg-gray-100 flex items-center justify-center transition-colors text-center"
+            >
+              TENHO INTERESSE EM PARTICIPAR
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              href="#programacao"
+              className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white/10 text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl border border-white/20 hover:border-white/40 hover:bg-white/15 text-center flex items-center justify-center transition-colors shadow-lg"
+            >
+              Ver Programação
+            </motion.a>
+          </div>
+
+          <p className="text-[10px] sm:text-[11px] text-slate-300/80 font-sans font-light leading-snug text-center mt-2 max-w-md">
+            * O preenchimento não garante vaga. Todas as inscrições estão sujeitas à aprovação da organização e disponibilidade.
+          </p>
         </div>
       </div>
 

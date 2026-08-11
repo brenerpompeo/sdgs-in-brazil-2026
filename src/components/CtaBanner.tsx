@@ -20,7 +20,7 @@ export const CtaBanner: React.FC = () => {
           Garanta seu interesse e conecte sua corporação às maiores oportunidades globais de impacto, integridade e governança sustentável.
         </p>
 
-        <div className="flex justify-center font-mono">
+        <div className="flex flex-col items-center gap-4 font-mono max-w-2xl mx-auto">
           <motion.a
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
@@ -31,6 +31,14 @@ export const CtaBanner: React.FC = () => {
           >
             TENHO INTERESSE EM PARTICIPAR →
           </motion.a>
+
+          {/* Legal / Disclaimer Notice for Expression of Interest */}
+          <div className="text-[11px] sm:text-xs text-slate-300 font-sans font-light leading-relaxed text-center mt-4 p-4 sm:p-5 bg-white/[0.03] backdrop-blur-xl rounded-2xl border border-white/10 max-w-xl">
+            <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-[#00A3E0] block mb-1">
+              INFORMAÇÃO SOBRE A MANIFESTAÇÃO DE INTERESSE
+            </span>
+            O preenchimento deste formulário não garante a participação no evento. Todas as inscrições estão sujeitas à aprovação da organização e à disponibilidade de vagas; as pessoas aprovadas receberão um e-mail informando sobre a confirmação de participação.
+          </div>
         </div>
       </div>
     </section>
