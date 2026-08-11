@@ -13,16 +13,16 @@ export const Footer: React.FC = () => {
 
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-16 text-center relative z-10">
         
-        {/* 1. Realização & Chancelaria Oficial (Enlarged Logos Lockup) */}
-        <div className="w-full max-w-3xl mx-auto pb-10 border-b border-white/10">
-          <span className="text-[10px] sm:text-xs font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase block mb-6">
+        {/* 1. Realização & Chancelaria Oficial (Extra Large Logos Lockup) */}
+        <div className="w-full max-w-5xl mx-auto pb-12 border-b border-white/10">
+          <span className="text-[11px] sm:text-xs font-mono font-bold tracking-[0.3em] text-[#00A3E0] uppercase block mb-6">
             REALIZAÇÃO & CHANCELARIA OFICIAL
           </span>
-          <div className="p-6 sm:p-10 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl">
+          <div className="p-8 sm:p-12 md:p-14 bg-white/[0.03] backdrop-blur-2xl border border-white/15 rounded-3xl shadow-2xl overflow-hidden">
             <img 
               src="./assets/marcas.png" 
               alt="Marcas: Pacto Global da ONU - Rede Brasil, AYA, Aegea, Missão do Brasil na ONU" 
-              className="w-full h-auto object-contain mx-auto filter drop-shadow-xl brightness-110"
+              className="w-full max-w-4xl h-auto object-contain mx-auto filter drop-shadow-2xl brightness-125 scale-100 sm:scale-105 md:scale-110 transition-transform duration-500"
               loading="lazy"
               decoding="async"
             />
