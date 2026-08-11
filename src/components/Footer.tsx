@@ -8,19 +8,28 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-black text-white border-t border-white/10 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col items-center gap-12 text-center">
-        
-        {/* Back to top button */}
-        <motion.button
-          whileHover={{ y: -3 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={scrollToTop}
-          className="px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white rounded-full border border-white/10 text-xs font-mono font-bold tracking-widest uppercase transition-colors flex items-center gap-2"
-        >
-          Voltar ao topo ↑
-        </motion.button>
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
 
-        {/* Logo and brief */}
+      <div className="max-w-7xl mx-auto flex flex-col items-center gap-16 text-center relative z-10">
+        
+        {/* 1. Realização & Chancelaria Oficial (Enlarged Logos Lockup) */}
+        <div className="w-full max-w-3xl mx-auto pb-10 border-b border-white/10">
+          <span className="text-[10px] sm:text-xs font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase block mb-6">
+            REALIZAÇÃO & CHANCELARIA OFICIAL
+          </span>
+          <div className="p-6 sm:p-10 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl">
+            <img 
+              src="./assets/marcas.png" 
+              alt="Marcas: Pacto Global da ONU - Rede Brasil, AYA, Aegea, Missão do Brasil na ONU" 
+              className="w-full h-auto object-contain mx-auto filter drop-shadow-xl brightness-110"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        {/* 2. Logo and Brief Description */}
         <div className="flex flex-col items-center gap-4 max-w-md">
           <img 
             src="./assets/logo.png" 
@@ -34,7 +43,7 @@ export const Footer: React.FC = () => {
           </p>
         </div>
 
-        {/* Navigation links */}
+        {/* 3. Navigation Links */}
         <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-xs font-mono font-bold text-white/75 tracking-widest uppercase">
           <motion.a whileHover={{ color: '#ffffff' }} href="#sobre" className="hover:text-white transition-colors">Sobre</motion.a>
           <motion.a whileHover={{ color: '#ffffff' }} href="#programacao" className="hover:text-white transition-colors">Programação</motion.a>
@@ -43,29 +52,26 @@ export const Footer: React.FC = () => {
           <motion.a whileHover={{ color: '#ffffff' }} href="#local" className="hover:text-white transition-colors">Localização</motion.a>
         </div>
 
-        {/* Sponsor/Realizers Lockup (marcas.png) */}
-        <div className="w-full max-w-[480px] border-t border-white/10 pt-10 opacity-90 hover:opacity-100 transition-opacity">
-          <span className="text-[9px] font-mono font-bold tracking-[0.25em] text-white/40 uppercase block mb-4">
-            REALIZAÇÃO & CHANCELARIA OFICIAL
-          </span>
-          <img 
-            src="./assets/marcas.png" 
-            alt="Marcas: Pacto Global da ONU - Rede Brasil, AYA, Aegea, Missão ONU" 
-            className="w-full h-auto object-contain mx-auto"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+        {/* 4. Back to Top Button & Copyright (At the very bottom) */}
+        <div className="w-full border-t border-white/10 pt-10 flex flex-col items-center gap-8">
+          <motion.button
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={scrollToTop}
+            className="px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white rounded-full border border-white/10 text-xs font-mono font-bold tracking-widest uppercase transition-colors flex items-center gap-2 cursor-pointer"
+          >
+            Voltar ao topo ↑
+          </motion.button>
 
-        {/* Rights & Metadata */}
-        <div className="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-white/50 font-mono">
-          <p>© 2026 SDGs in Brazil · Pacto Global da ONU - Rede Brasil. Todos os direitos reservados.</p>
-          <div className="flex gap-4 uppercase tracking-widest text-[9px] text-white/40">
-            <span>18 ODS</span>
-            <span>·</span>
-            <span>AGENDA 2030</span>
-            <span>·</span>
-            <span>AGNU-81</span>
+          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-white/50 font-mono pt-6 border-t border-white/5">
+            <p>© 2026 SDGs in Brazil · Pacto Global da ONU - Rede Brasil. Todos os direitos reservados.</p>
+            <div className="flex gap-4 uppercase tracking-widest text-[9px] text-white/40">
+              <span>18 ODS</span>
+              <span>·</span>
+              <span>AGENDA 2030</span>
+              <span>·</span>
+              <span>AGNU-81</span>
+            </div>
           </div>
         </div>
 
