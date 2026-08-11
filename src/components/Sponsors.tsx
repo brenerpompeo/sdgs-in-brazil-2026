@@ -128,6 +128,70 @@ export const Sponsors: React.FC = () => {
 
         </div>
 
+        {/* Institutional Section: Sobre o Pacto Global da ONU – Rede Brasil */}
+        <div className="mt-20 mb-10 p-8 sm:p-12 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl">
+          {/* Header */}
+          <div className="mb-8 pb-6 border-b border-white/10">
+            <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase block mb-2">
+              SOBRE O REALIZADOR
+            </span>
+            <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              Sobre o Pacto Global da ONU – Rede Brasil
+            </h3>
+          </div>
+
+          {/* 2-Column Institutional Text */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Column 1: Sobre o Pacto Global da ONU */}
+            <div className="space-y-4">
+              <h4 className="text-lg sm:text-xl font-extrabold text-white flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#00A3E0] inline-block" />
+                Sobre o Pacto Global da ONU
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                Como uma iniciativa especial do Secretário-Geral da ONU, o Pacto Global das Nações Unidas é uma convocação para que as empresas de todo o mundo alinhem suas operações e estratégias a dez princípios universais nas áreas de direitos humanos, trabalho, meio ambiente e anticorrupção.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                Lançado em 2000, o Pacto Global orienta e apoia a comunidade empresarial global no avanço das metas e valores da ONU por meio de práticas corporativas responsáveis. Tem mais de 20 mil participantes distribuídos em 62 redes que cobrem 77 países, sendo a maior iniciativa de sustentabilidade corporativa do mundo. Há ainda 5 Hubs em diferentes regiões do mundo e mais 14 gerentes nacionais responsáveis pelo processo de implementação em mais 20 países.
+              </p>
+              <div className="pt-2 text-xs font-mono">
+                <a 
+                  href="http://www.unglobalcompact.org" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#00A3E0] hover:underline font-bold inline-flex items-center gap-1"
+                >
+                  Siga @globalcompact · www.unglobalcompact.org ↗
+                </a>
+              </div>
+            </div>
+
+            {/* Column 2: O Pacto Global – Rede Brasil */}
+            <div className="space-y-4">
+              <h4 className="text-lg sm:text-xl font-extrabold text-white flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#00FF41] inline-block" />
+                O Pacto Global – Rede Brasil
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                O Pacto Global – Rede Brasil foi criado em 2003 e, hoje, é a segunda maior rede local do mundo, com mais de 2.000 participantes. Os mais de 60 projetos conduzidos no país abrangem, principalmente, os temas: Água, Oceano, Resíduos, Agricultura, Florestas, Clima, Direitos Humanos e Trabalho, Anticorrupção, Engajamento e Comunicação.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                No Brasil, o Pacto Global articula empresas em torno de compromissos estratégicos que fortalecem competitividade, integridade, inclusão e ação climática.
+              </p>
+              <div className="pt-2 text-xs font-mono">
+                <a 
+                  href="http://www.pactoglobal.org.br" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#00FF41] hover:underline font-bold inline-flex items-center gap-1"
+                >
+                  Siga @pactoglobalonubr · www.pactoglobal.org.br ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Network Stats Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-black border border-white/10 rounded-3xl p-8 text-center">
           <div className="p-4 bg-white/[0.02] rounded-2xl border border-white/10">
