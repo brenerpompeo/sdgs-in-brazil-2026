@@ -147,12 +147,10 @@ export const SCHEDULE_DATA: SessionItem[] = [
     type: 'Painel',
     period: 'tarde',
     description: 'Grandes lideranças empresariais brasileiras compartilham iniciativas práticas e resultados concretos de investimento socioambiental.',
-    speakers: ['luciana-nicola', 'fabiana-costa', 'marcelo-furtado', 'ana-carolina-carregaro', 'renata-piazzon'],
+    speakers: ['luciana-nicola', 'fabiana-costa', 'renata-piazzon'],
     speakerNamesRaw: [
       'Luciana Nicola (Diretora de Sustentabilidade, Itaú)',
       'Fabiana Costa (Líder de Sustentabilidade, Bradesco)',
-      'Marcelo Furtado (Head de Sustentabilidade, Itaúsa)',
-      'Ana Carolina Carregaro (Gerente de Sustentabilidade, Nestlé)',
       'Moderação: Renata Piazzon (Presidente do Instituto Arapyaú)'
     ],
     ods: [8, 9, 12, 13, 17],

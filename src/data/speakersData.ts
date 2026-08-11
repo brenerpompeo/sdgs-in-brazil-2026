@@ -26,7 +26,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     role: 'CEO & Diretora Executiva',
     company: 'UN Global Compact (Sede ONU NY)',
     category: 'Liderança Institucional',
-    confirmed: false,
+    confirmed: true,
     bio: 'CEO e Diretora Executiva do Pacto Global das Nações Unidas. Lidera a maior iniciativa de sustentabilidade corporativa do mundo a partir da sede da ONU em Nova York.'
   },
   {
@@ -39,33 +39,6 @@ export const SPEAKERS_DATA: Speaker[] = [
     bio: 'Representante Permanente do Brasil junto à Organização das Nações Unidas em Nova York. Especialista em diplomacia multilateral e relações internacionais.'
   },
   {
-    id: 'raquel-cardoso',
-    name: 'Raquel Cardoso da Silva',
-    role: 'Vice-Presidente de Pessoas',
-    company: 'Motiva',
-    category: 'Painelista',
-    confirmed: false,
-    bio: 'Vice-Presidente de Pessoas da Motiva. Atua na integração de estratégias de gestão de pessoas, diversidade e transformação cultural nas corporações.'
-  },
-  {
-    id: 'punjanit-leagnavar',
-    name: 'Punjanit Leagnavar',
-    role: 'Global Environment Policy Director',
-    company: "L'Oréal",
-    category: 'Painelista',
-    confirmed: false,
-    bio: 'Diretora Global de Políticas Ambientais na L\'Oréal. Atua na formulação de estratégias internacionais de descarbonização, biodiversidade e rastreabilidade.'
-  },
-  {
-    id: 'sergio-londono',
-    name: 'Sergio Londoño Zurek',
-    role: 'Vice President of Public Affairs & Sustainability',
-    company: 'Coca-Cola',
-    category: 'Painelista',
-    confirmed: false,
-    bio: 'Vice-Presidente de Relações Públicas, Comunicação e Sustentabilidade da Coca-Cola. Lidera programas globais de impacto socioambiental e reputação corporativa.'
-  },
-  {
     id: 'toni-ballabriga',
     name: 'Toni Ballabriga',
     role: 'Global Head Sustainability Intelligence & Advocacy',
@@ -73,15 +46,6 @@ export const SPEAKERS_DATA: Speaker[] = [
     category: 'Painelista',
     confirmed: true,
     bio: 'Líder global de inteligência em sustentabilidade do BBVA. Referência europeia em finanças sustentáveis, taxonomia verde e critérios ESG.'
-  },
-  {
-    id: 'gabriela-almeida',
-    name: 'Gabriela Almeida',
-    role: 'Gerente Executiva de Direitos Humanos',
-    company: 'Pacto Global da ONU - Rede Brasil',
-    category: 'Moderador',
-    confirmed: true,
-    bio: 'Gerente Executiva de Direitos Humanos e Empresas do Pacto Global da ONU - Rede Brasil. Especialista em due diligence e integridade nas cadeias globais.'
   },
   {
     id: 'eugenio-ricas',
@@ -154,24 +118,6 @@ export const SPEAKERS_DATA: Speaker[] = [
     category: 'Painelista',
     confirmed: true,
     bio: 'Executiva de sustentabilidade do Bradesco, atuando na estruturação de produtos financeiros de transição ecológica e reporte de impacto.'
-  },
-  {
-    id: 'marcelo-furtado',
-    name: 'Marcelo Furtado',
-    role: 'Head de Sustentabilidade',
-    company: 'Itaúsa',
-    category: 'Painelista',
-    confirmed: true,
-    bio: 'Líder ambientalista e executivo da Itaúsa. Co-fundador da Concertação pela Amazônia e especialista em filantropia e transição climática.'
-  },
-  {
-    id: 'ana-carolina-carregaro',
-    name: 'Ana Carolina Carregaro',
-    role: 'Gerente de Sustentabilidade',
-    company: 'Nestlé',
-    category: 'Painelista',
-    confirmed: true,
-    bio: 'Responsável pelas iniciativas de agricultura regenerativa e economia circular da Nestlé Brasil.'
   },
   {
     id: 'renata-piazzon',

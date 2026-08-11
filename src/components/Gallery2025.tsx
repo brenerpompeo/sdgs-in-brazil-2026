@@ -37,25 +37,40 @@ export const Gallery2025: React.FC = () => {
   const progress = useTransform(x, [-dragMax, 0], [1, 0]);
   const progressWidth = useTransform(progress, [0, 1], ['0%', '100%']);
 
-  // Load photos
+  // Interleave photos across 5 buckets so adjacent cards vary between room shots, speaker close-ups, panels, and audience
   useEffect(() => {
-    const loaded: PhotoItem[] = Object.keys(globImages)
-      .sort((a, b) => {
-        const nA = parseInt(a.replace(/\D/g, '')) || 0;
-        const nB = parseInt(b.replace(/\D/g, '')) || 0;
-        return nA - nB;
-      })
-      .map((path, idx) => {
-        const url = (globImages[path] as string) || path.replace('/public', '.');
-        return { id: idx + 1, src: url.startsWith('/') ? `.${url}` : url };
-      });
+    const sortedPaths = Object.keys(globImages).sort((a, b) => {
+      const nA = parseInt(a.replace(/\D/g, '')) || 0;
+      const nB = parseInt(b.replace(/\D/g, '')) || 0;
+      return nA - nB;
+    });
 
-    if (loaded.length === 0) {
+    const rawList: PhotoItem[] = sortedPaths.map((path, idx) => {
+      const url = (globImages[path] as string) || path.replace('/public', '.');
+      return { id: idx + 1, src: url.startsWith('/') ? `.${url}` : url };
+    });
+
+    if (rawList.length === 0) {
       for (let i = 1; i <= 71; i++) {
-        loaded.push({ id: i, src: `./assets/sdgs_2025/sdgs_2025_${i}.jpg` });
+        rawList.push({ id: i, src: `./assets/sdgs_2025/sdgs_2025_${i}.jpg` });
       }
     }
-    setPhotos(loaded);
+
+    // Interleave algorithm
+    const numBuckets = 5;
+    const bucketSize = Math.ceil(rawList.length / numBuckets);
+    const interleaved: PhotoItem[] = [];
+
+    for (let i = 0; i < bucketSize; i++) {
+      for (let b = 0; b < numBuckets; b++) {
+        const index = b * bucketSize + i;
+        if (index < rawList.length) {
+          interleaved.push(rawList[index]);
+        }
+      }
+    }
+
+    setPhotos(interleaved);
   }, []);
 
   // Measure dimensions for constraint calculation
