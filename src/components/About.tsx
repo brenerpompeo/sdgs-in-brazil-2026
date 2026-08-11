@@ -27,21 +27,21 @@ const FORCES = [
     title: 'O mundo se reorganizou',
     desc: 'Geopolítica instável, fragmentação de cadeias de valor e novos critérios socioambientais redefinem quem acessa mercados e capital global.',
     tag: 'Geopolítica & Mercados',
-    bg: './assets/sdgs_2025_10.jpg',
+    bg: './assets/sdgs_2025_2.jpg',
   },
   {
     num: 'FORÇA 02',
     title: 'O ESG fatigue é real — e presente',
     desc: 'Cresce a cobrança por evidências e métricas transparentes. Quem tem substância para demonstrar ocupa a liderança.',
     tag: 'Substância & Métricas',
-    bg: './assets/sdgs_2025_18.jpg',
+    bg: './assets/sdgs_2025_10.jpg',
   },
   {
     num: 'FORÇA 03',
     title: 'A prova é o novo padrão',
     desc: 'Rastreabilidade em tempo real e novas regulações globais tornaram a transparência verificável uma exigência mínima.',
     tag: 'Compliance & Transparência',
-    bg: './assets/sdgs_2025_13.jpg',
+    bg: './assets/sdgs_2025_19.jpg',
   },
 ];
 
@@ -137,7 +137,7 @@ export const About: React.FC = () => {
 
         {/* Seamless Editorial Stats Strip (Unified 3-Column Module) */}
         <div className="about-stats-strip grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl mb-16">
-          <div className="p-8 sm:p-10 border-b md:border-b-0 md:border-r border-white/10 text-center flex flex-col justify-center items-center hover:bg-white/[0.02] transition-colors">
+          <div className="p-8 sm:p-10 border-b md:border-b-0 md:border-r border-white/10 text-center flex flex-col justify-center items-center hover:bg-white/[0.03] transition-colors duration-300">
             <span className="text-5xl sm:text-6xl font-extrabold font-mono text-[#00A3E0] block mb-2 tracking-tight">
               35%
             </span>
@@ -146,7 +146,7 @@ export const About: React.FC = () => {
             </span>
           </div>
 
-          <div className="p-8 sm:p-10 border-b md:border-b-0 md:border-r border-white/10 text-center flex flex-col justify-center items-center hover:bg-white/[0.02] transition-colors">
+          <div className="p-8 sm:p-10 border-b md:border-b-0 md:border-r border-white/10 text-center flex flex-col justify-center items-center hover:bg-white/[0.03] transition-colors duration-300">
             <span className="text-5xl sm:text-6xl font-extrabold font-mono text-[#FFD700] block mb-2 tracking-tight">
               18%
             </span>
@@ -155,7 +155,7 @@ export const About: React.FC = () => {
             </span>
           </div>
 
-          <div className="p-8 sm:p-10 text-center flex flex-col justify-center items-center hover:bg-white/[0.02] transition-colors">
+          <div className="p-8 sm:p-10 text-center flex flex-col justify-center items-center hover:bg-white/[0.03] transition-colors duration-300">
             <span className="text-5xl sm:text-6xl font-extrabold font-mono text-white block mb-2 tracking-tight">
               4 Anos
             </span>
@@ -196,7 +196,7 @@ export const About: React.FC = () => {
             {EVENT_PHOTOS.map((photo, idx) => (
               <div 
                 key={photo.src}
-                className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out scale-100 group-hover:scale-105 transition-transform duration-700"
                 style={{ 
                   backgroundImage: `url('${photo.src}')`,
                   opacity: photoIndex === idx ? 1 : 0,
@@ -260,51 +260,53 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          {/* Unified 3-Column Module with Borderless Dividers */}
+          {/* Unified 3-Column Module with Clean CSS Hover Transitions */}
           <div className="forces-seamless-grid grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
             {FORCES.map((force, i) => (
-              <motion.div
+              <div
                 key={i}
-                whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.03)' }}
-                transition={{ duration: 0.3 }}
-                className="force-seamless-card flex flex-col justify-between p-8 sm:p-10 border-b md:border-b-0 md:border-r border-white/10 last:border-r-0 group cursor-pointer relative min-h-[420px]"
+                className="force-seamless-card flex flex-col justify-between p-8 sm:p-10 border-b md:border-b-0 md:border-r border-white/10 last:border-r-0 group cursor-pointer relative min-h-[440px] overflow-hidden bg-black transition-colors duration-300"
               >
-                {/* Background Image */}
+                {/* Background Photo - Real UN Assembly / Stage Speech Photos with Smooth Scale */}
                 <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out scale-100 group-hover:scale-105"
                   style={{ backgroundImage: `url('${force.bg}')` }}
                 />
                 
-                {/* Infinite Dark Fade Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/40 z-[1]" />
+                {/* Infinite Dark Fade Overlay with Smooth Opacity Transition */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/40 group-hover:opacity-90 transition-opacity duration-500 z-[1]" />
 
                 {/* Content Overlay */}
                 <div className="relative z-10 flex flex-col justify-between h-full">
                   <div>
+                    {/* Header Row */}
                     <div className="flex justify-between items-center mb-6">
                       <span className="text-[10px] font-mono font-bold tracking-widest text-white uppercase px-3 py-1 bg-black/70 rounded-full border border-white/15 backdrop-blur-xl">
                         {force.num}
                       </span>
-                      <span className="text-xs font-mono font-bold text-[#00A3E0]">
+                      <span className="text-xs font-mono font-bold text-[#00A3E0] group-hover:translate-x-1 transition-transform duration-300">
                         {force.tag}
                       </span>
                     </div>
 
-                    <h4 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 leading-snug tracking-tight group-hover:text-[#00A3E0] transition-colors">
+                    {/* Card Title */}
+                    <h4 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 leading-snug tracking-tight group-hover:text-[#00A3E0] transition-colors duration-300">
                       {force.title}
                     </h4>
 
+                    {/* Card Description */}
                     <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
                       {force.desc}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-white/15 flex items-center justify-between text-[10px] font-mono text-slate-400">
+                  {/* Card Bottom Meta */}
+                  <div className="pt-4 border-t border-white/15 flex items-center justify-between text-[10px] font-mono text-slate-400 group-hover:text-slate-200 transition-colors duration-300">
                     <span>SDGs IN BRAZIL</span>
-                    <span>EVIDÊNCIAS 2026</span>
+                    <span className="group-hover:text-[#00A3E0] transition-colors">EVIDÊNCIAS 2026 →</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
