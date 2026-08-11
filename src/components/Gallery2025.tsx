@@ -200,7 +200,7 @@ export const Gallery2025: React.FC = () => {
                 </h3>
 
                 <p className="text-xs font-mono text-slate-300 mt-1 uppercase tracking-wider">
-                  Registro Oficial de Painel
+                  Registro Oficial do Evento
                 </p>
 
                 {/* Expand on hover hint */}
