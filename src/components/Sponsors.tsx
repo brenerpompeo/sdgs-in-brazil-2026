@@ -60,25 +60,6 @@ export const Sponsors: React.FC = () => {
           </p>
         </div>
 
-        {/* Realization Banner Lockup */}
-        <div className="mb-16 p-8 sm:p-12 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl text-center max-w-4xl mx-auto">
-          <span className="text-[10px] font-mono font-bold tracking-[0.25em] uppercase text-white/60 block mb-6">
-            CHANCELARIA & REALIZADORES OFICIAIS
-          </span>
-          <div className="max-w-xl mx-auto mb-6">
-            <img 
-              src="./assets/marcas.png" 
-              alt="Pacto Global, AYA, Aegea e Missão do Brasil na ONU"
-              className="w-full h-auto object-contain filter drop-shadow-md"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <p className="text-xs sm:text-sm text-white/70 max-w-lg mx-auto font-light leading-relaxed">
-            Uma aliança entre o setor privado, a diplomacia brasileira e a governança das Nações Unidas.
-          </p>
-        </div>
-
         {/* Commercial Sponsorship Section with Contact to Rafael Carmo */}
         <div className="grid grid-cols-1 lg:grid-cols-12 border border-white/10 rounded-3xl overflow-hidden shadow-2xl mb-16 bg-black">
           
