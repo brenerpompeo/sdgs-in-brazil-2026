@@ -164,7 +164,7 @@ export const PastLeaders: React.FC = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-8 z-10 flex flex-col justify-end">
                   {/* Minified Tag */}
                   <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase block mb-2">
-                    {String(index + 1).padStart(2, '0')} · {leader.edition}
+                    {String(index + 1).padStart(2, '0')}
                   </span>
 
                   {/* Main Leader Name */}
