@@ -130,14 +130,25 @@ export const Sponsors: React.FC = () => {
 
         {/* Institutional Section: Sobre o Pacto Global da ONU – Rede Brasil */}
         <div className="mt-20 mb-10 p-8 sm:p-12 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl">
-          {/* Header */}
-          <div className="mb-8 pb-6 border-b border-white/10">
-            <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase block mb-2">
-              SOBRE O REALIZADOR
-            </span>
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              Sobre o Pacto Global da ONU – Rede Brasil
-            </h3>
+          {/* Header with Logo */}
+          <div className="mb-8 pb-6 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div>
+              <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase block mb-2">
+                SOBRE O REALIZADOR
+              </span>
+              <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                Sobre o Pacto Global da ONU – Rede Brasil
+              </h3>
+            </div>
+            <div className="flex-shrink-0">
+              <img 
+                src="./assets/pacto-global-realizacao.png" 
+                alt="Logo Pacto Global da ONU - Rede Brasil" 
+                className="h-16 sm:h-20 w-auto object-contain filter drop-shadow-md brightness-110"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
 
           {/* 2-Column Institutional Text */}
