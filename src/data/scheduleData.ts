@@ -50,14 +50,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
     type: 'Painel',
     period: 'manhã',
     description: 'Painel de diagnóstico sobre a superação do "ESG Fatigue". Investidores e líderes de sustentabilidade discutem o nível de prova e transparência exigido pelo mercado global.',
-    speakers: ['raquel-cardoso', 'punjanit-leagnavar', 'sergio-londono', 'toni-ballabriga', 'gabriela-almeida'],
-    speakerNamesRaw: [
-      'Raquel Cardoso da Silva (Vice Presidente de Pessoas, Motiva - TBC)',
-      "Punjanit Leagnavar (Global Environment Policy Director at L'Oréal - TBC)",
-      'Sergio Londoño Zurek (Vice President of Public Affairs & Sustainability, Coca-Cola - TBC)',
-      'Toni Ballabriga (Global Head Sustainability Intelligence & Advocacy, BBVA)',
-      'Moderação: Gabriela Almeida (Gerente Executiva de Direitos Humanos, Pacto Global da ONU - Rede Brasil)'
-    ],
+    speakers: [],
+    speakerNamesRaw: [],
     ods: [8, 12, 13, 17],
     highlight: true
   },
