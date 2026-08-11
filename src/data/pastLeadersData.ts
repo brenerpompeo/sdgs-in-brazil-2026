@@ -7,7 +7,7 @@ export interface PastLeader {
   edition: string;
   quote?: string;
   ods: number[];
-  category: 'C-Suite' | 'Diplomacia & Governança' | 'Conselho & Impacto' | 'Keynote Global' | 'Cultura & Sociedade';
+  category: 'C-Suite & Negócios' | 'Diplomacia & Governança' | 'Ativismo & Impacto Social' | 'Keynote & Pensamento Global' | 'Cultura, Mídia & Esporte';
 }
 
 export const PAST_LEADERS: PastLeader[] = [
@@ -20,7 +20,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'A saúde pública de qualidade é o pilar estrutural para qualquer sociedade sustentável e justa.',
     ods: [3, 10],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'celia-xakriaba',
@@ -31,7 +31,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'Demarcar territórios é a maior política de combate à crise climática do nosso tempo.',
     ods: [13, 15, 10],
-    category: 'Conselho & Impacto',
+    category: 'Ativismo & Impacto Social',
   },
   {
     id: 'alok',
@@ -42,7 +42,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'A música tem o poder de unir gerações em prol da preservação da Amazônia e dos direitos humanos.',
     ods: [10, 13, 17],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'maju-coutinho',
@@ -53,7 +53,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'Dar visibilidade às pautas socioambientais é compromisso ético do jornalismo contemporâneo.',
     ods: [16, 5, 10],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'luciano-huck',
@@ -64,7 +64,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'O empreendedorismo social e a inovação privada são motores para reduzir as desigualdades do Brasil.',
     ods: [8, 10, 17],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'sanda-ojiambo',
@@ -86,7 +86,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'O esporte transforma vidas, inspira a juventude e mostra que é possível superar qualquer barreira.',
     ods: [3, 5, 10],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'rebeca-andrade',
@@ -97,7 +97,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'A dedicação e o foco abrem caminhos para que mulheres negras alcancem o topo do mundo.',
     ods: [5, 3, 10],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'oliver-stuenkel',
@@ -119,7 +119,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'O capitalismo de regeneração é a única evolução possível do modelo econômico tradicional.',
     ods: [12, 13, 8],
-    category: 'Keynote Global',
+    category: 'Keynote & Pensamento Global',
   },
   {
     id: 'lazaro-ramos',
@@ -130,7 +130,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'Não há desenvolvimento sustentável sem inclusão, equidade racial e justiça social como pilares fundamentais.',
     ods: [10, 16, 5],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'luiza-trajano',
@@ -141,7 +141,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'O setor privado precisa ser o grande catalisador da transformação social e igualdade no Brasil.',
     ods: [5, 8, 10],
-    category: 'C-Suite',
+    category: 'C-Suite & Negócios',
   },
   {
     id: 'tarciana-medeiros',
@@ -152,7 +152,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'A bancarização inclusiva e o financiamento sustentável impulsionam a transição justa no país.',
     ods: [8, 10, 13],
-    category: 'C-Suite',
+    category: 'C-Suite & Negócios',
   },
   {
     id: 'paulo-vieira',
@@ -163,7 +163,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'A comunicação e a cultura são as ferramentas mais potentes para conectar a Agenda 2030 à realidade das pessoas.',
     ods: [10, 1, 16],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'gabriela-prioli',
@@ -174,7 +174,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'A clareza no debate público e o rigor nos fatos são indispensáveis para combater a desinformação e fortalecer o ESG.',
     ods: [16, 17],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'txai-surui',
@@ -185,7 +185,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'A Terra está falando. É preciso ouvir as vozes dos povos originários para garantir o futuro do planeta.',
     ods: [13, 15, 10],
-    category: 'Conselho & Impacto',
+    category: 'Ativismo & Impacto Social',
   },
   {
     id: 'tashka-yawanawa',
@@ -196,7 +196,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'A conservação da biodiversidade exige parcerias verdadeiras com os guardiões da floresta.',
     ods: [15, 13, 17],
-    category: 'Conselho & Impacto',
+    category: 'Ativismo & Impacto Social',
   },
   {
     id: 'amy-webb',
@@ -207,7 +207,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'O futuro não é algo que acontece conosco. É algo que construímos intencionalmente com tecnologia e governança.',
     ods: [9, 17],
-    category: 'Keynote Global',
+    category: 'Keynote & Pensamento Global',
   },
   {
     id: 'maria-prata',
@@ -218,7 +218,7 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO ANTERIOR',
     quote: 'A inovação sustentável precisa ser comunicada de forma autêntica e transparente para toda a sociedade.',
     ods: [12, 17],
-    category: 'Cultura & Sociedade',
+    category: 'Cultura, Mídia & Esporte',
   },
   {
     id: 'rachel-maia',
@@ -229,6 +229,6 @@ export const PAST_LEADERS: PastLeader[] = [
     edition: 'EDIÇÃO 2024',
     quote: 'A verdadeira liderança ESG exige diversidade, equidade de gênero e representatividade nos conselhos.',
     ods: [5, 10, 8],
-    category: 'Conselho & Impacto',
+    category: 'C-Suite & Negócios',
   }
 ];

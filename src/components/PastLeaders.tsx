@@ -163,9 +163,14 @@ export const PastLeaders: React.FC = () => {
                 {/* Bottom Content Area */}
                 <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-8 z-10 flex flex-col justify-end">
                   {/* Minified Tag */}
-                  <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase block mb-2">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-[9px] font-mono font-bold tracking-widest text-slate-300 uppercase bg-white/10 px-2 py-0.5 rounded border border-white/10">
+                      {leader.category}
+                    </span>
+                  </div>
 
                   {/* Main Leader Name */}
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight group-hover:text-[#00A3E0] transition-colors duration-300">
