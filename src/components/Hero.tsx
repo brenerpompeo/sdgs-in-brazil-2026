@@ -4,10 +4,10 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 const BACKGROUNDS = [
-  './assets/sdgs_2025_2.jpg',
-  './assets/sdgs_2025_3.jpg',
-  './assets/sdgs_2025_19.jpg',
-  './assets/sdgs_2025_11.jpg',
+  './assets/sdgs_2025/sdgs_2025_2.jpg',
+  './assets/sdgs_2025/sdgs_2025_3.jpg',
+  './assets/sdgs_2025/sdgs_2025_5.jpg',
+  './assets/sdgs_2025/sdgs_2025_7.jpg',
 ];
 
 const CountdownBox = ({ value, label }: { value: number; label: string }) => (

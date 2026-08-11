@@ -5,17 +5,17 @@ import { useGSAP } from '@gsap/react';
 
 const EVENT_PHOTOS = [
   {
-    src: './assets/sdgs_2025_2.jpg',
+    src: './assets/sdgs_2025/sdgs_2025_2.jpg',
     tag: 'SEDE DA ONU · NOVA YORK',
     title: 'Edição Anterior no Hall Principal das Nações Unidas',
   },
   {
-    src: './assets/sdgs_2025_10.jpg',
+    src: './assets/sdgs_2025/sdgs_2025_5.jpg',
     tag: 'PLENÁRIA DE ABERTURA',
     title: 'Liderança Empresarial em Diálogo Multilateral',
   },
   {
-    src: './assets/sdgs_2025_19.jpg',
+    src: './assets/sdgs_2025/sdgs_2025_8.jpg',
     tag: 'DEBATES DE IMPACTO',
     title: 'Compromissos Climáticos e Transição Justa',
   },
@@ -27,21 +27,21 @@ const FORCES = [
     title: 'O mundo se reorganizou',
     desc: 'Geopolítica instável, fragmentação de cadeias de valor e novos critérios socioambientais redefinem quem acessa mercados e capital global.',
     tag: 'Geopolítica & Mercados',
-    bg: './assets/sdgs_2025_2.jpg',
+    bg: './assets/sdgs_2025/sdgs_2025_2.jpg',
   },
   {
     num: 'FORÇA 02',
     title: 'O ESG fatigue é real — e presente',
     desc: 'Cresce a cobrança por evidências e métricas transparentes. Quem tem substância para demonstrar ocupa a liderança.',
     tag: 'Substância & Métricas',
-    bg: './assets/sdgs_2025_10.jpg',
+    bg: './assets/sdgs_2025/sdgs_2025_5.jpg',
   },
   {
     num: 'FORÇA 03',
     title: 'A prova é o novo padrão',
     desc: 'Rastreabilidade em tempo real e novas regulações globais tornaram a transparência verificável uma exigência mínima.',
     tag: 'Compliance & Transparência',
-    bg: './assets/sdgs_2025_19.jpg',
+    bg: './assets/sdgs_2025/sdgs_2025_8.jpg',
   },
 ];
 
