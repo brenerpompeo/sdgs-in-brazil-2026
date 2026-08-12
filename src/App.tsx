@@ -22,7 +22,6 @@ export function App() {
 
   return (
     <SmoothScroll>
-      <CustomCursor />
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       <div className="bg-black text-white min-h-screen">
         <Header />
