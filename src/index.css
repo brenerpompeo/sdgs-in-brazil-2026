@@ -16,6 +16,7 @@
     scroll-behavior: smooth;
     background-color: #000000;
     color: #ffffff;
+    cursor: auto !important;
   }
   body {
     background-color: #000000;
@@ -23,6 +24,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    cursor: auto !important;
   }
 }
 

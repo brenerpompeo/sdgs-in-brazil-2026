@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { SmoothScroll } from './components/SmoothScroll';
-import { CustomCursor } from './components/CustomCursor';
 import { Preloader } from './components/Preloader';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
