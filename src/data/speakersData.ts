@@ -111,13 +111,13 @@ export const SPEAKERS_DATA: Speaker[] = [
     bio: 'Liderança em sustentabilidade corporativa e investimentos ESG no Itaú Unibanco, impulsionando a finança sustentável no Brasil.'
   },
   {
-    id: 'fabiana-costa',
-    name: 'Fabiana Costa',
-    role: 'Líder de Sustentabilidade',
+    id: 'silvana-machado',
+    name: 'Silvana Machado',
+    role: 'Diretora Executiva',
     company: 'Bradesco',
     category: 'Painelista',
     confirmed: true,
-    bio: 'Executiva de sustentabilidade do Bradesco, atuando na estruturação de produtos financeiros de transição ecológica e reporte de impacto.'
+    bio: 'Diretora Executiva do Bradesco. Atua no direcionamento de estratégias corporativas, transição ecológica e inovação financeira.'
   },
   {
     id: 'renata-piazzon',
