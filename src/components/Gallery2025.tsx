@@ -3,20 +3,12 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-// Dynamic Auto-Discovery — combines photos from /public/assets/sdgs_2025/ and /public/assets/gallery_2025/
-const globSdgs2025 = (import.meta as any).glob('/public/assets/sdgs_2025/*.{jpg,jpeg,png,webp,JPG,JPEG}', {
+// Dynamic Auto-Discovery — reads unique photos from /public/assets/sdgs_2025/
+const globImages = (import.meta as any).glob('/public/assets/sdgs_2025/*.{jpg,jpeg,png,webp,JPG,JPEG}', {
   eager: true,
   query: '?url',
   import: 'default',
 });
-
-const globGallery2025 = (import.meta as any).glob('/public/assets/gallery_2025/*.{jpg,jpeg,png,webp,JPG,JPEG}', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-});
-
-const globImages = { ...globSdgs2025, ...globGallery2025 };
 
 interface PhotoItem {
   id: number;
