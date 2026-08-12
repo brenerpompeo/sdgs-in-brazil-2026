@@ -133,7 +133,6 @@ export const PastLeaders: React.FC = () => {
         {/* Sleek Progress Indicator & Scroll Instruction (Sem setas) */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-[#00A3E0] animate-pulse inline-block" />
             <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-white/60">
               Role o mouse ou arraste lateralmente
             </span>
