@@ -13,9 +13,11 @@ const globLeaderPhotos = (import.meta as any).glob('/public/assets/leaders/*.{jp
 
 export const PastLeaders: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [leaderPhotoMap, setLeaderPhotoMap] = useState<Record<string, string>>({});
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftState, setScrollLeftState] = useState(0);
 
   useEffect(() => {
     // Build lookup map from filename (e.g. drauzio_varella.jpg)
@@ -28,6 +30,24 @@ export const PastLeaders: React.FC = () => {
       }
     });
     setLeaderPhotoMap(map);
+  }, []);
+
+  // Convert vertical mouse wheel into horizontal scroll on the carousel
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const onWheelHandler = (e: WheelEvent) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY * 1.5;
+      }
+    };
+
+    el.addEventListener('wheel', onWheelHandler, { passive: false });
+    return () => {
+      el.removeEventListener('wheel', onWheelHandler);
+    };
   }, []);
 
   useGSAP(() => {
@@ -64,17 +84,28 @@ export const PastLeaders: React.FC = () => {
   const checkScroll = () => {
     if (!scrollRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    setCanScrollLeft(scrollLeft > 10);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    const maxScroll = scrollWidth - clientWidth;
+    const currentProgress = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
+    setScrollProgress(currentProgress);
   };
 
-  const handleScroll = (direction: 'left' | 'right') => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!scrollRef.current) return;
-    const scrollAmount = scrollRef.current.clientWidth * 0.7;
-    scrollRef.current.scrollBy({
-      left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth',
-    });
+    setIsMouseDown(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeftState(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeaveOrUp = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isMouseDown || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollRef.current.scrollLeft = scrollLeftState - walk;
   };
 
   return (
@@ -99,45 +130,33 @@ export const PastLeaders: React.FC = () => {
       {/* Seamless Carousel Container (0px Gap Aesthetic) */}
       <div className="seamless-leaders-container relative w-full">
         
-        {/* Scroll Navigation Arrows Floating Controls */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end gap-3 mb-4">
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={() => handleScroll('left')}
-            disabled={!canScrollLeft}
-            className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
-              canScrollLeft
-                ? 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-xl border border-white/10'
-                : 'bg-white/5 text-white/20 border border-white/5 cursor-not-allowed'
-            }`}
-            aria-label="Anterior"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </motion.button>
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={() => handleScroll('right')}
-            disabled={!canScrollRight}
-            className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
-              canScrollRight
-                ? 'bg-white text-black hover:bg-gray-100 shadow-xl'
-                : 'bg-white/5 text-white/20 border border-white/5 cursor-not-allowed'
-            }`}
-            aria-label="Próximo"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </motion.button>
+        {/* Sleek Progress Indicator & Scroll Instruction (Sem setas) */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 mb-6">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#00A3E0] animate-pulse inline-block" />
+            <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-white/60">
+              Role o mouse ou arraste lateralmente
+            </span>
+          </div>
+          <div className="w-32 sm:w-48 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-gradient-to-r from-[#00A3E0] via-[#FFD700] to-[#00FF41] rounded-full transition-all duration-150"
+              style={{ width: `${Math.max(8, Math.min(100, scrollProgress))}%` }}
+            />
+          </div>
         </div>
 
-        {/* 0px Gap Seamless Strip */}
+        {/* 0px Gap Seamless Strip with Mouse Wheel & Drag Support */}
         <div
           ref={scrollRef}
           onScroll={checkScroll}
-          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none w-full"
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeaveOrUp}
+          onMouseUp={handleMouseLeaveOrUp}
+          onMouseMove={handleMouseMove}
+          className={`flex overflow-x-auto snap-x snap-mandatory scrollbar-none w-full select-none ${
+            isMouseDown ? 'cursor-grabbing' : 'cursor-grab'
+          }`}
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {PAST_LEADERS.map((leader, index) => {
