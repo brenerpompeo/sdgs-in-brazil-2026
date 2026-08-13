@@ -51,7 +51,7 @@ export const Gallery2025: React.FC = () => {
     });
 
     if (rawList.length === 0) {
-      for (let i = 1; i <= 71; i++) {
+      for (let i = 1; i <= 25; i++) {
         rawList.push({ id: i, src: `./assets/sdgs_2025/sdgs_2025_${i}.jpg` });
       }
     }
