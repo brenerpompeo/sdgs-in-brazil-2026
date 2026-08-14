@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const CtaBanner: React.FC = () => {
   return (
-    <section className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
+    <section className="py-14 sm:py-20 bg-black text-white relative overflow-hidden border-t border-white/10">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
 

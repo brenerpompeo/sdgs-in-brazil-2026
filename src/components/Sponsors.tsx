@@ -40,14 +40,14 @@ export const Sponsors: React.FC = () => {
   }, []);
 
   return (
-    <section id="patrocinio" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
+    <section id="patrocinio" className="py-14 sm:py-20 bg-black text-white relative overflow-hidden border-t border-white/10">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#5F3469]/10 blur-[200px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Editorial Header */}
-        <div className="sponsors-header text-center max-w-4xl mx-auto mb-16">
+        <div className="sponsors-header text-center max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
             INVESTIMENTO EM IMPACTO GLOBAL · PARCERIAS
           </span>
@@ -61,7 +61,7 @@ export const Sponsors: React.FC = () => {
         </div>
 
         {/* Commercial Sponsorship Section with Contact to Rafael Carmo */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 border border-white/10 rounded-3xl overflow-hidden shadow-2xl mb-16 bg-black">
+        <div className="grid grid-cols-1 lg:grid-cols-12 border border-white/10 rounded-3xl overflow-hidden shadow-2xl mb-12 bg-black">
           
           {/* Left Column: Benefits of Sponsorship */}
           <div className="lg:col-span-7 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between">
@@ -129,7 +129,7 @@ export const Sponsors: React.FC = () => {
         </div>
 
         {/* Institutional Section: Sobre o Pacto Global da ONU – Rede Brasil */}
-        <div className="mt-20 mb-10 p-8 sm:p-12 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl">
+        <div className="mt-14 mb-8 p-8 sm:p-12 bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl">
           {/* Header with Logo on the Left */}
           <div className="mb-8 pb-6 border-b border-white/10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
             <div className="flex-shrink-0">

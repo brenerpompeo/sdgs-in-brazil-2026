@@ -106,14 +106,14 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
   }, [period]);
 
   return (
-    <section id="programacao" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
+    <section id="programacao" className="py-14 sm:py-20 bg-black text-white relative overflow-hidden border-t border-white/10">
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Editorial Header */}
-        <div className="schedule-header text-center max-w-4xl mx-auto mb-14">
+        <div className="schedule-header text-center max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
             AGENDA OFICIAL · SEDE DA ONU NY
           </span>
@@ -127,7 +127,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
         </div>
 
         {/* Filter Tabs - Rounded Pills */}
-        <div className="flex gap-2 justify-center flex-wrap mb-12">
+        <div className="flex gap-2 justify-center flex-wrap mb-8">
           {periods.map(p => (
             <motion.button
               key={p.key}

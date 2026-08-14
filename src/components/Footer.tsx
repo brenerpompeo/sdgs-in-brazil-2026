@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-black text-white border-t border-white/10 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <footer className="bg-black text-white border-t border-white/10 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
 

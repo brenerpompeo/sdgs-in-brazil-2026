@@ -125,14 +125,14 @@ export const About: React.FC = () => {
   }, []);
 
   return (
-    <section id="sobre" className="relative py-24 sm:py-32 bg-black text-white overflow-hidden border-t border-white/10">
+    <section id="sobre" className="relative py-14 sm:py-20 bg-black text-white overflow-hidden border-t border-white/10">
       {/* Soft Ambient Radial Light */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#00A3E0]/10 blur-[200px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Editorial Header (Matching Schedule & Speakers) */}
-        <div className="about-header text-center max-w-4xl mx-auto mb-16">
+        <div className="about-header text-center max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
             SDGS IN BRAZIL 2026 · SEDE DA ONU NY
           </span>
@@ -145,7 +145,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* Seamless Editorial Stats Strip (Unified 3-Column Module) */}
-        <div className="about-stats-strip grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl mb-16">
+        <div className="about-stats-strip grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl mb-12">
           <div className="p-8 sm:p-10 border-b md:border-b-0 md:border-r border-white/10 text-center flex flex-col justify-center items-center hover:bg-white/[0.03] transition-colors duration-300">
             <span className="text-5xl sm:text-6xl font-extrabold font-mono text-[#00A3E0] block mb-2 tracking-tight">
               35%
@@ -175,7 +175,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* Bento Grid: Unified Seamless Module (Diagnóstico + Photos) */}
-        <div className="about-bento-container grid grid-cols-1 lg:grid-cols-12 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl mb-24">
+        <div className="about-bento-container grid grid-cols-1 lg:grid-cols-12 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl mb-14">
           
           {/* Left Block: Editorial Narrative */}
           <div className="lg:col-span-6 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between relative bg-white/[0.01]">
@@ -257,7 +257,7 @@ export const About: React.FC = () => {
 
         {/* Três Forças - Seamless Editorial Strip (Unified 3-Column Module) */}
         <div>
-          <div className="text-center max-w-4xl mx-auto mb-14">
+          <div className="text-center max-w-4xl mx-auto mb-10">
             <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
               O CENÁRIO DE 2026
             </span>

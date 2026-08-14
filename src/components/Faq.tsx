@@ -65,11 +65,11 @@ export const Faq: React.FC = () => {
   }, []);
 
   return (
-    <section id="faq" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
+    <section id="faq" className="py-14 sm:py-20 bg-black text-white relative overflow-hidden border-t border-white/10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Editorial Header */}
-        <div className="faq-header text-center mb-16">
+        <div className="faq-header text-center mb-10">
           <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
             DÚVIDAS FREQUENTES · PROTOCOLO ONU
           </span>

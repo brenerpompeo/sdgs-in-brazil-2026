@@ -114,12 +114,12 @@ export const Gallery2025: React.FC = () => {
   }, []);
 
   return (
-    <section id="galeria" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/10">
+    <section id="galeria" className="py-14 sm:py-20 bg-black text-white relative overflow-hidden border-t border-white/10">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-[#00A3E0]/10 blur-[200px] pointer-events-none" />
 
       {/* ── Editorial Header ── */}
-      <div className="gallery-header text-center max-w-4xl mx-auto px-4 sm:px-6 mb-14">
+      <div className="gallery-header text-center max-w-4xl mx-auto px-4 sm:px-6 mb-10">
         <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
           ACERVO HISTÓRICO · SEDE DA ONU NY
         </span>
