@@ -1,24 +1,11 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/((?!assets/|favicon.ico|apple-touch-icon.png|.*\\.).*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
+          "value": "public, max-age=0, must-revalidate, s-maxage=0"
         }
       ]
     }
