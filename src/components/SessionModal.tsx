@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useI18n } from '../i18n/LanguageProvider';
 import { SessionItem } from '../data/scheduleData';
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 }
 
 export const SessionModal: React.FC<Props> = ({ session, onClose }) => {
+  const { t } = useI18n();
   if (!session) return null;
 
   return (
@@ -42,7 +44,7 @@ export const SessionModal: React.FC<Props> = ({ session, onClose }) => {
             <button
               onClick={onClose}
               className="min-w-[44px] min-h-[44px] bg-white/10 hover:bg-white/20 rounded-full text-white text-lg flex items-center justify-center transition-colors flex-shrink-0 font-mono"
-              aria-label="Fechar modal"
+              aria-label={t.sessionModal.closeLabel}
             >
               ✕
             </button>
@@ -51,7 +53,7 @@ export const SessionModal: React.FC<Props> = ({ session, onClose }) => {
           {/* Description */}
           <div className="mb-6">
             <h4 className="text-[10px] font-mono font-bold tracking-widest uppercase text-white/50 mb-2">
-              SOBRE A SESSÃO
+              {t.sessionModal.aboutSession}
             </h4>
             <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light">
               {session.description}
@@ -77,8 +79,8 @@ export const SessionModal: React.FC<Props> = ({ session, onClose }) => {
 
           {/* Footer note */}
           <div className="pt-4 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/50">
-            <span>SDGs IN BRAZIL 2026</span>
-            <span>SEDE ONU NY</span>
+            <span>{t.sessionModal.brand}</span>
+            <span>{t.sessionModal.venue}</span>
           </div>
         </motion.div>
       </div>

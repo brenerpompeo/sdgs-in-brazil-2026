@@ -14,12 +14,14 @@ import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
 import { SessionModal } from './components/SessionModal';
 import { SessionItem } from './data/scheduleData';
+import { LanguageProvider } from './i18n/LanguageProvider';
 
 export function App() {
   const [activeSession, setActiveSession] = useState<SessionItem | null>(null);
   const [loading, setLoading] = useState(true);
 
   return (
+    <LanguageProvider>
     <SmoothScroll>
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       <div className="bg-black text-white min-h-screen">
@@ -37,5 +39,6 @@ export function App() {
         <SessionModal session={activeSession} onClose={() => setActiveSession(null)} />
       </div>
     </SmoothScroll>
+    </LanguageProvider>
   );
 }

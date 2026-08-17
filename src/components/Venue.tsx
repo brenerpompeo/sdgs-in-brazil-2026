@@ -2,8 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useI18n } from '../i18n/LanguageProvider';
 
-const VENUE_DETAILS = [
+/** Só os ícones; títulos e detalhes vêm do dicionário. */
+const VENUE_ICONS = [
   { 
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -11,8 +13,6 @@ const VENUE_DETAILS = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
     ), 
-    title: 'Endereço Oficial', 
-    detail: '405 E 42nd St\nNew York, NY 10017\nEstados Unidos' 
   },
   { 
     icon: (
@@ -20,8 +20,6 @@ const VENUE_DETAILS = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
     ), 
-    title: 'Data & Horário', 
-    detail: '18 de Setembro de 2026\n10:00 às 20:30 (EDT)\nSemana da AGNU-81' 
   },
   { 
     icon: (
@@ -29,8 +27,6 @@ const VENUE_DETAILS = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
       </svg>
     ), 
-    title: 'Como Acessar', 
-    detail: 'JFK ou EWR Airport\nMetrô: Linhas 4, 5, 6, 7 (42nd St)\nCredenciamento prévio obrigatório' 
   },
   { 
     icon: (
@@ -38,12 +34,11 @@ const VENUE_DETAILS = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ), 
-    title: 'Segurança ONU', 
-    detail: 'Acesso restrito ao complexo\nCheck-in inicia às 09:30\nTrazer passaporte físico' 
   },
 ];
 
 export const Venue: React.FC = () => {
+  const { t } = useI18n();
   useGSAP(() => {
     gsap.fromTo('.venue-header', 
       { y: 30, opacity: 0 },
@@ -70,14 +65,14 @@ export const Venue: React.FC = () => {
         {/* Centered Editorial Header */}
         <div className="venue-header text-center max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-bold text-white/60 tracking-[0.3em] uppercase block mb-3 font-mono">
-            LOCALIZAÇÃO & LOGÍSTICA · NOVA YORK
+            {t.venue.eyebrow}
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Sede das Nações Unidas.<br />
+            {t.venue.title}<br />
             <span className="text-white/80 font-light">405 E 42nd St, Manhattan, NY.</span>
           </h2>
           <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto leading-relaxed font-light">
-            Salões principais do complexo oficial das Nações Unidas em Manhattan durante a semana da 81ª Assembleia Geral da ONU.
+            {t.venue.subtitle}
           </p>
         </div>
 
@@ -87,7 +82,7 @@ export const Venue: React.FC = () => {
           {/* Reliable Google Maps Dark Embed */}
           <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-white/10 shadow-2xl min-h-[380px] sm:min-h-[460px] relative bg-neutral-900 group">
             <iframe
-              title="United Nations Headquarters - Google Maps"
+              title={t.venue.mapTitle}
               width="100%"
               height="100%"
               style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(90%)' }}
@@ -98,13 +93,13 @@ export const Venue: React.FC = () => {
               className="w-full h-full min-h-[380px] sm:min-h-[460px] object-cover opacity-90 transition-opacity duration-300 group-hover:opacity-100"
             />
             <div className="absolute bottom-4 left-4 z-10 px-4 py-2 bg-black/80 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-mono text-white/80">
-              📍 SEDE DAS NAÇÕES UNIDAS · NY 10017
+              {t.venue.mapCaption}
             </div>
           </div>
 
           {/* Details list */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-            {VENUE_DETAILS.map((d, i) => (
+            {VENUE_ICONS.map((d, i) => (
               <motion.div 
                 key={i} 
                 whileHover={{ x: 4, backgroundColor: 'rgba(255, 255, 255, 0.03)' }}
@@ -116,10 +111,10 @@ export const Venue: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-xs font-extrabold text-white tracking-widest uppercase mb-1 font-mono">
-                    {d.title}
+                    {t.venue.details[i].title}
                   </h3>
                   <p className="text-xs text-white/75 leading-relaxed font-light whitespace-pre-line">
-                    {d.detail}
+                    {t.venue.details[i].detail}
                   </p>
                 </div>
               </motion.div>

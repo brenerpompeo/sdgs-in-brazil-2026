@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { LEGAL_LINKS } from '../data/legalLinks';
+import { useI18n } from '../i18n/LanguageProvider';
 
 export const Footer: React.FC = () => {
+  const { t } = useI18n();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -17,12 +20,12 @@ export const Footer: React.FC = () => {
         {/* 1. Realização & Chancelaria Oficial (Extra Large Logos Lockup) */}
         <div className="w-full max-w-5xl mx-auto pb-12 border-b border-white/10">
           <span className="text-[11px] sm:text-xs font-mono font-bold tracking-[0.3em] text-[#00A3E0] uppercase block mb-6">
-            REALIZAÇÃO & CHANCELARIA OFICIAL
+            {t.footer.realization}
           </span>
           <div className="p-8 sm:p-12 md:p-14 bg-white/[0.03] backdrop-blur-2xl border border-white/15 rounded-3xl shadow-2xl overflow-hidden">
             <img 
               src="./assets/marcas.png" 
-              alt="Marcas: Pacto Global da ONU - Rede Brasil, AYA, Aegea, Missão do Brasil na ONU" 
+              alt={t.common.brandsAlt} 
               className="w-full max-w-4xl h-auto object-contain mx-auto filter drop-shadow-2xl brightness-125 scale-100 sm:scale-105 md:scale-110 transition-transform duration-500"
               loading="lazy"
               decoding="async"
@@ -40,17 +43,17 @@ export const Footer: React.FC = () => {
             decoding="async"
           />
           <p className="text-xs text-white/60 leading-relaxed font-light px-2">
-            O principal fórum de lideranças empresariais do Brasil na Sede das Nações Unidas em Nova York durante a semana da AGNU-81.
+            {t.footer.description}
           </p>
         </div>
 
         {/* 3. Navigation Links */}
         <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-xs font-mono font-bold text-white/75 tracking-widest uppercase">
-          <motion.a whileHover={{ color: '#ffffff' }} href="#sobre" className="hover:text-white transition-colors">Sobre</motion.a>
-          <motion.a whileHover={{ color: '#ffffff' }} href="#programacao" className="hover:text-white transition-colors">Programação</motion.a>
-          <motion.a whileHover={{ color: '#ffffff' }} href="#palestrantes" className="hover:text-white transition-colors">Palestrantes</motion.a>
-          <motion.a whileHover={{ color: '#ffffff' }} href="#patrocinio" className="hover:text-white transition-colors">Patrocínio</motion.a>
-          <motion.a whileHover={{ color: '#ffffff' }} href="#local" className="hover:text-white transition-colors">Localização</motion.a>
+          <motion.a whileHover={{ color: '#ffffff' }} href="#sobre" className="hover:text-white transition-colors">{t.header.nav.about}</motion.a>
+          <motion.a whileHover={{ color: '#ffffff' }} href="#programacao" className="hover:text-white transition-colors">{t.header.nav.schedule}</motion.a>
+          <motion.a whileHover={{ color: '#ffffff' }} href="#palestrantes" className="hover:text-white transition-colors">{t.header.nav.speakers}</motion.a>
+          <motion.a whileHover={{ color: '#ffffff' }} href="#patrocinio" className="hover:text-white transition-colors">{t.footer.sponsorship}</motion.a>
+          <motion.a whileHover={{ color: '#ffffff' }} href="#local" className="hover:text-white transition-colors">{t.header.nav.venue}</motion.a>
         </div>
 
         {/* 4. Back to Top Button & Copyright (At the very bottom) */}
@@ -61,17 +64,17 @@ export const Footer: React.FC = () => {
             onClick={scrollToTop}
             className="px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white rounded-full border border-white/10 text-xs font-mono font-bold tracking-widest uppercase transition-colors flex items-center gap-2 cursor-pointer"
           >
-            Voltar ao topo ↑
+            {t.common.backToTop}
           </motion.button>
 
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-white/50 font-mono pt-6 border-t border-white/5">
-            <p>© 2026 SDGs in Brazil · Pacto Global da ONU - Rede Brasil. Todos os direitos reservados.</p>
+            <p>{t.footer.copyright}</p>
             <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 uppercase tracking-widest text-[9px] text-white/50">
               <button 
                 onClick={() => (window as any).sendAdoptCommand?.('open')} 
                 className="hover:underline text-[#00A3E0] hover:text-white cursor-pointer font-bold uppercase tracking-widest text-[9px] transition-colors"
               >
-                Preferências de Cookies
+                {t.footer.cookiePreferences}
               </button>
               {LEGAL_LINKS.map((link) => (
                 <React.Fragment key={link.href}>
@@ -82,16 +85,16 @@ export const Footer: React.FC = () => {
                     rel="noopener noreferrer"
                     className="hover:underline text-[#00A3E0] hover:text-white cursor-pointer font-bold uppercase tracking-widest text-[9px] transition-colors flex items-center gap-1"
                   >
-                    {link.label}
+                    {t.legal[link.key]}
                   </a>
                 </React.Fragment>
               ))}
               <span>·</span>
-              <span>18 ODS</span>
+              <span>{t.footer.tags.sdgs}</span>
               <span>·</span>
-              <span>AGENDA 2030</span>
+              <span>{t.footer.tags.agenda}</span>
               <span>·</span>
-              <span>AGNU-81</span>
+              <span>{t.footer.tags.unga}</span>
             </div>
           </div>
         </div>

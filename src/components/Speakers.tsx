@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useI18n } from '../i18n/LanguageProvider';
+import { localizeSpeaker } from '../i18n/data';
 import { SPEAKERS_DATA, Speaker } from '../data/speakersData';
 
 // Dynamic Auto-Discovery of speaker photos in /public/assets/speakers/
@@ -20,6 +22,7 @@ const getSpeakerPhotoKey = (idOrName: string): string => {
 };
 
 const SpeakerCard = ({ speaker, index, photoMap, className = '' }: { speaker: Speaker; index: number; photoMap: Record<string, string>; className?: string }) => {
+  const { t } = useI18n();
   const initials = speaker.name
     .split(' ')
     .filter(n => !['Embaixador', 'de', 'do', 'da'].includes(n))
@@ -84,7 +87,7 @@ const SpeakerCard = ({ speaker, index, photoMap, className = '' }: { speaker: Sp
       </div>
 
       <div className="pt-4 mt-6 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
-        <span>SDGs IN BRAZIL</span>
+        <span>{t.speakers.brandLabel}</span>
         <span>2026</span>
       </div>
     </motion.div>
@@ -92,6 +95,7 @@ const SpeakerCard = ({ speaker, index, photoMap, className = '' }: { speaker: Sp
 };
 
 export const Speakers: React.FC = () => {
+  const { t, locale } = useI18n();
   const [speakerPhotoMap, setSpeakerPhotoMap] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -147,21 +151,21 @@ export const Speakers: React.FC = () => {
         {/* Centered Editorial Header */}
         <div className="speakers-header text-center max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
-            ORADORES DO EVENTO · SEDE ONU NY
+            {t.speakers.eyebrow}
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Corpo de Palestrantes.<br />
-            <span className="text-slate-300 font-light font-sans">Lideranças Globais & Nacionais.</span>
+            {t.speakers.title}<br />
+            <span className="text-slate-300 font-light font-sans">{t.speakers.titleAccent}</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-light">
-            CEOs, diplomatas e especialistas de grande relevância reunidos para apresentar evidências e métricas de transformação sustentável.
+            {t.speakers.subtitle}
           </p>
         </div>
 
         {/* Seamless Grid Container with Rounded-3xl Geometry */}
         <div className="seamless-speakers-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-white/10 rounded-3xl overflow-hidden shadow-2xl bg-black">
-          {SPEAKERS_DATA.map((s, idx) => (
-            <SpeakerCard key={s.id} speaker={s} index={idx} photoMap={speakerPhotoMap} className="speaker-card" />
+          {SPEAKERS_DATA.map((raw, idx) => (
+            <SpeakerCard key={raw.id} speaker={localizeSpeaker(raw, locale)} index={idx} photoMap={speakerPhotoMap} className="speaker-card" />
           ))}
         </div>
 

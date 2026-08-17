@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useI18n } from '../i18n/LanguageProvider';
+import { localizeLeader } from '../i18n/data';
 import { PAST_LEADERS } from '../data/pastLeadersData';
 
 // Dynamic Auto-Discovery of dedicated leader photos inside /public/assets/leaders/
@@ -25,6 +27,7 @@ const LEADER_PHOTOS: Record<string, string> = Object.keys(globLeaderPhotos).redu
 );
 
 export const PastLeaders: React.FC = () => {
+  const { t, locale } = useI18n();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMouseDown, setIsMouseDown] = useState(false);
@@ -115,14 +118,14 @@ export const PastLeaders: React.FC = () => {
       {/* Centered Editorial Header */}
       <div className="past-leaders-header text-center max-w-4xl mx-auto px-4 sm:px-6 mb-10">
         <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
-          LEGADO & TRAJETÓRIA NA ONU
+          {t.pastLeaders.eyebrow}
         </span>
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-          Personalidades que estiveram no SDGs.<br />
-          <span className="text-white/80 font-light">Protagonismo em Nova York.</span>
+          {t.pastLeaders.title}<br />
+          <span className="text-white/80 font-light">{t.pastLeaders.titleAccent}</span>
         </h2>
         <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto leading-relaxed font-light">
-          CEOs, conselheiros, atletas, artistas e diplomáticas de grande relevância internacional que já protagonizaram os painéis do SDGs in Brazil nas edições anteriores.
+          {t.pastLeaders.subtitle}
         </p>
       </div>
 
@@ -133,7 +136,7 @@ export const PastLeaders: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-white/60">
-              Role o mouse ou arraste lateralmente
+              {t.pastLeaders.scrollHint}
             </span>
           </div>
           <div className="w-32 sm:w-48 h-1 bg-white/10 rounded-full overflow-hidden">
@@ -157,7 +160,8 @@ export const PastLeaders: React.FC = () => {
           }`}
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {PAST_LEADERS.map((leader, index) => {
+          {PAST_LEADERS.map((rawLeader, index) => {
+            const leader = localizeLeader(rawLeader, locale);
             // Check if user uploaded a custom photo into public/assets/leaders/
             const key = leader.id.replace(/-/g, '_');
             const photoSrc = LEADER_PHOTOS[key] || leader.photo;
@@ -200,7 +204,7 @@ export const PastLeaders: React.FC = () => {
                   {/* Hover Expandable Bio Description */}
                   <div className="max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-out overflow-hidden mt-3 pt-3 border-t border-white/20">
                     <p className="text-xs text-white/80 font-light leading-relaxed">
-                      {leader.quote ? `“${leader.quote}”` : 'Personalidade de grande relevância no engajamento socioambiental e liderança na Sede da ONU em Nova York.'}
+                      {leader.quote ? `“${leader.quote}”` : t.pastLeaders.fallbackQuote}
                     </p>
                   </div>
                 </div>

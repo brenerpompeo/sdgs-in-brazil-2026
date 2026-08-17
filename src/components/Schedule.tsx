@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useI18n } from '../i18n/LanguageProvider';
+import { localizeSession } from '../i18n/data';
 import { SCHEDULE_DATA, SessionItem } from '../data/scheduleData';
 
 // Dynamic Auto-Discovery of speaker photos in /public/assets/speakers/
@@ -15,21 +17,6 @@ interface ScheduleProps {
   onSelectSession: (session: SessionItem) => void;
 }
 
-const SESSION_PILLARS: Record<string, string> = {
-  'session-1': 'Movimento 1 · Governança',
-  'session-2': 'Movimento 1 · Geopolítica',
-  'session-3': 'Movimento 2 · Métricas ESG',
-  'session-4': 'Movimento 2 · Anticorrupção & Integridade',
-  'session-5': 'Almoço Executivo',
-  'session-6': 'Movimento 2 · Gestão Hídrica',
-  'session-7': 'Movimento 2 · IA & Ética Algorítmica',
-  'session-8': 'Movimento 2 · Direitos Humanos',
-  'session-9': 'Movimento 3 · Propósito & Valor',
-  'session-10': 'Movimento 3 · Bioeconomia',
-  'session-11': 'Movimento 3 · Transparência',
-  'session-12': 'Movimento 3 · Visão de Futuro',
-  'session-13': 'Encerramento Institucional',
-};
 
 const getSpeakerPhotoKey = (name: string): string => {
   const n = name.toLowerCase()
@@ -51,6 +38,7 @@ const getSpeakerPhotoKey = (name: string): string => {
 };
 
 export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
+  const { t, locale } = useI18n();
   const [period, setPeriod] = useState<'all' | 'manha' | 'tarde'>('all');
   const [speakerPhotoMap, setSpeakerPhotoMap] = useState<Record<string, string>>({});
 
@@ -67,12 +55,13 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
   }, []);
 
   const periods = [
-    { key: 'all', label: 'Programação Completa' },
-    { key: 'manha', label: 'Manhã (09h - 13h)' },
-    { key: 'tarde', label: 'Tarde (13h - 18h)' },
+    { key: 'all', label: t.schedule.periods.all },
+    { key: 'manha', label: t.schedule.periods.manha },
+    { key: 'tarde', label: t.schedule.periods.tarde },
   ] as const;
 
-  const filtered = period === 'all' ? SCHEDULE_DATA : SCHEDULE_DATA.filter(s => s.period === period);
+  const localized = SCHEDULE_DATA.map((s) => localizeSession(s, locale));
+  const filtered = period === 'all' ? localized : localized.filter(s => s.period === period);
 
   useGSAP(() => {
     gsap.fromTo('.schedule-header', 
@@ -115,14 +104,14 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
         {/* Centered Editorial Header */}
         <div className="schedule-header text-center max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
-            AGENDA OFICIAL · SEDE DA ONU NY
+            {t.schedule.eyebrow}
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Grade de Programação.<br />
-            <span className="text-slate-300 font-light font-sans">18 de Setembro de 2026.</span>
+            {t.schedule.title}<br />
+            <span className="text-slate-300 font-light font-sans">{t.schedule.titleAccent}</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-light">
-            Formato dinâmico alternando keynotes, painéis com Q&A da plateia, entrevistas e masterclasses com foco nos 4 Pilares do Pacto Global da ONU - Rede Brasil.
+            {t.schedule.subtitle}
           </p>
         </div>
 
@@ -148,7 +137,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
         <div className="schedule-timeline flex flex-col bg-white/[0.02] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
           {filtered.map((session, index) => {
             const isBreak = session.type === 'Almoço';
-            const pillar = SESSION_PILLARS[session.id] || 'Pacto Global da ONU - Rede Brasil';
+            const pillar = t.schedule.pillars[session.id as keyof typeof t.schedule.pillars] || 'Pacto Global da ONU - Rede Brasil';
 
             return (
               <motion.div

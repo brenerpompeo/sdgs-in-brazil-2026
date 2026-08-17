@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useI18n } from '../i18n/LanguageProvider';
 
 // Dynamic Auto-Discovery — reads unique photos from /public/assets/sdgs_2025/
 const globImages = (import.meta as any).glob('/public/assets/sdgs_2025/*.{jpg,jpeg,png,webp,JPG,JPEG}', {
@@ -19,6 +20,7 @@ const CARD_WIDTH = 420;
 const CARD_GAP = 0;
 
 export const Gallery2025: React.FC = () => {
+  const { t } = useI18n();
   const trackRef = useRef<HTMLDivElement>(null);
   const constraintsRef = useRef<HTMLDivElement>(null);
 
@@ -121,13 +123,13 @@ export const Gallery2025: React.FC = () => {
       {/* ── Editorial Header ── */}
       <div className="gallery-header text-center max-w-4xl mx-auto px-4 sm:px-6 mb-10">
         <span className="text-[11px] font-bold text-[#00A3E0] tracking-[0.3em] uppercase block mb-3 font-mono">
-          ACERVO HISTÓRICO · SEDE DA ONU NY
+          {t.gallery.eyebrow}
         </span>
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-3">
-          Registros da Nossa Última Edição.
+          {t.gallery.title}
         </h2>
         <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-light">
-          Explore os momentos marcantes do SDGs in Brazil na Sede das Nações Unidas&nbsp;— {photos.length} registros oficiais.
+          {t.gallery.subtitle(photos.length)}
         </p>
       </div>
 
@@ -153,7 +155,7 @@ export const Gallery2025: React.FC = () => {
             whileTap={{ scale: 0.88 }}
             onClick={() => navigate('left')}
             disabled={!canLeft}
-            aria-label="Anterior"
+            aria-label={t.gallery.prev}
             className={`w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-200 font-mono text-sm
               ${canLeft
                 ? 'border-white/20 text-white hover:bg-white hover:text-black hover:border-white'
@@ -165,7 +167,7 @@ export const Gallery2025: React.FC = () => {
             whileTap={{ scale: 0.88 }}
             onClick={() => navigate('right')}
             disabled={!canRight}
-            aria-label="Próximo"
+            aria-label={t.gallery.next}
             className={`w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-200 font-mono text-sm
               ${canRight
                 ? 'bg-white border-white text-black hover:bg-slate-200'
@@ -205,7 +207,7 @@ export const Gallery2025: React.FC = () => {
               {/* Photo */}
               <img
                 src={photo.src}
-                alt={`Registro Oficial #${photo.id}`}
+                alt={t.gallery.photoAlt(photo.id)}
                 className="w-full h-full object-cover pointer-events-none transition-transform duration-700 ease-out scale-100 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
@@ -269,13 +271,13 @@ export const Gallery2025: React.FC = () => {
               <div className="relative aspect-video bg-black flex items-center justify-center">
                 <img
                   src={activePhoto.src}
-                  alt={`Registro Oficial #${activePhoto.id}`}
+                  alt={t.gallery.photoAlt(activePhoto.id)}
                   className="w-full h-full object-contain"
                 />
                 <button
                   onClick={() => setActivePhoto(null)}
                   className="absolute top-4 right-4 w-10 h-10 bg-black/80 hover:bg-black text-white text-sm rounded-full flex items-center justify-center border border-white/20 transition-colors"
-                  aria-label="Fechar"
+                  aria-label={t.common.close}
                 >
                   ✕
                 </button>

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useI18n } from '../i18n/LanguageProvider';
 
 interface Props {
   onComplete: () => void;
 }
 
 export const Preloader: React.FC<Props> = ({ onComplete }) => {
+  const { t } = useI18n();
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
 
@@ -39,11 +41,11 @@ export const Preloader: React.FC<Props> = ({ onComplete }) => {
           <div className="flex justify-between items-start text-[10px] text-slate-400 uppercase tracking-widest">
             <div>
               <span className="text-white font-bold block mb-1">SDGs IN BRAZIL 2026</span>
-              <span>SEDE DAS NAÇÕES UNIDAS · NY</span>
+              <span>{t.preloader.venue}</span>
             </div>
             <div className="text-right">
-              <span className="text-white font-bold block mb-1">AGNU-81</span>
-              <span>18 DE SETEMBRO DE 2026</span>
+              <span className="text-white font-bold block mb-1">{t.footer.tags.unga}</span>
+              <span>{t.preloader.date}</span>
             </div>
           </div>
 
@@ -72,14 +74,14 @@ export const Preloader: React.FC<Props> = ({ onComplete }) => {
             </div>
 
             <p className="text-[10px] text-slate-400 tracking-[0.25em] uppercase">
-              Pacto Global da ONU - Rede Brasil
+              {t.preloader.org}
             </p>
           </div>
 
           {/* Bottom Lockup */}
           <div className="flex justify-between items-end text-[9px] text-slate-500 uppercase tracking-widest border-t border-white/10 pt-4">
-            <span>RUMO A 2030</span>
-            <span>EVIDÊNCIAS & IMPACTO REAL</span>
+            <span>{t.preloader.toward2030}</span>
+            <span>{t.preloader.tagline}</span>
           </div>
         </motion.div>
       )}

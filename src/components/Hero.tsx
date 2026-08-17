@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useI18n } from '../i18n/LanguageProvider';
 
 const BACKGROUNDS = [
   './assets/sdgs_2025/sdgs_2025_2.jpg',
@@ -25,6 +26,7 @@ const CountdownBox = ({ value, label }: { value: number; label: string }) => (
 );
 
 export const Hero: React.FC = () => {
+  const { t } = useI18n();
   const target = new Date('2026-09-18T10:00:00-04:00').getTime();
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [bgIndex, setBgIndex] = useState(0);
@@ -107,13 +109,13 @@ export const Hero: React.FC = () => {
         {/* Countdown */}
         <div className="hero-countdown mb-10 sm:mb-12 w-full">
           <p className="text-[11px] sm:text-xs font-bold text-white/60 tracking-[0.3em] uppercase mb-4 font-mono">
-            CONTAGEM REGRESSIVA PARA A ABERTURA
+            {t.hero.countdownLabel}
           </p>
           <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
-            <CountdownBox value={countdown.days} label="Dias" />
-            <CountdownBox value={countdown.hours} label="Horas" />
-            <CountdownBox value={countdown.minutes} label="Minutos" />
-            <CountdownBox value={countdown.seconds} label="Segundos" />
+            <CountdownBox value={countdown.days} label={t.hero.days} />
+            <CountdownBox value={countdown.hours} label={t.hero.hours} />
+            <CountdownBox value={countdown.minutes} label={t.hero.minutes} />
+            <CountdownBox value={countdown.seconds} label={t.hero.seconds} />
           </div>
         </div>
 
@@ -128,7 +130,7 @@ export const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-xl shadow-2xl hover:bg-gray-100 flex items-center justify-center transition-colors text-center"
             >
-              TENHO INTERESSE EM PARTICIPAR
+              {t.common.interestLong}
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.03 }}
@@ -136,12 +138,12 @@ export const Hero: React.FC = () => {
               href="#programacao"
               className="w-full sm:w-auto min-h-[52px] px-8 py-4 bg-white/10 text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-xl border border-white/20 hover:border-white/40 hover:bg-white/15 text-center flex items-center justify-center transition-colors shadow-lg"
             >
-              Ver Programação
+              {t.common.viewSchedule}
             </motion.a>
           </div>
 
           <p className="text-[10px] sm:text-[11px] text-slate-300/80 font-sans font-light leading-snug text-center mt-2 max-w-md">
-            * O preenchimento não garante vaga. Todas as inscrições estão sujeitas à aprovação da organização e disponibilidade.
+            {t.hero.disclaimer}
           </p>
         </div>
       </div>
@@ -152,7 +154,7 @@ export const Hero: React.FC = () => {
           <div className="w-full max-w-[480px] sm:max-w-[560px]">
             <img
               src="./assets/data_horizontal.png"
-              alt="18 de Setembro de 2026 - Sede da ONU - NY"
+              alt={t.hero.dateAlt}
               className="w-full h-auto object-contain filter drop-shadow-xl"
               loading="eager"
             />
@@ -166,7 +168,7 @@ export const Hero: React.FC = () => {
           <div className="w-full max-w-[580px]">
             <img 
               src="./assets/marcas.png" 
-              alt="Marcas: Pacto Global, AYA Earth Partners, Aegea, Missão do Brasil na ONU" 
+              alt={t.common.brandsAlt} 
               className="w-full h-auto object-contain filter drop-shadow-sm"
               loading="eager"
             />
