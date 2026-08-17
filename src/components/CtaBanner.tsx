@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { LEGAL_LINKS } from '../data/legalLinks';
 
 export const CtaBanner: React.FC = () => {
   return (
@@ -38,6 +39,22 @@ export const CtaBanner: React.FC = () => {
               INFORMAÇÃO SOBRE A MANIFESTAÇÃO DE INTERESSE
             </span>
             O preenchimento deste formulário não garante a participação no evento. Todas as inscrições estão sujeitas à aprovação da organização e à disponibilidade de vagas; as pessoas aprovadas receberão um e-mail informando sobre a confirmação de participação.
+
+            <span className="mt-3 pt-3 border-t border-white/10 flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-[10px] font-mono font-bold uppercase tracking-widest">
+              {LEGAL_LINKS.map((link, index) => (
+                <React.Fragment key={link.href}>
+                  {index > 0 && <span className="text-white/30" aria-hidden="true">·</span>}
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#00A3E0] hover:text-white hover:underline transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </React.Fragment>
+              ))}
+            </span>
           </div>
         </div>
       </div>

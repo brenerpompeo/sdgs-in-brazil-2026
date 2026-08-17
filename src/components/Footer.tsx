@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { LEGAL_LINKS } from '../data/legalLinks';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -72,15 +73,19 @@ export const Footer: React.FC = () => {
               >
                 Preferências de Cookies
               </button>
-              <span>·</span>
-              <a 
-                href="https://www.pactoglobal.org.br/privacidade" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:underline text-[#00A3E0] hover:text-white cursor-pointer font-bold uppercase tracking-widest text-[9px] transition-colors flex items-center gap-1"
-              >
-                Política de Privacidade (LGPD)
-              </a>
+              {LEGAL_LINKS.map((link) => (
+                <React.Fragment key={link.href}>
+                  <span>·</span>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline text-[#00A3E0] hover:text-white cursor-pointer font-bold uppercase tracking-widest text-[9px] transition-colors flex items-center gap-1"
+                  >
+                    {link.label}
+                  </a>
+                </React.Fragment>
+              ))}
               <span>·</span>
               <span>18 ODS</span>
               <span>·</span>
