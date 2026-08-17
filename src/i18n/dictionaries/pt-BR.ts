@@ -4,8 +4,8 @@ export const ptBR = {
   },
 
   common: {
-    // Artes com texto embutido. Para o inglês, troque estes caminhos pelos arquivos
-    // equivalentes (ex.: data_horizontal_en.png) quando a arte existir em public/assets/.
+    // Artes com texto embutido no arquivo. O dicionário en-US aponta para as versões
+    // *_en.png; enquanto elas não existirem, LocalizedImage cai para estas.
     dateImage: './assets/data_horizontal.png',
     brandsImage: './assets/marcas.png',
     brandsAlt: 'Marcas: Pacto Global da ONU - Rede Brasil, AYA Earth Partners, Aegea, Missão do Brasil na ONU',

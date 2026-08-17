@@ -6,10 +6,8 @@ export const enUS: Dictionary = {
   },
 
   common: {
-    // TODO(design): apontar para a arte em inglês quando disponível — hoje reusa a
-    // versão em português, cujo texto embutido permanece em PT.
-    dateImage: './assets/data_horizontal.png',
-    brandsImage: './assets/marcas.png',
+    dateImage: './assets/data_horizontal_en.png',
+    brandsImage: './assets/marcas_en.png',
     brandsAlt: 'Brands: UN Global Compact - Brazil Network, AYA Earth Partners, Aegea, Permanent Mission of Brazil to the UN',
     interest: "I'm Interested",
     interestLong: "I'M INTERESTED IN ATTENDING",

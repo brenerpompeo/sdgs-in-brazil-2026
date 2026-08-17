@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useI18n } from '../i18n/LanguageProvider';
+import { PT_ART, resolveArt } from '../i18n/art';
 
 const BACKGROUNDS = [
   './assets/sdgs_2025/sdgs_2025_2.jpg',
@@ -153,7 +154,7 @@ export const Hero: React.FC = () => {
         <div className="max-w-4xl mx-auto flex items-center justify-center">
           <div className="w-full max-w-[480px] sm:max-w-[560px]">
             <img
-              src={t.common.dateImage}
+              src={resolveArt(t.common.dateImage, PT_ART.dateImage)}
               alt={t.hero.dateAlt}
               className="w-full h-auto object-contain filter drop-shadow-xl"
               loading="eager"
@@ -167,7 +168,7 @@ export const Hero: React.FC = () => {
         <div className="max-w-4xl mx-auto flex items-center justify-center">
           <div className="w-full max-w-[580px]">
             <img 
-              src={t.common.brandsImage} 
+              src={resolveArt(t.common.brandsImage, PT_ART.brandsImage)} 
               alt={t.common.brandsAlt} 
               className="w-full h-auto object-contain filter drop-shadow-sm"
               loading="eager"

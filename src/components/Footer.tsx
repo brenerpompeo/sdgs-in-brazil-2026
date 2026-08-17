@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { LEGAL_LINKS } from '../data/legalLinks';
 import { useI18n } from '../i18n/LanguageProvider';
+import { PT_ART, resolveArt } from '../i18n/art';
 
 export const Footer: React.FC = () => {
   const { t } = useI18n();
@@ -24,7 +25,7 @@ export const Footer: React.FC = () => {
           </span>
           <div className="p-8 sm:p-12 md:p-14 bg-white/[0.03] backdrop-blur-2xl border border-white/15 rounded-3xl shadow-2xl overflow-hidden">
             <img 
-              src={t.common.brandsImage} 
+              src={resolveArt(t.common.brandsImage, PT_ART.brandsImage)} 
               alt={t.common.brandsAlt} 
               className="w-full max-w-4xl h-auto object-contain mx-auto filter drop-shadow-2xl brightness-125 scale-100 sm:scale-105 md:scale-110 transition-transform duration-500"
               loading="lazy"
