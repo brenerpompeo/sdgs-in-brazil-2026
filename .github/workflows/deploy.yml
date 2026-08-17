@@ -1,8 +1,12 @@
 name: Deploy SDGs in Brazil 2026 to GitHub Pages
 
+# Desativado o gatilho automático: o site oficial
+# (sdgsinbrazil.pactoglobal.org.br) é publicado pelo projeto Vercel
+# `sdgsinbrazil2026`, na conta marketing@pactoglobal.org.br. Manter o push
+# aqui criava um segundo site público em brenerpompeo.github.io, com o mesmo
+# conteúdo — conteúdo duplicado e dois pipelines para o mesmo produto.
+# Continua executável manualmente, caso o GitHub Pages volte a ser necessário.
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
 permissions:
