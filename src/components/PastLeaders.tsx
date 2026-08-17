@@ -11,26 +11,25 @@ const globLeaderPhotos = (import.meta as any).glob('/public/assets/leaders/*.{jp
   import: 'default',
 });
 
+// O glob é eager, então o mapa é resolvido em tempo de módulo. Montá-lo aqui — em vez de
+// num useEffect — evita um primeiro render sem retratos, que disparava requisições ao
+// fallback `leader.photo` antes de as fotos dedicadas assumirem.
+const LEADER_PHOTOS: Record<string, string> = Object.keys(globLeaderPhotos).reduce(
+  (map, path) => {
+    const url = (globLeaderPhotos[path] as string) || path.replace('/public', '.');
+    const filename = path.split('/').pop()?.toLowerCase().split('.')[0] || '';
+    if (!filename || filename === 'readme') return map;
+    return { ...map, [filename]: url.startsWith('/') ? `.${url}` : url };
+  },
+  {} as Record<string, string>,
+);
+
 export const PastLeaders: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [leaderPhotoMap, setLeaderPhotoMap] = useState<Record<string, string>>({});
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeftState, setScrollLeftState] = useState(0);
-
-  useEffect(() => {
-    // Build lookup map from filename (e.g. drauzio_varella.jpg)
-    const map: Record<string, string> = {};
-    Object.keys(globLeaderPhotos).forEach((path) => {
-      const url = (globLeaderPhotos[path] as string) || path.replace('/public', '.');
-      const filename = path.split('/').pop()?.toLowerCase().split('.')[0] || '';
-      if (filename && filename !== 'readme') {
-        map[filename] = url.startsWith('/') ? `.${url}` : url;
-      }
-    });
-    setLeaderPhotoMap(map);
-  }, []);
 
   // Convert vertical mouse wheel into horizontal scroll on the carousel
   useEffect(() => {
@@ -161,7 +160,7 @@ export const PastLeaders: React.FC = () => {
           {PAST_LEADERS.map((leader, index) => {
             // Check if user uploaded a custom photo into public/assets/leaders/
             const key = leader.id.replace(/-/g, '_');
-            const photoSrc = leaderPhotoMap[key] || leader.photo;
+            const photoSrc = LEADER_PHOTOS[key] || leader.photo;
 
             return (
               <div
