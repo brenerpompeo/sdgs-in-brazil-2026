@@ -30,7 +30,9 @@ export default {
       fontFamily: {
         flama: ['Flama', 'sans-serif'],
         flamaCondensed: ['FlamaCondensed', 'sans-serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        // Outfit (não Inter): é a fonte realmente carregada no index.html e a que o
+        // Tailwind via CDN resolvia para font-sans. Trocar aqui alteraria a tipografia.
+        sans: ['Outfit', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       }
     },

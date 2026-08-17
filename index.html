@@ -29,27 +29,9 @@
     <meta name="twitter:description" content="18 de Setembro de 2026 • Sede da ONU • Nova York" />
     <meta name="twitter:image" content="https://sdgsinbrazil.vercel.app/assets/og-image.jpg" />
 
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              kv: {
-                teal: '#0D6886',
-                navy: '#1C2535',
-                purple: '#5F3469',
-              }
-            },
-            fontFamily: {
-              sans: ['Outfit', 'system-ui', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
-            }
-          }
-        }
-      }
-    </script>
+    <!-- Tailwind é compilado no build (postcss.config.js + tailwind.config.js).
+         Não usar cdn.tailwindcss.com: ele compila CSS no navegador, atrasa o
+         primeiro paint e deixa o site sem estilo se o CDN falhar. -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
