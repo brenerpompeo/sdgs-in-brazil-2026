@@ -44,10 +44,10 @@ const SpeakerCard = ({ speaker, index, photoMap, className = '' }: { speaker: Sp
         {/* Top Monospaced Tag */}
         <div className="flex justify-between items-center mb-6">
           <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase">
-            0{index + 1} · {speaker.category}
+            0{index + 1} · {t.labels.speakerCategory[speaker.category]}
           </span>
           <span className="text-[9px] font-mono text-slate-400 uppercase">
-            SEDE ONU NY
+            {t.labels.unHqShort}
           </span>
         </div>
 

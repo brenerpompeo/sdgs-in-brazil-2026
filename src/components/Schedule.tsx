@@ -137,7 +137,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
         <div className="schedule-timeline flex flex-col bg-white/[0.02] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
           {filtered.map((session, index) => {
             const isBreak = session.type === 'Almoço';
-            const pillar = t.schedule.pillars[session.id as keyof typeof t.schedule.pillars] || 'Pacto Global da ONU - Rede Brasil';
+            const pillar = t.schedule.pillars[session.id as keyof typeof t.schedule.pillars] || t.labels.defaultPillar;
 
             return (
               <motion.div
@@ -158,7 +158,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
                         {session.timeStart} – {session.timeEnd}
                       </span>
                       <span className="text-[10px] font-mono font-bold tracking-widest text-slate-300 uppercase px-3 py-1 bg-white/10 rounded-full border border-white/10">
-                        {session.type}
+                        {t.labels.sessionType[session.type]}
                       </span>
                     </div>
                     <div className="text-sm sm:text-base font-bold text-white tracking-wide text-center sm:text-right">
@@ -175,7 +175,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
                       
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="text-[9px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-[#00A3E0]/20 text-[#00A3E0] border border-[#00A3E0]/40">
-                          {session.type}
+                          {t.labels.sessionType[session.type]}
                         </span>
                         <span className="text-[9px] font-mono font-medium tracking-wider text-slate-400">
                           {pillar}
@@ -225,7 +225,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
                         </div>
                       )}
                       <span className="text-[11px] font-mono text-[#00A3E0] group-hover:text-white font-bold tracking-wider uppercase flex items-center gap-1 mt-1 transition-colors">
-                        Ver Detalhes →
+                        {t.labels.viewDetails}
                       </span>
                     </div>
                   </>

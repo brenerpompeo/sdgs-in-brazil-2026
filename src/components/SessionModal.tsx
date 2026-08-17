@@ -31,7 +31,7 @@ export const SessionModal: React.FC<Props> = ({ session, onClose }) => {
             <div>
               <div className="flex items-center gap-2 mb-2 font-mono">
                 <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 bg-white/10 text-white rounded-full">
-                  {session.type}
+                  {t.labels.sessionType[session.type]}
                 </span>
                 <span className="text-xs font-bold text-white/60">
                   {session.timeStart} – {session.timeEnd}

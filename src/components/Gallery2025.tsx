@@ -146,7 +146,7 @@ export const Gallery2025: React.FC = () => {
 
         {/* Counter */}
         <span className="text-[11px] font-mono text-slate-400 tracking-widest uppercase shrink-0">
-          {photos.length} FOTOS
+          {t.labels.photosCount(photos.length)}
         </span>
 
         {/* Arrow buttons */}
@@ -221,7 +221,7 @@ export const Gallery2025: React.FC = () => {
               <div className="absolute bottom-0 left-0 right-0 p-7 flex flex-col pointer-events-none">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#00A3E0] uppercase">
-                    SEDE DA ONU NY
+                    {t.labels.unHqNy}
                   </span>
                   <span className="text-[10px] font-mono font-bold text-white/40">
                     #{String(photo.id).padStart(2, '0')}
@@ -233,13 +233,13 @@ export const Gallery2025: React.FC = () => {
                 </h3>
 
                 <p className="text-[11px] font-mono text-slate-400 mt-1 uppercase tracking-wider">
-                  Registro Oficial do Evento
+                  {t.labels.officialRecord}
                 </p>
 
                 {/* Hover reveal */}
                 <div className="max-h-0 opacity-0 group-hover:max-h-10 group-hover:opacity-100 transition-all duration-300 overflow-hidden mt-3 pt-2.5 border-t border-white/10">
                   <span className="text-[11px] font-mono text-white font-bold flex items-center justify-between">
-                    <span>Clique para ampliar em HD</span>
+                    <span>{t.labels.zoomHd}</span>
                     <span>↗</span>
                   </span>
                 </div>

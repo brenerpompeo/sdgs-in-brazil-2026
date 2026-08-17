@@ -1,7 +1,7 @@
 import type { Speaker } from '../../data/speakersData';
 
 /** Sobrescreve apenas os campos textuais; o restante vem do dado em PT-BR. */
-type SpeakerOverride = Partial<Pick<Speaker, 'role' | 'company' | 'bio'>>;
+type SpeakerOverride = Partial<Pick<Speaker, 'name' | 'role' | 'company' | 'bio'>>;
 
 export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
   'ana-paula-carracedo': {
@@ -15,6 +15,7 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     bio: 'CEO and Executive Director of the United Nations Global Compact. She leads the world’s largest corporate sustainability initiative from UN headquarters in New York.',
   },
   'sergio-danese': {
+    name: 'Ambassador Sérgio Danese',
     role: 'Permanent Representative',
     company: 'Permanent Mission of Brazil to the United Nations',
     bio: 'Permanent Representative of Brazil to the United Nations in New York. A specialist in multilateral diplomacy and international relations.',

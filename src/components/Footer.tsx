@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
           </span>
           <div className="p-8 sm:p-12 md:p-14 bg-white/[0.03] backdrop-blur-2xl border border-white/15 rounded-3xl shadow-2xl overflow-hidden">
             <img 
-              src="./assets/marcas.png" 
+              src={t.common.brandsImage} 
               alt={t.common.brandsAlt} 
               className="w-full max-w-4xl h-auto object-contain mx-auto filter drop-shadow-2xl brightness-125 scale-100 sm:scale-105 md:scale-110 transition-transform duration-500"
               loading="lazy"

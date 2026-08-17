@@ -6,6 +6,10 @@ export const enUS: Dictionary = {
   },
 
   common: {
+    // TODO(design): apontar para a arte em inglês quando disponível — hoje reusa a
+    // versão em português, cujo texto embutido permanece em PT.
+    dateImage: './assets/data_horizontal.png',
+    brandsImage: './assets/marcas.png',
     brandsAlt: 'Brands: UN Global Compact - Brazil Network, AYA Earth Partners, Aegea, Permanent Mission of Brazil to the UN',
     interest: "I'm Interested",
     interestLong: "I'M INTERESTED IN ATTENDING",
@@ -13,6 +17,31 @@ export const enUS: Dictionary = {
     backToTop: 'Back to top ↑',
     close: 'Close',
     languageSwitch: 'Switch language',
+  },
+
+  labels: {
+    unHqShort: 'UN HQ NY',
+    unHqNy: 'UN HEADQUARTERS NY',
+    photosCount: (n: number) => `${n} PHOTOS`,
+    officialRecord: 'Official Event Record',
+    zoomHd: 'Click to view in HD',
+    viewDetails: 'View Details →',
+    defaultPillar: 'UN Global Compact - Brazil Network',
+    sessionType: {
+      'Abertura': 'OPENING',
+      'Keynote': 'KEYNOTE',
+      'Painel': 'PANEL',
+      'Entrevista': 'INTERVIEW',
+      'Talk': 'TALK',
+      'Almoço': 'LUNCH',
+      'Encerramento': 'CLOSING',
+    },
+    speakerCategory: {
+      'Keynote': 'KEYNOTE',
+      'Painelista': 'PANELIST',
+      'Moderador': 'MODERATOR',
+      'Liderança Institucional': 'INSTITUTIONAL LEADERSHIP',
+    },
   },
 
   header: {

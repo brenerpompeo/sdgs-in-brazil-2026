@@ -153,7 +153,7 @@ export const Hero: React.FC = () => {
         <div className="max-w-4xl mx-auto flex items-center justify-center">
           <div className="w-full max-w-[480px] sm:max-w-[560px]">
             <img
-              src="./assets/data_horizontal.png"
+              src={t.common.dateImage}
               alt={t.hero.dateAlt}
               className="w-full h-auto object-contain filter drop-shadow-xl"
               loading="eager"
@@ -167,7 +167,7 @@ export const Hero: React.FC = () => {
         <div className="max-w-4xl mx-auto flex items-center justify-center">
           <div className="w-full max-w-[580px]">
             <img 
-              src="./assets/marcas.png" 
+              src={t.common.brandsImage} 
               alt={t.common.brandsAlt} 
               className="w-full h-auto object-contain filter drop-shadow-sm"
               loading="eager"

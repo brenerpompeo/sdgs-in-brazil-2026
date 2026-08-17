@@ -4,6 +4,10 @@ export const ptBR = {
   },
 
   common: {
+    // Artes com texto embutido. Para o inglês, troque estes caminhos pelos arquivos
+    // equivalentes (ex.: data_horizontal_en.png) quando a arte existir em public/assets/.
+    dateImage: './assets/data_horizontal.png',
+    brandsImage: './assets/marcas.png',
     brandsAlt: 'Marcas: Pacto Global da ONU - Rede Brasil, AYA Earth Partners, Aegea, Missão do Brasil na ONU',
     interest: 'Tenho Interesse',
     interestLong: 'TENHO INTERESSE EM PARTICIPAR',
@@ -11,6 +15,31 @@ export const ptBR = {
     backToTop: 'Voltar ao topo ↑',
     close: 'Fechar',
     languageSwitch: 'Trocar idioma',
+  },
+
+  labels: {
+    unHqShort: 'SEDE ONU NY',
+    unHqNy: 'SEDE DA ONU NY',
+    photosCount: (n: number) => `${n} FOTOS`,
+    officialRecord: 'Registro Oficial do Evento',
+    zoomHd: 'Clique para ampliar em HD',
+    viewDetails: 'Ver Detalhes →',
+    defaultPillar: 'Pacto Global da ONU - Rede Brasil',
+    sessionType: {
+      'Abertura': 'ABERTURA',
+      'Keynote': 'KEYNOTE',
+      'Painel': 'PAINEL',
+      'Entrevista': 'ENTREVISTA',
+      'Talk': 'TALK',
+      'Almoço': 'ALMOÇO',
+      'Encerramento': 'ENCERRAMENTO',
+    },
+    speakerCategory: {
+      'Keynote': 'KEYNOTE',
+      'Painelista': 'PAINELISTA',
+      'Moderador': 'MODERADOR',
+      'Liderança Institucional': 'LIDERANÇA INSTITUCIONAL',
+    },
   },
 
   header: {
