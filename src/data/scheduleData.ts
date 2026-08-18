@@ -24,7 +24,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     speakers: ['ana-paula-carracedo', 'sanda-ojiambo'],
     speakerNamesRaw: [
       'Ana Paula Carracedo (Presidente do Conselho, Pacto Global da ONU - Rede Brasil)',
-      'Sanda Ojiambo (CEO do Pacto Global da ONU - TBC)'
+      'Sanda Ojiambo (CEO do Pacto Global da ONU)'
     ],
     ods: [17],
     highlight: true
@@ -38,7 +38,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     period: 'manhã',
     description: 'Análise do reordenamento global, exigências internacionais e novas regulações que redesenham o ambiente de negócios e abrem oportunidades estratégicas para o Brasil.',
     speakers: ['sergio-danese'],
-    speakerNamesRaw: ['Embaixador Sérgio Danese (Representante Permanente da Missão do Brasil na ONU - TBC)'],
+    speakerNamesRaw: ['Embaixador Sérgio França Danese (Representante Permanente do Brasil junto às Nações Unidas)'],
     ods: [16, 17],
     highlight: true
   },
@@ -66,7 +66,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     speakers: ['eugenio-ricas', 'sandra-coutinho'],
     speakerNamesRaw: [
       'Eugênio Ricas (Director, Office of Internal Oversight, Interpol)',
-      'Sandra Coutinho (Jornalista Internacional)'
+      'Sandra Coutinho (Jornalista Internacional, TV Globo)'
     ],
     ods: [16, 17],
     highlight: false
@@ -122,7 +122,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     period: 'tarde',
     description: 'Análise da fronteira entre IA e responsabilidade corporativa: viés algorítmico, governança de dados e direitos humanos digitais.',
     speakers: ['calvin-lawrence'],
-    speakerNamesRaw: ['Calvin Lawrence (CEO IntegrityFirst.AI)'],
+    speakerNamesRaw: ['Dr. Calvin Lawrence (CEO IntegrityFirst.ai)'],
     ods: [8, 16, 18],
     highlight: true
   },
@@ -149,9 +149,9 @@ export const SCHEDULE_DATA: SessionItem[] = [
     description: 'Grandes lideranças empresariais brasileiras compartilham iniciativas práticas e resultados concretos de investimento socioambiental.',
     speakers: ['luciana-nicola', 'silvana-machado', 'renata-piazzon'],
     speakerNamesRaw: [
-      'Luciana Nicola (Diretora de Sustentabilidade, Itaú)',
+      'Luciana Nicola (Diretora de Relações Institucionais e Sustentabilidade do Itaú Unibanco e vice-presidente do conselho administrativo do Pacto Global da ONU no Brasil)',
       'Silvana Machado (Diretora Executiva, Bradesco)',
-      'Moderação: Renata Piazzon (Presidente do Instituto Arapyaú)'
+      'Moderação: Renata Piazzon (CEO do Instituto Arapyaú)'
     ],
     ods: [8, 9, 12, 13, 17],
     highlight: true
@@ -165,7 +165,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     period: 'tarde',
     description: 'Palestra com visão de futuro sobre a construção de um legado duradouro e a regeneração sistêmica de pessoas, natureza e instituições.',
     speakers: ['bayo-akomolafe'],
-    speakerNamesRaw: ['Bayo Akomolafe (Hubert Humphrey Distinguished Professor of American Studies)'],
+    speakerNamesRaw: ['Dr. Bayo Akomolafe (Idealizador dos conceitos de pós-ativismo, transracialidade e ontofugitividade)'],
     ods: [10, 16, 17],
     highlight: true
   },
