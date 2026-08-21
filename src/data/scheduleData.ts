@@ -142,7 +142,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
   {
     id: 'painel-case',
     timeStart: '16:30',
-    timeEnd: '17:10',
+    timeEnd: '17:00',
     title: 'Acelerando Iniciativas Empresariais em prol do desenvolvimento sustentável',
     type: 'Painel',
     period: 'tarde',
@@ -158,8 +158,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
   },
   {
     id: 'keynote-bayo-akomolafe',
-    timeStart: '17:15',
-    timeEnd: '17:45',
+    timeStart: '17:05',
+    timeEnd: '17:35',
     title: 'Beyond Certainty: Reimagining the Futures We Need',
     type: 'Keynote',
     period: 'tarde',
@@ -171,8 +171,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
   },
   {
     id: 'encerramento-oficial',
-    timeStart: '17:45',
-    timeEnd: '17:55',
+    timeStart: '17:40',
+    timeEnd: '17:50',
     title: 'Encerramento Oficial',
     type: 'Encerramento',
     period: 'tarde',
