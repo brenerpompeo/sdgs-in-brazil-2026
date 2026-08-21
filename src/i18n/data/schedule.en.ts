@@ -9,12 +9,12 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
       'Official opening bringing together complementary voices from the UN Global Compact - Brazil Network and its global headquarters in New York, establishing the Brazilian private sector’s business commitment to Agenda 2030.',
     speakerNamesRaw: [
       'Ana Paula Carracedo (Chair of the Board, UN Global Compact - Brazil Network)',
-      'Sanda Ojiambo (CEO of the UN Global Compact - TBC)',
+      'Sanda Ojiambo (CEO of the UN Global Compact)',
     ],
   },
   'keynote-danese': {
     speakerNamesRaw: [
-      'Ambassador Sérgio Danese (Permanent Representative, Permanent Mission of Brazil to the UN - TBC)',
+      'Ambassador Sérgio França Danese (Permanent Representative of Brazil to the United Nations)',
     ],
     title: 'The new map: geopolitics, regulation and opportunities for Brazil',
     description:
@@ -28,7 +28,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   'entrevista-crime-organizado': {
     speakerNamesRaw: [
       'Eugênio Ricas (Director, Office of Internal Oversight, Interpol)',
-      'Sandra Coutinho (International Journalist)',
+      'Sandra Coutinho (International Journalist, TV Globo)',
     ],
     title: 'The influence of organized crime on corporate value chains',
     description:
@@ -61,7 +61,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   },
   'keynote-ia-etica': {
     speakerNamesRaw: [
-      'Calvin Lawrence (CEO, IntegrityFirst.AI)',
+      'Dr. Calvin Lawrence (CEO, IntegrityFirst.ai)',
     ],
     title: 'AI and Ethics: using technology responsibly',
     description:
@@ -77,9 +77,9 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   },
   'painel-case': {
     speakerNamesRaw: [
-      'Luciana Nicola (Sustainability Director, Itaú)',
+      'Luciana Nicola (Director of Institutional Relations and Sustainability at Itaú Unibanco and Vice-Chair of the Board of the UN Global Compact in Brazil)',
       'Silvana Machado (Executive Director, Bradesco)',
-      'Moderator: Renata Piazzon (President, Arapyaú Institute)',
+      'Moderator: Renata Piazzon (CEO, Arapyaú Institute)',
     ],
     title: 'Accelerating Corporate Initiatives for Sustainable Development',
     description:
@@ -87,7 +87,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   },
   'keynote-bayo-akomolafe': {
     speakerNamesRaw: [
-      'Bayo Akomolafe (Hubert Humphrey Distinguished Professor of American Studies)',
+      'Dr. Bayo Akomolafe (Originator of the concepts of postactivism, transraciality and ontofugitivity)',
     ],
     title: 'Beyond Certainty: Reimagining the Futures We Need',
     description:

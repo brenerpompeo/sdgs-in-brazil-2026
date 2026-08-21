@@ -15,15 +15,10 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     bio: 'CEO and Executive Director of the United Nations Global Compact. She leads the world’s largest corporate sustainability initiative from UN headquarters in New York.',
   },
   'sergio-danese': {
-    name: 'Ambassador Sérgio Danese',
+    name: 'Ambassador Sérgio França Danese',
     role: 'Permanent Representative',
     company: 'Permanent Mission of Brazil to the United Nations',
-    bio: 'Permanent Representative of Brazil to the United Nations in New York. A specialist in multilateral diplomacy and international relations.',
-  },
-  'toni-ballabriga': {
-    role: 'Global Head of Sustainability Intelligence & Advocacy',
-    company: 'BBVA',
-    bio: 'BBVA’s global lead for sustainability intelligence. A European reference in sustainable finance, green taxonomy and ESG criteria.',
+    bio: 'Ambassador and Permanent Representative of Brazil to the United Nations in New York. Across more than four decades in diplomacy, he served as Secretary-General of Foreign Affairs and as Brazil’s Ambassador to Algeria, Argentina, South Africa and Peru.',
   },
   'eugenio-ricas': {
     role: 'Director, Office of Internal Oversight',
@@ -32,8 +27,8 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
   },
   'sandra-coutinho': {
     role: 'International Journalist',
-    company: 'GloboNews / New York',
-    bio: 'Journalist and international correspondent in New York. She covers the UN’s main multilateral forums and global economic policy.',
+    company: 'TV Globo',
+    bio: 'Senior international correspondent for TV Globo in New York. For more than two decades she has covered the UN General Assembly, US foreign policy and global socioeconomic developments.',
   },
   'kaveh-madani': {
     role: 'Director of the Institute for Water, Environment and Health',
@@ -43,22 +38,23 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
   'radames-casseb': {
     role: 'CEO',
     company: 'AEGEA',
-    bio: 'CEO of Aegea Saneamento. He leads Brazil’s largest private sanitation company in advancing SDG 6 and water infrastructure investment.',
+    bio: 'CEO of Aegea Saneamento, leading the company’s operations with deep experience in regulated infrastructure and sanitation in advancing SDG 6.',
   },
   'calvin-lawrence': {
+    name: 'Dr. Calvin Lawrence',
     role: 'CEO',
-    company: 'IntegrityFirst.AI',
-    bio: 'Author and pioneer in responsible artificial intelligence development. Dedicated to mitigating algorithmic bias and to ethical technology governance.',
+    company: 'IntegrityFirst.ai',
+    bio: 'Dr. Calvin D. Lawrence, PhD is CEO of IntegrityFirst.AI and a former IBM Distinguished Engineer with over 30 years in AI. An international authority on algorithmic governance, data equity and responsible artificial intelligence.',
   },
   'erika-george': {
     role: 'Associate Dean for Equity, Justice & Engagement',
     company: 'Boston University School of Law',
-    bio: 'Law professor at Boston University and an authority on Business and Human Rights. She advises governments and companies on applying the UN Guiding Principles.',
+    bio: 'Erika George is Associate Dean for Equity, Justice & Engagement at Boston University School of Law. Author of Incorporating Rights (Oxford University Press), she serves on the board of Shift, the leading center on the UN Guiding Principles on Business and Human Rights.',
   },
   'luciana-nicola': {
     role: 'Director of Institutional Relations and Sustainability',
     company: 'Itaú Unibanco',
-    bio: 'A leader in corporate sustainability and ESG investment at Itaú Unibanco, driving sustainable finance in Brazil.',
+    bio: 'Director of Institutional Relations and Sustainability at Itaú Unibanco and Vice-Chair of the Board of the UN Global Compact in Brazil.',
   },
   'silvana-machado': {
     role: 'Executive Director',
@@ -66,14 +62,15 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     bio: 'Executive Director at Bradesco. She works on corporate strategy, the ecological transition and financial innovation.',
   },
   'renata-piazzon': {
-    role: 'President',
+    role: 'CEO',
     company: 'Arapyaú Institute',
-    bio: 'President of the Arapyaú Institute and co-facilitator of Uma Concertação pela Amazônia. She leads bioeconomy and territorial development initiatives.',
+    bio: 'Renata Piazzon is CEO of the Arapyaú Institute. With 20 years of experience in environmental law and strategic philanthropy, she co-founded the Uma Concertação pela Amazônia network and sits on Brazil’s Council for Sustainable Economic and Social Development (CDESS).',
   },
   'bayo-akomolafe': {
-    role: 'Distinguished Professor of American Studies',
-    company: 'Hubert Humphrey Institute / The Emergence Network',
-    bio: 'An internationally acclaimed philosopher, writer and professor. His work explores post-humanist ontologies, systems transition and new imaginaries for 2030.',
+    name: 'Dr. Bayo Akomolafe',
+    role: 'Founder & Writer',
+    company: 'The Emergence Network',
+    bio: 'Dr. Bayo Akomolafe, who coined the concepts of “postactivism”, “transraciality” and “ontofugitivity”, is an internationally recognized speaker, teacher, public intellectual, essayist and author of two books: These Wilds Beyond our Fences: Letters to My Daughter on Humanity’s Search for Home (North Atlantic Books) and We Will Tell our Own Story: The Lions of Africa Speak.',
   },
   'guilherme-xavier': {
     role: 'CEO',
