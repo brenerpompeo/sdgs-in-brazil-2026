@@ -136,7 +136,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     name: 'Dr. Bayo Akomolafe',
     role: 'Idealizador & Escritor',
     company: 'The Emergence Network',
-    image: './assets/speakers/bayo_akomolafe.jpg',
+    image: './assets/speakers/bayo_akomolafe.webp',
     category: 'Keynote',
     confirmed: true,
     bio: 'O Dr. Bayo Akomolafe, idealizador dos conceitos de \'pós-ativismo\', \'transracialidade\' e \'ontofugitividade\', é um palestrante internacionalmente reconhecido, professor, intelectual público, ensaísta e autor de dois livros: These Wilds Beyond our Fences: Letters to My Daughter on Humanity\'s Search for Home (North Atlantic Books) e We Will Tell our Own Story: The Lions of Africa Speak.'
