@@ -72,16 +72,6 @@ export const SPEAKERS_DATA: Speaker[] = [
     bio: 'Cientista mundialmente renomado em gestão de recursos hídricos. Diretor do Instituto de Água da Universidade das Nações Unidas.'
   },
   {
-    id: 'radames-casseb',
-    name: 'Radamés Casseb',
-    role: 'CEO',
-    company: 'AEGEA',
-    image: './assets/speakers/radames_casseb.jpg',
-    category: 'Painelista',
-    confirmed: true,
-    bio: 'CEO da Aegea Saneamento, liderando as operações da companhia com sólida experiência em infraestrutura regulada e saneamento no avanço do ODS 6.'
-  },
-  {
     id: 'calvin-lawrence',
     name: 'Dr. Calvin Lawrence',
     role: 'CEO',
@@ -142,13 +132,12 @@ export const SPEAKERS_DATA: Speaker[] = [
     bio: 'Bayo Akomolafe (Ph.D.), enraizado com o povo Iorubá em um mundo mais-que-humano, é pai de Alethea Aanya e Kyah Jayden Abayomi, companheiro grato de EJ, filho e irmão. Palestrante internacional amplamente reconhecido, pensador pós-humanista, poeta, professor, intelectual autodenominado ‘trans-público’, ensaísta e autor de dois livros — These Wilds Beyond our Fences: Letters to My Daughter on Humanity’s Search for Home (North Atlantic Books) e We Will Tell our Own Story: The Lions of Africa Speak (com os professores Molefi Kete Asante e Augustine Nwoye) —, Bayo Akomolafe é o fundador visionário da The Emergence Network, projeto de articulação planetária e investigação nas fronteiras do Antropoceno que busca reunir novas formas de responsividade, solidariedades sensíveis e práticas experimentais para uma parapolítica pós-humanista. É anfitrião do curso/festival/evento pós-ativista ‘We Will Dance with Mountains’ e curador da consultoria educacional Dancing with Mountains.'
   },
   {
-    id: 'guilherme-xavier',
-    name: 'Guilherme Xavier',
-    role: 'CEO',
+    id: 'rodrigo-favetta',
+    name: 'Rodrigo Favetta',
+    role: 'CFO e Diretor de Engajamento e Parcerias',
     company: 'Pacto Global da ONU - Rede Brasil',
-    image: './assets/speakers/guilherme_xavier.jpg',
     category: 'Liderança Institucional',
     confirmed: true,
-    bio: 'CEO do Pacto Global da ONU - Rede Brasil. Responsável por liderar a maior rede local das Américas no engajamento do setor privado.'
+    bio: 'CFO e Diretor de Engajamento e Parcerias do Pacto Global da ONU - Rede Brasil.'
   }
 ];

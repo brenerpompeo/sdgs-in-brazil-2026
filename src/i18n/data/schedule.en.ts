@@ -53,7 +53,6 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   'talk-falencia-hidrica': {
     speakerNamesRaw: [
       'Kaveh Madani (Director of the Institute for Water, UNU-INWEH)',
-      'Radamés Casseb (CEO, AEGEA)',
     ],
     title: 'Water bankruptcy: the next global systemic risk',
     description:
@@ -95,10 +94,10 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   },
   'encerramento-oficial': {
     speakerNamesRaw: [
-      'Guilherme Xavier (CEO, UN Global Compact - Brazil Network)',
+      'Rodrigo Favetta (CFO and Director of Engagement and Partnerships, UN Global Compact - Brazil Network)',
     ],
     title: 'Official Closing',
     description:
-      'Closing remarks from the CEO of the UN Global Compact - Brazil Network, anchoring the event in the Network’s ongoing journey and projects in Brazil.',
+      'Closing remarks from the leadership of the UN Global Compact - Brazil Network, anchoring the event in the Network’s ongoing journey and projects in Brazil.',
   },
 };

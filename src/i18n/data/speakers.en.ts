@@ -35,11 +35,6 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     company: 'UNU-INWEH (United Nations University)',
     bio: 'A world-renowned scientist in water resource management. Director of the United Nations University’s Institute for Water.',
   },
-  'radames-casseb': {
-    role: 'CEO',
-    company: 'AEGEA',
-    bio: 'CEO of Aegea Saneamento, leading the company’s operations with deep experience in regulated infrastructure and sanitation in advancing SDG 6.',
-  },
   'calvin-lawrence': {
     name: 'Dr. Calvin Lawrence',
     role: 'CEO',
@@ -72,9 +67,9 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     company: 'The Emergence Network',
     bio: 'Bayo Akomolafe (Ph.D.), rooted with the Yoruba people in a more-than-human world, is the father to Alethea Aanya and Kyah Jayden Abayomi, the grateful life-partner to EJ, son and brother. A widely celebrated international speaker, posthumanist thinker, poet, teacher, self-styled ‘trans-public’ intellectual, essayist, and author of two books, These Wilds Beyond our Fences: Letters to My Daughter on Humanity’s Search for Home (North Atlantic Books) and We Will Tell our Own Story: The Lions of Africa Speak (along with Professors Molefi Kete Asante and Augustine Nwoye), Bayo Akomolafe is the visionary founder of The Emergence Network, a planet-wide networking project and inquiry at the edges of the Anthropocene that seeks to convene new kinds of responsivities, sensuous solidarities, and experimental practices for a posthumanist parapolitics. He is host of the postactivist course/festival/event, ‘We Will Dance with Mountains’ and curator of Dancing with Mountains, the educational consultation.',
   },
-  'guilherme-xavier': {
-    role: 'CEO',
+  'rodrigo-favetta': {
+    role: 'CFO and Director of Engagement and Partnerships',
     company: 'UN Global Compact - Brazil Network',
-    bio: 'CEO of the UN Global Compact - Brazil Network. He leads the largest local network in the Americas in private-sector engagement.',
+    bio: 'CFO and Director of Engagement and Partnerships at the UN Global Compact - Brazil Network.',
   },
 };

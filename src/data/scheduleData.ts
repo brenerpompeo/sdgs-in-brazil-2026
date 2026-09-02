@@ -105,10 +105,9 @@ export const SCHEDULE_DATA: SessionItem[] = [
     type: 'Talk',
     period: 'tarde',
     description: 'Painel focado em gestão, investimento e reporte hídrico para preparar o setor privado frente ao risco de escassez.',
-    speakers: ['kaveh-madani', 'radames-casseb'],
+    speakers: ['kaveh-madani'],
     speakerNamesRaw: [
-      'Kaveh Madani (Diretor do Instituto de Água da UNU-INWEH)',
-      'Radamés Casseb (CEO AEGEA)'
+      'Kaveh Madani (Diretor do Instituto de Água da UNU-INWEH)'
     ],
     ods: [5, 6, 10, 17],
     highlight: true
@@ -176,9 +175,9 @@ export const SCHEDULE_DATA: SessionItem[] = [
     title: 'Encerramento Oficial',
     type: 'Encerramento',
     period: 'tarde',
-    description: 'Palavra final do CEO do Pacto Global da ONU - Rede Brasil ancorando o evento na jornada e projetos contínuos da Rede no Brasil.',
-    speakers: ['guilherme-xavier'],
-    speakerNamesRaw: ['Guilherme Xavier (CEO do Pacto Global da ONU - Rede Brasil)'],
+    description: 'Palavra final da liderança do Pacto Global da ONU - Rede Brasil ancorando o evento na jornada e projetos contínuos da Rede no Brasil.',
+    speakers: ['rodrigo-favetta'],
+    speakerNamesRaw: ['Rodrigo Favetta (CFO e Diretor de Engajamento e Parcerias do Pacto Global da ONU - Rede Brasil)'],
     ods: [17],
     highlight: true
   }
