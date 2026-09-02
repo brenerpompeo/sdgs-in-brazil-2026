@@ -86,7 +86,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     name: 'Erika George',
     role: 'Associate Dean for Equity, Justice & Engagement',
     company: 'Boston University School of Law',
-    image: './assets/speakers/erika_george.jpg',
+    image: './assets/speakers/erika_george.webp',
     category: 'Keynote',
     confirmed: true,
     bio: 'Erika George é Associate Dean for Equity, Justice & Engagement da Boston University School of Law. Autora de Incorporating Rights (Oxford University Press), integra o conselho do Shift — centro de referência nos Princípios Orientadores sobre Empresas e Direitos Humanos da ONU.'
