@@ -124,8 +124,8 @@ export const SPEAKERS_DATA: Speaker[] = [
   {
     id: 'bayo-akomolafe',
     name: 'Dr. Bayo Akomolafe',
-    role: 'Idealizador & Escritor',
-    company: 'The Emergence Network',
+    role: 'Host Teacher',
+    company: 'Dancing with Mountains',
     image: './assets/speakers/bayo_akomolafe.webp',
     category: 'Keynote',
     confirmed: true,
