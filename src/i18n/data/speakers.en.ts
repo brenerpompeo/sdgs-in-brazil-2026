@@ -70,7 +70,7 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     name: 'Dr. Bayo Akomolafe',
     role: 'Founder & Writer',
     company: 'The Emergence Network',
-    bio: 'Dr. Bayo Akomolafe, who coined the concepts of “postactivism”, “transraciality” and “ontofugitivity”, is an internationally recognized speaker, teacher, public intellectual, essayist and author of two books: These Wilds Beyond our Fences: Letters to My Daughter on Humanity’s Search for Home (North Atlantic Books) and We Will Tell our Own Story: The Lions of Africa Speak.',
+    bio: 'Bayo Akomolafe (Ph.D.), rooted with the Yoruba people in a more-than-human world, is the father to Alethea Aanya and Kyah Jayden Abayomi, the grateful life-partner to EJ, son and brother. A widely celebrated international speaker, posthumanist thinker, poet, teacher, self-styled ‘trans-public’ intellectual, essayist, and author of two books, These Wilds Beyond our Fences: Letters to My Daughter on Humanity’s Search for Home (North Atlantic Books) and We Will Tell our Own Story: The Lions of Africa Speak (along with Professors Molefi Kete Asante and Augustine Nwoye), Bayo Akomolafe is the visionary founder of The Emergence Network, a planet-wide networking project and inquiry at the edges of the Anthropocene that seeks to convene new kinds of responsivities, sensuous solidarities, and experimental practices for a posthumanist parapolitics. He is host of the postactivist course/festival/event, ‘We Will Dance with Mountains’ and curator of Dancing with Mountains, the educational consultation.',
   },
   'guilherme-xavier': {
     role: 'CEO',

@@ -139,7 +139,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     image: './assets/speakers/bayo_akomolafe.webp',
     category: 'Keynote',
     confirmed: true,
-    bio: 'O Dr. Bayo Akomolafe, idealizador dos conceitos de \'pós-ativismo\', \'transracialidade\' e \'ontofugitividade\', é um palestrante internacionalmente reconhecido, professor, intelectual público, ensaísta e autor de dois livros: These Wilds Beyond our Fences: Letters to My Daughter on Humanity\'s Search for Home (North Atlantic Books) e We Will Tell our Own Story: The Lions of Africa Speak.'
+    bio: 'Bayo Akomolafe (Ph.D.), enraizado com o povo Iorubá em um mundo mais-que-humano, é pai de Alethea Aanya e Kyah Jayden Abayomi, companheiro grato de EJ, filho e irmão. Palestrante internacional amplamente reconhecido, pensador pós-humanista, poeta, professor, intelectual autodenominado ‘trans-público’, ensaísta e autor de dois livros — These Wilds Beyond our Fences: Letters to My Daughter on Humanity’s Search for Home (North Atlantic Books) e We Will Tell our Own Story: The Lions of Africa Speak (com os professores Molefi Kete Asante e Augustine Nwoye) —, Bayo Akomolafe é o fundador visionário da The Emergence Network, projeto de articulação planetária e investigação nas fronteiras do Antropoceno que busca reunir novas formas de responsividade, solidariedades sensíveis e práticas experimentais para uma parapolítica pós-humanista. É anfitrião do curso/festival/evento pós-ativista ‘We Will Dance with Mountains’ e curador da consultoria educacional Dancing with Mountains.'
   },
   {
     id: 'guilherme-xavier',
