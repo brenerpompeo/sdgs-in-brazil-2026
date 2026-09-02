@@ -164,7 +164,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     period: 'tarde',
     description: 'Palestra com visão de futuro sobre a construção de um legado duradouro e a regeneração sistêmica de pessoas, natureza e instituições.',
     speakers: ['bayo-akomolafe'],
-    speakerNamesRaw: ['Dr. Bayo Akomolafe (Idealizador dos conceitos de pós-ativismo, transracialidade e ontofugitividade)'],
+    speakerNamesRaw: ['Dr. Bayo Akomolafe (Host Teacher, Dancing with Mountains)'],
     ods: [10, 16, 17],
     highlight: true
   },

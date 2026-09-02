@@ -86,7 +86,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   },
   'keynote-bayo-akomolafe': {
     speakerNamesRaw: [
-      'Dr. Bayo Akomolafe (Originator of the concepts of postactivism, transraciality and ontofugitivity)',
+      'Dr. Bayo Akomolafe (Host Teacher, Dancing with Mountains)',
     ],
     title: 'Beyond Certainty: Reimagining the Futures We Need',
     description:
