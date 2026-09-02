@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import { useI18n } from '../i18n/LanguageProvider';
 import { localizeSession } from '../i18n/data';
 import { SCHEDULE_DATA, SessionItem } from '../data/scheduleData';
+import { buildSpeakerPhotoMap, resolveSpeakerPhoto } from '../i18n/speakerPhotos';
 
 // Dynamic Auto-Discovery of speaker photos in /public/assets/speakers/
 const globSpeakerPhotos = (import.meta as any).glob('/public/assets/speakers/*.{jpg,jpeg,png,webp,JPG,JPEG}', {
@@ -18,41 +19,12 @@ interface ScheduleProps {
 }
 
 
-const getSpeakerPhotoKey = (name: string): string => {
-  const n = name.toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9\s]/g, '')
-    .trim();
-  if (n.includes('sanda') || n.includes('ojiambo')) return 'sanda_ojiambo';
-  if (n.includes('guilherme') || n.includes('xavier')) return 'guilherme_xavier';
-  if (n.includes('gabriela') || n.includes('almeida')) return 'gabriela_almeida';
-  if (n.includes('ana paula') || n.includes('carracedo')) return 'ana_paula_carracedo';
-  if (n.includes('sergio') && n.includes('danese')) return 'sergio_danese';
-  if (n.includes('eugenio') || n.includes('ricas')) return 'eugenio_ricas';
-  if (n.includes('radames') || n.includes('casseb')) return 'radames_casseb';
-  if (n.includes('calvin') || n.includes('lawrence')) return 'calvin_lawrence';
-  if (n.includes('renata') || n.includes('piazzon')) return 'renata_piazzon';
-  if (n.includes('kaveh') || n.includes('madani')) return 'kaveh_madani';
-  if (n.includes('luciana') || n.includes('nicola')) return 'luciana_nicola';
-  return n.replace(/\s+/g, '_');
-};
+const SPEAKER_PHOTOS = buildSpeakerPhotoMap(globSpeakerPhotos);
 
 export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
   const { t, locale } = useI18n();
   const [period, setPeriod] = useState<'all' | 'manha' | 'tarde'>('all');
-  const [speakerPhotoMap, setSpeakerPhotoMap] = useState<Record<string, string>>({});
 
-  useEffect(() => {
-    const map: Record<string, string> = {};
-    Object.keys(globSpeakerPhotos).forEach((path) => {
-      const url = (globSpeakerPhotos[path] as string) || path.replace('/public', '.');
-      const filename = path.split('/').pop()?.toLowerCase().split('.')[0] || '';
-      if (filename && filename !== 'readme') {
-        map[filename] = url.startsWith('/') ? `.${url}` : url;
-      }
-    });
-    setSpeakerPhotoMap(map);
-  }, []);
 
   const periods = [
     { key: 'all', label: t.schedule.periods.all },
@@ -199,8 +171,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ onSelectSession }) => {
                         <div className="flex flex-col gap-1.5 md:items-end max-w-[280px] sm:max-w-[320px]">
                           {session.speakerNamesRaw.map((sp, sIdx) => {
                             const nameClean = sp.split(' (')[0];
-                            const key = getSpeakerPhotoKey(nameClean);
-                            const photoSrc = speakerPhotoMap[key];
+                            const photoSrc = resolveSpeakerPhoto(sp, SPEAKER_PHOTOS);
                             const initial = nameClean.charAt(0);
 
                             return (
