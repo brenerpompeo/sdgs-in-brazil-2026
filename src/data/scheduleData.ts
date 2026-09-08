@@ -50,15 +50,19 @@ export const SCHEDULE_DATA: SessionItem[] = [
     type: 'Painel',
     period: 'manhã',
     description: 'Painel de diagnóstico sobre a superação do "ESG Fatigue". Investidores e líderes de sustentabilidade discutem o nível de prova e transparência exigido pelo mercado global.',
+    speakerNamesRaw: [
+      'Juliana Silva (Diretora de Sustentabilidade, Motiva)',
+      'Gerrity Lansing (Head of the BTG Pactual Timberland Investment Group)',
+      'Moderação: Renata Piazzon (CEO do Instituto Arapyaú)'
+    ],
     speakers: [],
-    speakerNamesRaw: [],
     ods: [8, 12, 13, 17],
     highlight: true
   },
   {
     id: 'entrevista-crime-organizado',
     timeStart: '12:30',
-    timeEnd: '12:45',
+    timeEnd: '12:50',
     title: 'A influência do crime organizado nas cadeias de valor das empresas',
     type: 'Entrevista',
     period: 'manhã',
@@ -107,7 +111,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
     description: 'Painel focado em gestão, investimento e reporte hídrico para preparar o setor privado frente ao risco de escassez.',
     speakers: ['kaveh-madani'],
     speakerNamesRaw: [
-      'Kaveh Madani (Diretor do Instituto de Água da UNU-INWEH)'
+      'Kaveh Madani (Diretor do Instituto de Água da UNU-INWEH)',
+      'Leandro Marin (VP de Operações, AEGEA)'
     ],
     ods: [5, 6, 10, 17],
     highlight: true
@@ -150,15 +155,29 @@ export const SCHEDULE_DATA: SessionItem[] = [
     speakerNamesRaw: [
       'Luciana Nicola (Diretora de Relações Institucionais e Sustentabilidade do Itaú Unibanco e vice-presidente do conselho administrativo do Pacto Global da ONU no Brasil)',
       'Silvana Machado (Diretora Executiva, Bradesco)',
-      'Moderação: Renata Piazzon (CEO do Instituto Arapyaú)'
+      'Ana Carolina Carregaro (Nestlé)',
+      'Moderação: Ana Fontes (Rede Mulher Empreendedora)'
     ],
     ods: [8, 9, 12, 13, 17],
     highlight: true
   },
   {
+    id: 'talk-anticorrupcao-cristina-ritter',
+    timeStart: '17:00',
+    timeEnd: '17:05',
+    title: 'Anti-corruption Collective Action: call to action',
+    type: 'Talk',
+    period: 'tarde',
+    description: 'Chamado à ação sobre iniciativas coletivas de combate à corrupção, conduzido pela área de Governança e Anticorrupção do Pacto Global das Nações Unidas.',
+    speakers: [],
+    speakerNamesRaw: ['Cristina Ritter (Head of Governance and Anti-Corruption, UNGC)'],
+    ods: [16, 17],
+    highlight: false
+  },
+  {
     id: 'keynote-bayo-akomolafe',
-    timeStart: '17:05',
-    timeEnd: '17:35',
+    timeStart: '17:10',
+    timeEnd: '17:40',
     title: 'Beyond Certainty: Reimagining the Futures We Need',
     type: 'Keynote',
     period: 'tarde',
@@ -170,8 +189,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
   },
   {
     id: 'encerramento-oficial',
-    timeStart: '17:40',
-    timeEnd: '17:50',
+    timeStart: '17:45',
+    timeEnd: '17:55',
     title: 'Encerramento Oficial',
     type: 'Encerramento',
     period: 'tarde',

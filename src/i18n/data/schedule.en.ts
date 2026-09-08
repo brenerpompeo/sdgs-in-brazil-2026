@@ -21,6 +21,11 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
       'An analysis of global realignment, international requirements and new regulations reshaping the business environment and opening strategic opportunities for Brazil.',
   },
   'painel-esg-evidencia': {
+    speakerNamesRaw: [
+      'Juliana Silva (Sustainability Director, Motiva)',
+      'Gerrity Lansing (Head of the BTG Pactual Timberland Investment Group)',
+      'Moderator: Renata Piazzon (CEO, Arapyaú Institute)',
+    ],
     title: 'The ESG agenda: what the market now demands as evidence',
     description:
       'A diagnostic panel on moving past "ESG fatigue". Investors and sustainability leaders discuss the level of proof and transparency the global market now requires.',
@@ -53,6 +58,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   'talk-falencia-hidrica': {
     speakerNamesRaw: [
       'Kaveh Madani (Director of the Institute for Water, UNU-INWEH)',
+      'Leandro Marin (VP of Operations, AEGEA)',
     ],
     title: 'Water bankruptcy: the next global systemic risk',
     description:
@@ -78,11 +84,18 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
     speakerNamesRaw: [
       'Luciana Nicola (Director of Institutional Relations and Sustainability at Itaú Unibanco and Vice-Chair of the Board of the UN Global Compact in Brazil)',
       'Silvana Machado (Executive Director, Bradesco)',
-      'Moderator: Renata Piazzon (CEO, Arapyaú Institute)',
+      'Ana Carolina Carregaro (Nestlé)',
+      'Moderator: Ana Fontes (Rede Mulher Empreendedora)',
     ],
     title: 'Accelerating Corporate Initiatives for Sustainable Development',
     description:
       'Leading Brazilian executives share practical initiatives and concrete results from social and environmental investment.',
+  },
+  'talk-anticorrupcao-cristina-ritter': {
+    speakerNamesRaw: ['Cristina Ritter (Head of Governance and Anti-Corruption, UNGC)'],
+    title: 'Anti-corruption Collective Action: call to action',
+    description:
+      'A call to action on collective anti-corruption initiatives, led by the Governance and Anti-Corruption team of the United Nations Global Compact.',
   },
   'keynote-bayo-akomolafe': {
     speakerNamesRaw: [
