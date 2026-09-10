@@ -52,7 +52,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
     description: 'Painel de diagnóstico sobre a superação do "ESG Fatigue". Investidores e líderes de sustentabilidade discutem o nível de prova e transparência exigido pelo mercado global.',
     speakerNamesRaw: [
       'Juliana Silva (Diretora de Sustentabilidade, Motiva)',
-      'Gerrity Lansing (Head of the BTG Pactual Timberland Investment Group)',
+      'Domingo Zarzo Martínez (Head of Strategic Projects and Institutional Relations, Sacyr)',
+      'Gerrity Lansing (Managing Director and Partner, BTG Pactual e Head, BTG Pactual Global Alternatives)',
       'Moderação: Renata Piazzon (CEO do Instituto Arapyaú)'
     ],
     speakers: [],
@@ -70,7 +71,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     speakers: ['eugenio-ricas', 'sandra-coutinho'],
     speakerNamesRaw: [
       'Eugênio Ricas (Director, Office of Internal Oversight, Interpol)',
-      'Sandra Coutinho (Jornalista Internacional, TV Globo)'
+      'Sandra Coutinho (Correspondente Internacional, TV Globo)'
     ],
     ods: [16, 17],
     highlight: false
@@ -112,7 +113,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     speakers: ['kaveh-madani'],
     speakerNamesRaw: [
       'Kaveh Madani (Diretor do Instituto de Água da UNU-INWEH)',
-      'Leandro Marin (VP de Operações, AEGEA)'
+      'Leandro Marin (Vice-Presidente Regional, AEGEA)'
     ],
     ods: [5, 6, 10, 17],
     highlight: true
@@ -153,8 +154,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
     description: 'Grandes lideranças empresariais brasileiras compartilham iniciativas práticas e resultados concretos de investimento socioambiental.',
     speakers: ['luciana-nicola', 'silvana-machado', 'renata-piazzon'],
     speakerNamesRaw: [
-      'Luciana Nicola (Diretora de Relações Institucionais e Sustentabilidade do Itaú Unibanco e vice-presidente do conselho administrativo do Pacto Global da ONU no Brasil)',
-      'Silvana Machado (Diretora Executiva, Bradesco)',
+      'Luciana Nicola (Sustainability Director do Itaú Unibanco e vice-presidente do conselho administrativo do Pacto Global da ONU no Brasil)',
+      'Silvana Machado (Diretora Executiva de Pessoas e Sustentabilidade, Bradesco)',
       'Ana Carolina Carregaro (Nestlé)',
       'Moderação: Ana Fontes (Rede Mulher Empreendedora)'
     ],
@@ -196,7 +197,10 @@ export const SCHEDULE_DATA: SessionItem[] = [
     period: 'tarde',
     description: 'Palavra final da liderança do Pacto Global da ONU - Rede Brasil ancorando o evento na jornada e projetos contínuos da Rede no Brasil.',
     speakers: ['rodrigo-favetta'],
-    speakerNamesRaw: ['Rodrigo Favetta (CFO e Diretor de Engajamento e Parcerias do Pacto Global da ONU - Rede Brasil)'],
+    speakerNamesRaw: [
+      'Solange Ribeiro (Neoenergia e Membro do Conselho do Pacto Global da ONU)',
+      'Rodrigo Favetta (CFO e Diretor de Engajamento e Parcerias do Pacto Global da ONU - Rede Brasil)'
+    ],
     ods: [17],
     highlight: true
   }

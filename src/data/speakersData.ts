@@ -54,7 +54,7 @@ export const SPEAKERS_DATA: Speaker[] = [
   {
     id: 'sandra-coutinho',
     name: 'Sandra Coutinho',
-    role: 'Jornalista Internacional',
+    role: 'Correspondente Internacional',
     company: 'TV Globo',
     image: './assets/speakers/sandra_coutinho.jpg',
     category: 'Moderador',
@@ -94,22 +94,22 @@ export const SPEAKERS_DATA: Speaker[] = [
   {
     id: 'luciana-nicola',
     name: 'Luciana Nicola',
-    role: 'Diretora de Relações Institucionais e Sustentabilidade',
+    role: 'Sustainability Director',
     company: 'Itaú Unibanco',
     image: './assets/speakers/luciana_nicola.jpg',
     category: 'Painelista',
     confirmed: true,
-    bio: 'Diretora de Relações Institucionais e Sustentabilidade do Itaú Unibanco e vice-presidente do Conselho de Administração do Pacto Global da ONU no Brasil.'
+    bio: 'Sustainability Director do Itaú Unibanco e vice-presidente do conselho administrativo do Pacto Global da ONU no Brasil.'
   },
   {
     id: 'silvana-machado',
     name: 'Silvana Machado',
-    role: 'Diretora Executiva',
+    role: 'Diretora Executiva de Pessoas e Sustentabilidade',
     company: 'Bradesco',
     image: './assets/speakers/silvana_machado.jpg',
     category: 'Painelista',
     confirmed: true,
-    bio: 'Diretora Executiva do Bradesco. Atua no direcionamento de estratégias corporativas, transição ecológica e inovação financeira.'
+    bio: 'Diretora Executiva de Pessoas e Sustentabilidade do Bradesco. Atua no direcionamento de estratégias corporativas, transição ecológica e inovação financeira.'
   },
   {
     id: 'renata-piazzon',

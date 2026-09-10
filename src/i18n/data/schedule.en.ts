@@ -23,7 +23,8 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   'painel-esg-evidencia': {
     speakerNamesRaw: [
       'Juliana Silva (Sustainability Director, Motiva)',
-      'Gerrity Lansing (Head of the BTG Pactual Timberland Investment Group)',
+      'Domingo Zarzo Martínez (Head of Strategic Projects and Institutional Relations, Sacyr)',
+      'Gerrity Lansing (Managing Director and Partner, BTG Pactual and Head, BTG Pactual Global Alternatives)',
       'Moderator: Renata Piazzon (CEO, Arapyaú Institute)',
     ],
     title: 'The ESG agenda: what the market now demands as evidence',
@@ -33,7 +34,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   'entrevista-crime-organizado': {
     speakerNamesRaw: [
       'Eugênio Ricas (Director, Office of Internal Oversight, Interpol)',
-      'Sandra Coutinho (International Journalist, TV Globo)',
+      'Sandra Coutinho (Foreign Correspondent, TV Globo)',
     ],
     title: 'The influence of organized crime on corporate value chains',
     description:
@@ -58,7 +59,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   'talk-falencia-hidrica': {
     speakerNamesRaw: [
       'Kaveh Madani (Director of the Institute for Water, UNU-INWEH)',
-      'Leandro Marin (VP of Operations, AEGEA)',
+      'Leandro Marin (Regional Vice-President, AEGEA)',
     ],
     title: 'Water bankruptcy: the next global systemic risk',
     description:
@@ -82,8 +83,8 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   },
   'painel-case': {
     speakerNamesRaw: [
-      'Luciana Nicola (Director of Institutional Relations and Sustainability at Itaú Unibanco and Vice-Chair of the Board of the UN Global Compact in Brazil)',
-      'Silvana Machado (Executive Director, Bradesco)',
+      'Luciana Nicola (Sustainability Director at Itaú Unibanco and Vice-Chair of the Board of the UN Global Compact in Brazil)',
+      'Silvana Machado (Executive Director of People and Sustainability, Bradesco)',
       'Ana Carolina Carregaro (Nestlé)',
       'Moderator: Ana Fontes (Rede Mulher Empreendedora)',
     ],
@@ -107,6 +108,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   },
   'encerramento-oficial': {
     speakerNamesRaw: [
+      'Solange Ribeiro (Neoenergia and Board Member, UN Global Compact)',
       'Rodrigo Favetta (CFO and Director of Engagement and Partnerships, UN Global Compact - Brazil Network)',
     ],
     title: 'Official Closing',

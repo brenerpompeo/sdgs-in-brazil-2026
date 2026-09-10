@@ -26,7 +26,7 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     bio: 'Director of Interpol’s Office of Internal Oversight. A specialist in investigating organized crime networks and corporate integrity governance.',
   },
   'sandra-coutinho': {
-    role: 'International Journalist',
+    role: 'Foreign Correspondent',
     company: 'TV Globo',
     bio: 'Senior international correspondent for TV Globo in New York. For more than two decades she has covered the UN General Assembly, US foreign policy and global socioeconomic developments.',
   },
@@ -47,14 +47,14 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     bio: 'Erika George is Associate Dean for Equity, Justice & Engagement at Boston University School of Law. Author of Incorporating Rights (Oxford University Press), she serves on the board of Shift, the leading center on the UN Guiding Principles on Business and Human Rights.',
   },
   'luciana-nicola': {
-    role: 'Director of Institutional Relations and Sustainability',
+    role: 'Sustainability Director',
     company: 'Itaú Unibanco',
-    bio: 'Director of Institutional Relations and Sustainability at Itaú Unibanco and Vice-Chair of the Board of the UN Global Compact in Brazil.',
+    bio: 'Sustainability Director at Itaú Unibanco and Vice-Chair of the Board of the UN Global Compact in Brazil.',
   },
   'silvana-machado': {
-    role: 'Executive Director',
+    role: 'Executive Director of People and Sustainability',
     company: 'Bradesco',
-    bio: 'Executive Director at Bradesco. She works on corporate strategy, the ecological transition and financial innovation.',
+    bio: 'Executive Director of People and Sustainability at Bradesco. She works on corporate strategy, the ecological transition and financial innovation.',
   },
   'renata-piazzon': {
     role: 'CEO',
