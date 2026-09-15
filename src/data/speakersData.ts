@@ -22,16 +22,6 @@ export const SPEAKERS_DATA: Speaker[] = [
     bio: 'Presidente do Conselho de Administração do Pacto Global da ONU - Rede Brasil. Líder em governança corporativa e sustentabilidade no setor privado.'
   },
   {
-    id: 'sanda-ojiambo',
-    name: 'Sanda Ojiambo',
-    role: 'CEO & Diretora Executiva',
-    company: 'UN Global Compact (Sede ONU NY)',
-    image: './assets/speakers/sanda_ojiambo.jpg',
-    category: 'Liderança Institucional',
-    confirmed: true,
-    bio: 'CEO e Diretora Executiva do Pacto Global das Nações Unidas. Lidera a maior iniciativa de sustentabilidade corporativa do mundo a partir da sede da ONU em Nova York.'
-  },
-  {
     id: 'sergio-danese',
     name: 'Embaixador Sérgio França Danese',
     role: 'Representante Permanente',
@@ -120,6 +110,16 @@ export const SPEAKERS_DATA: Speaker[] = [
     category: 'Moderador',
     confirmed: true,
     bio: 'Renata Piazzon é CEO do Instituto Arapyaú. Com 20 anos de experiência em direito ambiental e filantropia estratégica, é cofundadora da rede Uma Concertação pela Amazônia e integra o CDESS da Presidência da República.'
+  },
+  {
+    id: 'ana-fontes',
+    name: 'Ana Fontes',
+    role: 'Fundadora e Presidente',
+    company: 'Rede Mulher Empreendedora',
+    image: './assets/speakers/ana_fontes.webp',
+    category: 'Moderador',
+    confirmed: true,
+    bio: 'Fundadora e Presidente da Rede Mulher Empreendedora, referência nacional em empreendedorismo feminino e inclusão econômica de mulheres no Brasil.'
   },
   {
     id: 'bayo-akomolafe',

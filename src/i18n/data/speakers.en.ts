@@ -9,11 +9,6 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     company: 'UN Global Compact - Brazil Network',
     bio: 'Chair of the Board of the UN Global Compact - Brazil Network. A leader in corporate governance and private-sector sustainability.',
   },
-  'sanda-ojiambo': {
-    role: 'CEO & Executive Director',
-    company: 'UN Global Compact (UN HQ NY)',
-    bio: 'CEO and Executive Director of the United Nations Global Compact. She leads the world’s largest corporate sustainability initiative from UN headquarters in New York.',
-  },
   'sergio-danese': {
     name: 'Ambassador Sérgio França Danese',
     role: 'Permanent Representative',
@@ -60,6 +55,11 @@ export const SPEAKERS_EN: Record<string, SpeakerOverride> = {
     role: 'CEO',
     company: 'Arapyaú Institute',
     bio: 'Renata Piazzon is CEO of the Arapyaú Institute. With 20 years of experience in environmental law and strategic philanthropy, she co-founded the Uma Concertação pela Amazônia network and sits on Brazil’s Council for Sustainable Economic and Social Development (CDESS).',
+  },
+  'ana-fontes': {
+    role: 'Founder and President',
+    company: 'Rede Mulher Empreendedora',
+    bio: 'Founder and President of Rede Mulher Empreendedora, a national reference in women’s entrepreneurship and economic inclusion in Brazil.',
   },
   'bayo-akomolafe': {
     name: 'Dr. Bayo Akomolafe',

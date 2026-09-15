@@ -9,7 +9,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
       'Official opening bringing together complementary voices from the UN Global Compact - Brazil Network and its global headquarters in New York, establishing the Brazilian private sector’s business commitment to Agenda 2030.',
     speakerNamesRaw: [
       'Ana Paula Carracedo (Chair of the Board, UN Global Compact - Brazil Network)',
-      'Sanda Ojiambo (CEO of the UN Global Compact)',
+      'Melissa Powell (UN Global Compact)',
     ],
   },
   'keynote-danese': {
@@ -47,6 +47,11 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
     title: 'Networking Lunch',
     description:
       'Lunch break and executive networking among the 300 invited leaders at United Nations Headquarters.',
+  },
+  'retomada-solange-ribeiro': {
+    speakerNamesRaw: ['Solange Ribeiro (Neoenergia and Board Member, UN Global Compact)'],
+    title: 'Afternoon Welcome Back',
+    description: 'Remarks reopening the afternoon proceedings.',
   },
   'keynote-falencia-hidrica': {
     speakerNamesRaw: [
@@ -86,7 +91,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
       'Luciana Nicola (Sustainability Director at Itaú Unibanco and Vice-Chair of the Board of the UN Global Compact in Brazil)',
       'Silvana Machado (Executive Director of People and Sustainability, Bradesco)',
       'Ana Carolina Carregaro (Nestlé)',
-      'Moderator: Ana Fontes (Rede Mulher Empreendedora)',
+      'Moderator: Ana Fontes (Founder and President of Rede Mulher Empreendedora)',
     ],
     title: 'Accelerating Corporate Initiatives for Sustainable Development',
     description:
@@ -108,7 +113,6 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   },
   'encerramento-oficial': {
     speakerNamesRaw: [
-      'Solange Ribeiro (Neoenergia and Board Member, UN Global Compact)',
       'Rodrigo Favetta (CFO and Director of Engagement and Partnerships, UN Global Compact - Brazil Network)',
     ],
     title: 'Official Closing',

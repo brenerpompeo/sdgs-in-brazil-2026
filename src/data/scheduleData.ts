@@ -21,10 +21,10 @@ export const SCHEDULE_DATA: SessionItem[] = [
     type: 'Abertura',
     period: 'manhã',
     description: 'Abertura oficial reunindo vozes complementares do Pacto Global da ONU - Rede Brasil e da sede global em Nova York, estabelecendo o comprometimento empresarial do setor privado brasileiro na Agenda 2030.',
-    speakers: ['ana-paula-carracedo', 'sanda-ojiambo'],
+    speakers: ['ana-paula-carracedo'],
     speakerNamesRaw: [
       'Ana Paula Carracedo (Presidente do Conselho, Pacto Global da ONU - Rede Brasil)',
-      'Sanda Ojiambo (CEO do Pacto Global da ONU)'
+      'Melissa Powell (Pacto Global da ONU)'
     ],
     ods: [17],
     highlight: true
@@ -77,6 +77,19 @@ export const SCHEDULE_DATA: SessionItem[] = [
     highlight: false
   },
   {
+    id: 'talk-anticorrupcao-cristina-ritter',
+    timeStart: '12:50',
+    timeEnd: '12:55',
+    title: 'Anti-corruption Collective Action: call to action',
+    type: 'Talk',
+    period: 'manhã',
+    description: 'Chamado à ação sobre iniciativas coletivas de combate à corrupção, conduzido pela área de Governança e Anticorrupção do Pacto Global das Nações Unidas.',
+    speakers: [],
+    speakerNamesRaw: ['Cristina Ritter (Head of Governance and Anti-Corruption, UNGC)'],
+    ods: [16, 17],
+    highlight: false
+  },
+  {
     id: 'almoco-networking',
     timeStart: '13:00',
     timeEnd: '15:00',
@@ -90,9 +103,22 @@ export const SCHEDULE_DATA: SessionItem[] = [
     highlight: false
   },
   {
-    id: 'keynote-falencia-hidrica',
+    id: 'retomada-solange-ribeiro',
     timeStart: '15:00',
-    timeEnd: '15:15',
+    timeEnd: '15:05',
+    title: 'Retomada da Tarde',
+    type: 'Talk',
+    period: 'tarde',
+    description: 'Palavras de retomada dos trabalhos da tarde.',
+    speakers: [],
+    speakerNamesRaw: ['Solange Ribeiro (Neoenergia e Membro do Conselho do Pacto Global da ONU)'],
+    ods: [17],
+    highlight: false
+  },
+  {
+    id: 'keynote-falencia-hidrica',
+    timeStart: '15:05',
+    timeEnd: '15:25',
     title: 'Falência hídrica: o próximo risco sistêmico global',
     type: 'Keynote',
     period: 'tarde',
@@ -104,8 +130,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
   },
   {
     id: 'talk-falencia-hidrica',
-    timeStart: '15:15',
-    timeEnd: '15:35',
+    timeStart: '15:25',
+    timeEnd: '15:45',
     title: 'Falência hídrica: o próximo risco sistêmico global',
     type: 'Talk',
     period: 'tarde',
@@ -120,8 +146,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
   },
   {
     id: 'keynote-ia-etica',
-    timeStart: '15:40',
-    timeEnd: '16:00',
+    timeStart: '15:50',
+    timeEnd: '16:10',
     title: 'IA e Ética: como usar tecnologia com responsabilidade',
     type: 'Keynote',
     period: 'tarde',
@@ -133,8 +159,8 @@ export const SCHEDULE_DATA: SessionItem[] = [
   },
   {
     id: 'keynote-direitos-humanos',
-    timeStart: '16:05',
-    timeEnd: '16:25',
+    timeStart: '16:15',
+    timeEnd: '16:35',
     title: 'Business, Human Rights and the Future of Responsible Leadership',
     type: 'Keynote',
     period: 'tarde',
@@ -147,38 +173,25 @@ export const SCHEDULE_DATA: SessionItem[] = [
   {
     id: 'painel-case',
     timeStart: '16:30',
-    timeEnd: '17:00',
+    timeEnd: '17:10',
     title: 'Acelerando Iniciativas Empresariais em prol do desenvolvimento sustentável',
     type: 'Painel',
     period: 'tarde',
     description: 'Grandes lideranças empresariais brasileiras compartilham iniciativas práticas e resultados concretos de investimento socioambiental.',
-    speakers: ['luciana-nicola', 'silvana-machado', 'renata-piazzon'],
+    speakers: ['luciana-nicola', 'silvana-machado', 'renata-piazzon', 'ana-fontes'],
     speakerNamesRaw: [
       'Luciana Nicola (Sustainability Director do Itaú Unibanco e vice-presidente do conselho administrativo do Pacto Global da ONU no Brasil)',
       'Silvana Machado (Diretora Executiva de Pessoas e Sustentabilidade, Bradesco)',
       'Ana Carolina Carregaro (Nestlé)',
-      'Moderação: Ana Fontes (Rede Mulher Empreendedora)'
+      'Moderação: Ana Fontes (Fundadora e Presidente da Rede Mulher Empreendedora)'
     ],
     ods: [8, 9, 12, 13, 17],
     highlight: true
   },
   {
-    id: 'talk-anticorrupcao-cristina-ritter',
-    timeStart: '17:00',
-    timeEnd: '17:05',
-    title: 'Anti-corruption Collective Action: call to action',
-    type: 'Talk',
-    period: 'tarde',
-    description: 'Chamado à ação sobre iniciativas coletivas de combate à corrupção, conduzido pela área de Governança e Anticorrupção do Pacto Global das Nações Unidas.',
-    speakers: [],
-    speakerNamesRaw: ['Cristina Ritter (Head of Governance and Anti-Corruption, UNGC)'],
-    ods: [16, 17],
-    highlight: false
-  },
-  {
     id: 'keynote-bayo-akomolafe',
-    timeStart: '17:10',
-    timeEnd: '17:40',
+    timeStart: '17:15',
+    timeEnd: '17:45',
     title: 'Beyond Certainty: Reimagining the Futures We Need',
     type: 'Keynote',
     period: 'tarde',
@@ -191,14 +204,13 @@ export const SCHEDULE_DATA: SessionItem[] = [
   {
     id: 'encerramento-oficial',
     timeStart: '17:45',
-    timeEnd: '17:55',
+    timeEnd: '18:00',
     title: 'Encerramento Oficial',
     type: 'Encerramento',
     period: 'tarde',
     description: 'Palavra final da liderança do Pacto Global da ONU - Rede Brasil ancorando o evento na jornada e projetos contínuos da Rede no Brasil.',
     speakers: ['rodrigo-favetta'],
     speakerNamesRaw: [
-      'Solange Ribeiro (Neoenergia e Membro do Conselho do Pacto Global da ONU)',
       'Rodrigo Favetta (CFO e Diretor de Engajamento e Parcerias do Pacto Global da ONU - Rede Brasil)'
     ],
     ods: [17],
