@@ -135,6 +135,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     id: 'rodrigo-favetta',
     name: 'Rodrigo Favetta',
     role: 'CFO e Diretor de Engajamento e Parcerias',
+    image: './assets/speakers/rodrigo_favetta.webp',
     company: 'Pacto Global da ONU - Rede Brasil',
     category: 'Liderança Institucional',
     confirmed: true,
