@@ -111,7 +111,7 @@ export const SCHEDULE_DATA: SessionItem[] = [
     period: 'tarde',
     description: 'Palavras de retomada dos trabalhos da tarde.',
     speakers: [],
-    speakerNamesRaw: ['Solange Ribeiro (Neoenergia e Membro do Conselho do Pacto Global da ONU)'],
+    speakerNamesRaw: ['Solange Ribeiro (Vice-chair do UN Global Compact e Vice-Presidente da Neoenergia)'],
     ods: [17],
     highlight: false
   },

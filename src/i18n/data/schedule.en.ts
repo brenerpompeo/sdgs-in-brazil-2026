@@ -49,7 +49,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
       'Lunch break and executive networking among the 300 invited leaders at United Nations Headquarters.',
   },
   'retomada-solange-ribeiro': {
-    speakerNamesRaw: ['Solange Ribeiro (Neoenergia and Board Member, UN Global Compact)'],
+    speakerNamesRaw: ['Solange Ribeiro (Vice-Chair of the UN Global Compact and Vice President of Neoenergia)'],
     title: 'Afternoon Welcome Back',
     description: 'Remarks reopening the afternoon proceedings.',
   },
