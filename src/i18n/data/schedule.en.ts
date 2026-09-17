@@ -50,8 +50,7 @@ export const SCHEDULE_EN: Record<string, SessionOverride> = {
   },
   'retomada-solange-ribeiro': {
     speakerNamesRaw: ['Solange Ribeiro (Vice-Chair of the UN Global Compact and Vice President of Neoenergia)'],
-    title: 'Afternoon Welcome Back',
-    description: 'Remarks reopening the afternoon proceedings.',
+    description: 'Remarks by Solange Ribeiro, Vice-Chair of the UN Global Compact and Vice President of Neoenergia.',
   },
   'keynote-falencia-hidrica': {
     speakerNamesRaw: [
