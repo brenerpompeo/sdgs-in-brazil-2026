@@ -165,8 +165,10 @@ export const Hero: React.FC = () => {
 
       {/* Corporate Sponsors Bar */}
       <div className="relative z-10 w-full border-t border-white/15 bg-black py-6 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto flex items-center justify-center">
-          <div className="w-full max-w-[580px]">
+        <div className="max-w-5xl mx-auto flex items-center justify-center">
+          {/* Lockup alongado (~10.7:1): precisa de mais largura que a arte
+              anterior (~7.5:1) para as marcas manterem altura legivel. */}
+          <div className="w-full max-w-[880px]">
             <img 
               src={resolveArt(t.common.brandsImage, PT_ART.brandsImage)} 
               alt={t.common.brandsAlt} 
