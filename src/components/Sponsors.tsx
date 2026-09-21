@@ -120,7 +120,7 @@ export const Sponsors: React.FC = () => {
               <img 
                 src="./assets/pacto-global-realizacao.png" 
                 alt={t.sponsors.logoAlt} 
-                className="h-16 sm:h-20 w-auto object-contain filter drop-shadow-md brightness-110"
+                className="h-16 sm:h-20 w-auto object-contain mix-blend-screen filter brightness-110"
                 loading="lazy"
                 decoding="async"
               />

@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
             <img 
               src={resolveArt(t.common.brandsImage, PT_ART.brandsImage)} 
               alt={t.common.brandsAlt} 
-              className="w-full max-w-4xl h-auto object-contain mx-auto filter drop-shadow-2xl brightness-125 scale-100 sm:scale-105 md:scale-110 transition-transform duration-500"
+              className="w-full max-w-4xl h-auto object-contain mx-auto mix-blend-screen filter brightness-125 scale-100 sm:scale-105 md:scale-110 transition-transform duration-500"
               loading="lazy"
               decoding="async"
             />

@@ -170,7 +170,7 @@ export const Hero: React.FC = () => {
             <img 
               src={resolveArt(t.common.brandsImage, PT_ART.brandsImage)} 
               alt={t.common.brandsAlt} 
-              className="w-full h-auto object-contain filter drop-shadow-sm"
+              className="w-full h-auto object-contain mix-blend-screen"
               loading="eager"
             />
           </div>
