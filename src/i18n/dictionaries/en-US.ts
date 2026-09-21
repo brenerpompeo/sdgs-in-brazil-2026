@@ -7,7 +7,7 @@ export const enUS: Dictionary = {
 
   common: {
     dateImage: './assets/data_horizontal_en.png',
-    brandsImage: './assets/marcas_en.png',
+    brandsImage: './assets/marcas_en-v2.png',
     brandsAlt: 'Brands: UN Global Compact - Brazil Network, AYA Earth Partners, Aegea, Permanent Mission of Brazil to the UN',
     interest: "I'm Interested",
     interestLong: "I'M INTERESTED IN ATTENDING",
