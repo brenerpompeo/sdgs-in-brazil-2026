@@ -22,8 +22,15 @@ export function resolveArt(preferred: string, fallback: string): string {
   return AVAILABLE_ART.has(filename) ? preferred : fallback;
 }
 
-/** Artes em PT-BR, usadas como fallback. */
+/**
+ * Artes em PT-BR, usadas como fallback.
+ *
+ * Arquivos em public/ são copiados com o nome literal, sem hash de conteúdo,
+ * e servidos com max-age=86400. Trocar a arte mantendo o mesmo nome deixa quem
+ * já visitou com a versão antiga por até 24h. Por isso o sufixo -vN: ao
+ * substituir uma arte, incremente o número no nome do arquivo e aqui.
+ */
 export const PT_ART = {
   dateImage: './assets/data_horizontal.png',
-  brandsImage: './assets/marcas.png',
+  brandsImage: './assets/marcas-v2.png',
 } as const;

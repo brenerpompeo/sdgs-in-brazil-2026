@@ -7,7 +7,7 @@ export const ptBR = {
     // Artes com texto embutido no arquivo. O dicionário en-US aponta para as versões
     // *_en.png; enquanto elas não existirem, LocalizedImage cai para estas.
     dateImage: './assets/data_horizontal.png',
-    brandsImage: './assets/marcas.png',
+    brandsImage: './assets/marcas-v2.png',
     brandsAlt: 'Marcas: Pacto Global da ONU - Rede Brasil, AYA Earth Partners, Aegea, Missão do Brasil na ONU',
     interest: 'Tenho Interesse',
     interestLong: 'TENHO INTERESSE EM PARTICIPAR',
